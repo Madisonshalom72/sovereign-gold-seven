@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sovereign Gold Seven (SG7) — White Paper v0.1 · Concept Draft</title>
+<meta name="description" content="The SG7 Concept White Paper v0.1 (October 2026): programmable money for the agent economy — authorized, identity-verified, settled in nano-amounts. Concept stage — no token has been issued, offered, or sold.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#d9a441; --gold-hi:#f6cd6e; --gold-hi2:#ffe9a8; --gold-deep:#966c20;
+  --ink:#0a0a0e; --navy:#0d1120; --bone:#ece8df; --bone-dim:#b9b2a2;
+  --panel-border:rgba(217,164,65,.24);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Georgia,'Iowan Old Style','Times New Roman',serif;
+  color:var(--bone);
+  background:
+    radial-gradient(1200px 720px at 50% -8%, rgba(246,205,110,.14), transparent 62%),
+    radial-gradient(800px 600px at 8% 55%, rgba(217,164,65,.05), transparent 60%),
+    linear-gradient(180deg,#0c1122 0%, #0a0a0e 52%, #07070b 100%);
+  background-attachment:fixed;
+  line-height:1.8; font-size:1.075rem;
+}
+::selection{background:var(--gold); color:#171106}
+a{color:var(--gold-hi)}
+.topbar{
+  position:sticky; top:0; z-index:10;
+  display:flex; justify-content:space-between; align-items:center; gap:16px;
+  padding:14px 22px;
+  background:rgba(7,8,13,.88); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--panel-border);
+  font-family:'Space Grotesk',system-ui,sans-serif;
+}
+.topbar a.back{
+  color:var(--gold-hi); text-decoration:none; font-weight:600; letter-spacing:.04em; font-size:.95rem;
+}
+.topbar a.back:hover{color:var(--gold-hi2)}
+.topbar .tag{
+  font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.3em;
+  color:var(--bone-dim); text-transform:uppercase; white-space:nowrap;
+}
+article{max-width:46rem; margin:0 auto; padding:56px 24px 40px}
+h1.doctitle{
+  font-family:'Cinzel',serif; font-weight:900; color:#fff;
+  font-size:clamp(2rem,7.5vw,3.4rem); line-height:1.08; letter-spacing:.01em;
+  text-align:center; margin-bottom:14px;
+}
+h2.docsubtitle{
+  font-family:'Cinzel',serif; font-weight:700; color:var(--gold-hi);
+  font-size:clamp(1.05rem,4vw,1.45rem); line-height:1.35; text-align:center;
+  border:none; margin:0 auto 30px; max-width:38rem; padding:0;
+}
+p.docmeta{
+  text-align:center; font-family:'Space Grotesk',system-ui,sans-serif;
+  color:var(--bone); margin-bottom:14px;
+}
+.status-callout{
+  border:1px solid var(--gold); border-radius:10px;
+  background:linear-gradient(160deg, rgba(217,164,65,.12), rgba(217,164,65,.04));
+  padding:18px 22px; margin:26px 0; font-size:1rem; line-height:1.7;
+}
+h2{
+  font-family:'Cinzel',serif; font-weight:800; color:#fff;
+  font-size:clamp(1.45rem,5vw,2rem); line-height:1.2;
+  margin:56px 0 20px; padding-top:34px;
+  border-top:1px solid var(--panel-border);
+}
+h3{
+  font-family:'Cinzel',serif; font-weight:700; color:var(--gold-hi);
+  font-size:clamp(1.12rem,4vw,1.35rem); line-height:1.3; margin:38px 0 14px;
+}
+p{margin:0 0 18px}
+strong{color:#fff}
+em{color:var(--bone)}
+ul,ol{margin:0 0 20px 1.4em}
+li{margin-bottom:10px}
+li::marker{color:var(--gold)}
+blockquote{
+  border-left:3px solid var(--gold); margin:30px 0; padding:6px 0 6px 22px;
+  font-size:1.14rem; line-height:1.75; color:var(--gold-hi2);
+  background:linear-gradient(90deg, rgba(217,164,65,.07), transparent 70%);
+}
+blockquote p{margin:0}
+hr{
+  border:none; height:1px; margin:44px auto;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent); max-width:220px;
+}
+.table-wrap{overflow-x:auto; margin:26px 0 32px; border:1px solid var(--panel-border); border-radius:10px}
+table{border-collapse:collapse; width:100%; font-size:.94rem; line-height:1.6; font-family:'Space Grotesk',system-ui,sans-serif}
+th{
+  font-family:'Cinzel',serif; text-align:left; color:#171106; background:var(--gold);
+  padding:12px 14px; font-size:.86rem; letter-spacing:.03em;
+}
+td{padding:12px 14px; border-top:1px solid rgba(217,164,65,.16); vertical-align:top}
+tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+td strong{color:var(--gold-hi)}
+footer{
+  max-width:46rem; margin:0 auto; padding:10px 24px 60px; text-align:center;
+  font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:.22em;
+  color:var(--bone-dim); text-transform:uppercase; line-height:2;
+}
+footer a{color:var(--gold-hi); text-decoration:none}
+@media (max-width:560px){
+  body{font-size:1.02rem}
+  article{padding:38px 19px 30px}
+  .status-callout{padding:15px 17px}
+  blockquote{padding-left:16px; font-size:1.06rem}
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <a class="back" href="index.html">&larr; Back to SG7</a>
+  <span class="tag">White Paper &middot; v0.1</span>
+</nav>
+<article>
+<h1 class="doctitle">SOVEREIGN GOLD SEVEN (SG7)</h1>
+<h2 class="docsubtitle">Programmable Money for the Agent Economy — Authorized, Identity-Verified, Settled in Nano-Amounts</h2>
+<p class="docmeta"><strong>White Paper — Concept Draft v0.1 · October 2026</strong> <strong>Status: CONCEPT / PAPER STAGE ONLY. No token has been issued. Nothing in this document is an offer to sell a security or any other asset. See Section 10 (Risks &amp; Disclaimers) before reading anything else as fact.</strong></p>
+<hr>
+<h2>1. Abstract</h2>
+<p>The next economy will not be run by people clicking "buy." It will be run by AI agents — software acting on behalf of humans — requesting data, hiring other agents, paying for services, and moving money thousands of times a day in amounts too small for today's payment rails.</p>
+<p>That economy has two unsolved problems. First, <strong>money that was designed as a joke</strong>: the most famous "agent-era" coin, Dogecoin, is a meme with no identity layer, no authorization layer, and no native utility — its value rests on attention alone. Second, <strong>agents that cannot prove who sent them</strong>: in September 2026, Amazon blocked Meta's Muse shopping agent from its marketplace because the agent could not reliably prove whose behalf it was acting on or what that person had actually approved. The industry's own verdict, in four words: <strong>access is not authority.</strong></p>
+<p>Sovereign Gold Seven (SG7) is a concept for the opposite design: a <strong>programmable coin for the agent economy</strong> in which every agent transaction is (a) <strong>identity-verified and human-authorized</strong> under the x401 pattern — the owner's wallet signs the exact terms, and if an agent changes the amount, the recipient, or any signed term, the signature no longer validates; (b) <strong>settled in nano-amounts</strong> over an x402-style pay-per-claim rail built for machine-speed micropayments; and (c) <strong>gated by the issuer's own nanobot swarm</strong> — there is no public sale in this design; the coin is acquired only by acquiring and running Alice's nanobots, and it is useful on day one as an access key across a real, already-operating ecosystem of products — AI agents for local businesses, an AI news station, sovereignty education, and local services — rather than a promise of future utility.</p>
+<p>This paper describes the concept, the utility design, the bot-gated distribution model, the ecosystem it plugs into, proposed (not final) token parameters, and — plainly — the risks, the legal gate that stands before any issuance, and the facts a reader must not mistake for promises.</p>
+<hr>
+<h2>2. The Problem</h2>
+<h3>2.1 Meme money has no floor of usefulness</h3>
+<p>Dogecoin and the meme coins that followed it proved that a community and a ticker can move markets. They did not prove anything else. A meme coin:</p>
+<ul>
+<li>has <strong>no identity layer</strong> — nobody, human or agent, proves anything about who is transacting or why;</li>
+<li>has <strong>no authorization layer</strong> — possession of a key is the only "permission" that exists, so a compromised or rogue agent spends exactly like an honest one;</li>
+<li>has <strong>no native utility</strong> — it buys nothing inside any product its issuer operates, because there is no product;</li>
+<li>depends entirely on <strong>continued attention</strong>, the one resource that reliably disappears.</li>
+</ul>
+<p>Attention is a marketing asset. It is not a monetary design.</p>
+<h3>2.2 Agents are being handed money with no authority model</h3>
+<p>AI agents are already shopping, booking, quoting, and paying. In September 2026 the structural flaw surfaced in public: Meta released its Muse assistant (which reached No. 1 on the U.S. App Store, with Shopify connecting Shop Pay), and within weeks Amazon blocked Muse from its marketplace, citing concerns that the agent did not adequately identify itself or demonstrate that the person it acted for had authorized what it was doing.</p>
+<p>In the same month, FinCEN and federal banking regulators issued guidance recognizing digital certificates and verifiable credentials — under certain conditions — as a permissible way for banks to verify customer identity. The direction of travel is unmistakable: <strong>the agent economy will run on verified identity and provable authorization, or it will not be allowed to run at all.</strong></p>
+<p>On October 15, 2026, the company Proof put that model into production with <strong>x401</strong>, an open protocol that lets any website ask an AI agent to prove who it is acting for and what that person approved — backed by an agent identity wallet in which the person approves, on their own device, exactly what their agent may do, and signs it. Change the amount, the recipient, or any signed term afterward, and the signature breaks.</p>
+<h3>2.3 Today's rails are the wrong size</h3>
+<p>Card networks and bank rails were built for human-sized, human-speed purchases. An agent economy clears thousands of claims worth fractions of a cent — an API call, a data claim, a per-article read, a per-route quote. Fees and settlement times designed for $40 purchases cannot carry $0.004 claims. The x402 pattern — paying per claim over ordinary HTTP — exists precisely to close this gap.</p>
+<p><strong>The problem, in one line:</strong> the agent economy is arriving with joke money, anonymous agents, and oversized rails. SG7 is designed against all three.</p>
+<hr>
+<h2>3. The Asset</h2>
+<p><strong>Sovereign Gold Seven (SG7)</strong> is a proposed programmable digital asset with four defining properties:</p>
+<ol>
+<li><strong>Authorization is native, not bolted on.</strong> SG7 transactions initiated by agents are designed to carry an x401-pattern authorization: a signed mandate from the asset owner specifying who the agent acts for, what it may do, and within what limits. A transaction outside the mandate is not merely discouraged — it fails verification.</li>
+<li><strong>Settlement is nano-native.</strong> SG7 is designed to move in amounts as small as a fraction of a cent over an x402-style pay-per-claim rail, so agents can pay for single claims, calls, and actions without batching, accounts, or card minimums.</li>
+<li><strong>Utility precedes speculation.</strong> SG7 is designed as an access and settlement key inside an ecosystem that already exists and already sells products (Section 6). The coin's usefulness does not depend on a future roadmap being believed; it depends on products that are live today choosing to honor it.</li>
+<li><strong>Access is gated by the swarm.</strong> SG7 is designed to be acquired only through an active deployment of the issuer's nanobots (Section 4.5). The bots are the front door: no swarm, no coin. Distribution is a product relationship, not an open-market sale.</li>
+</ol>
+<p><strong>On the word "Gold":</strong> gold in the name is brand and treasury <em>policy</em> (Section 4.4), not a redemption promise. SG7 is <strong>not</strong> redeemable for gold, is <strong>not</strong> presently backed by gold, and Section 10 states this again in plain language. Any reserve would exist only if and when it is built, disclosed, and independently verifiable.</p>
+<hr>
+<h2>4. Utility — The Five Pillars</h2>
+<h3>4.1 Pillar One: Authorized Money</h3>
+<p>The owner of SG7 sets <strong>programmable spending mandates</strong> for their agents: signed instructions that define, in advance, what an agent may do with money — maximum amount per transaction and per day, approved categories of counterparty, approved purposes, expiry. The agent transacts freely <em>inside</em> the mandate and cannot transact outside it, because every spend carries the owner's signature over the exact terms (the x401 pattern). If the agent — buggy, compromised, or manipulated — alters the amount, the recipient, or any term, the signature no longer validates and the payment does not settle.</p>
+<p>This is the structural answer to the Amazon–Muse problem: not "trust the agent," but "the agent can only ever show you a signed instruction from its human."</p>
+<h3>4.2 Pillar Two: Agent Settlement</h3>
+<p>Agents increasingly need to pay <em>each other</em>: a receptionist agent buying a data claim, a content agent paying a research agent, a quoting agent paying for a measurement. SG7 is designed as the settlement asset for these machine-to-machine nano-payments, with <strong>verified identity on both ends</strong> — each side's agent presents the identity and mandate of the principal it acts for. Settlement between strangers becomes possible without accounts, invoices, or card rails, and without anonymity: both principals are identified, both mandates are signed, both limits are enforced by the rail itself.</p>
+<h3>4.3 Pillar Three: Ecosystem Access</h3>
+<p>SG7 is designed to function as an <strong>access key</strong> across the issuer's operating ecosystem (Section 6): tiered access to AI agent services, the AI News Daily station's premium layers, sovereignty and business training, and local services. Holding or spending SG7 inside these products is the coin's demand floor — utility that exists whether or not any exchange ever lists it. Access tiers, thresholds, and pricing are business decisions to be published by each product, and may change; the <em>design commitment</em> is that the ecosystem honors the coin from the start rather than retrofitting utility after a sale.</p>
+<h3>4.4 Pillar Four: Treasury Discipline — the Gold Policy</h3>
+<p>The project adopts a <strong>gold-referenced treasury policy</strong>: the stated long-term policy is to build and hold a treasury reserve referenced to physical gold, acquired from ecosystem revenue according to a published schedule, held with a disclosed custodian, and reported on a regular cadence if and when such a reserve exists.</p>
+<p>Read this precisely:</p>
+<ul>
+<li>This is a <strong>policy and an aspiration</strong>, not a backing. As of this paper, <strong>no gold reserve exists, no coin is redeemable for gold, and no holder has any claim on gold.</strong></li>
+<li>The gold theme expresses a monetary philosophy — discipline, scarcity, and an anchor outside pure attention — and a treasury <em>target</em>. Targets can be missed, delayed, or abandoned; Section 10 covers this.</li>
+<li>If a reserve is ever established, its existence, custodian, and verification method will be disclosed in writing at that time, and not before claims are made about it.</li>
+</ul>
+<hr>
+<h2>5. How It Works (Plain English)</h2>
+<h3>5.1 The signing flow (x401 pattern)</h3>
+<ol>
+<li><strong>You set the rules once.</strong> In your wallet, you approve a mandate for your agent: who it acts for (you), what it may buy, from whom, up to what amount, until when. You sign it on your own device.</li>
+<li><strong>Your agent goes to work.</strong> When it needs to pay — say, a fraction of a cent for a data claim — it presents its mandate and a payment request stating the exact amount, recipient, and purpose.</li>
+<li><strong>The other side checks the signature.</strong> The receiving service verifies: Is this agent acting for a real, identified person? Did that person actually approve <em>these</em> terms? Is the amount inside the signed limits?</li>
+<li><strong>Tampering breaks it.</strong> If anything about the request differs from what was signed — a changed amount, a swapped recipient — the signature no longer validates, and the payment does not happen. No phone call, no chargeback, no argument: the math refuses.</li>
+</ol>
+<h3>5.2 The nano rail (x402 pattern)</h3>
+<p>Payments ride an x402-style pay-per-claim rail: a service names a tiny price for a single claim (one API response, one verified data point, one article, one action); the agent's wallet pays that exact amount over ordinary web requests; the service delivers instantly. No subscriptions to manage, no minimums, no invoices. The working demonstration of this pattern — identity check plus nano-payment, in the browser — already runs in the project's own Alice NanoPay Bots lab.</p>
+<h3>5.3 A worked example</h3>
+<p>A contractor's AI receptionist (an Alice agent) needs a verified property measurement to quote a job. It requests the measurement from a data service. The service quotes $0.006 for the claim. The receptionist's mandate — signed by the contractor — allows data purchases up to $0.50 per day from approved services. The claim is inside the mandate, identity verifies on both ends, six-tenths of a cent settles instantly, and the quote goes out. Total human involvement: the signature given once, days earlier. Total time: seconds. Total paperwork: none.</p>
+<hr>
+<h2>6. Ecosystem Map — The Coin Plugs Into Products That Already Exist</h2>
+<p>The competitive claim of SG7 is not a whitepaper promise. It is that the issuing ecosystem is <strong>already built and operating</strong>:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Property</th><th>What it is</th><th>SG7's designed role</th></tr></thead>
+<tbody>
+<tr><td><strong>Alice AI Office Hub</strong> (aliceaihub.xyz)</td><td>AI agents for local businesses — receptionists, estimators, follow-up, reputation, content agents; live storefront with subscription plans and a $1 trial</td><td>Access + settlement: agent tiers honored in SG7; agents settle nano-claims in SG7</td></tr>
+<tr><td><strong>Alice NanoPay Bots</strong> (live lab)</td><td>Interactive lab demonstrating the x401 signing flow and the x402 nano-payment pattern</td><td>The public proof-of-concept for Pillars 1 and 2</td></tr>
+<tr><td><strong>AI News Daily</strong></td><td>An AI news station — daily editions, newspaper-style hook ads, video wire — "brought to you by Alice"</td><td>Access: premium station layers, archives, and features keyed to SG7</td></tr>
+<tr><td><strong>Private Money Rights Playbook &amp; Founders</strong></td><td>Sovereignty/UCC education, the Private Money Rights Playbook, and the application-only Founders Program</td><td>Access: training and program tiers honored in SG7</td></tr>
+<tr><td><strong>Capital 7 Logistics</strong></td><td>A real, operating local services company (moving, handyman, gutter services) in Luzerne County, PA</td><td>Access/settlement pilot: a physical-world business inside the same system</td></tr>
+</tbody></table></div>
+<p>Most token projects promise an ecosystem later. This one starts from an ecosystem and adds the coin. That inversion — <strong>utility first, asset second</strong> — is the core of the design.</p>
+<hr>
+<h2>7. Token Design — Proposed Parameters</h2>
+<blockquote><p><strong>Everything in this section is a PROPOSAL for discussion, not a final specification and not a promise.</strong> Final parameters, if the project ever proceeds past the legal gate (Section 9), will be published in a superseding document. No parameter here creates any right or expectation.</p></blockquote>
+<ul>
+<li><strong>Supply (proposed):</strong> a fixed, capped supply of <strong>10,000,000,000 SG7 (10 billion)</strong>, with no inflationary minting after issuance — a large enough base for nano-denominated agent settlement at the Seven Standard rate, permanently capped, and designed to contract under the burn mechanism below toward a hard floor of 7,000,000,000 (the Seven Floor). Final figure to be set at design lock.</li>
+<li><strong>Distribution (proposed):</strong> allocations across ecosystem treasury, public circulation, team/founder vesting, and a reserve fund — with vesting and lock periods for insider allocations published before any circulation. No allocation figure is final in this draft.</li>
+<li><strong>Genesis Pool (proposed):</strong> circulation begins with a <strong>genesis pool of 1,000,000,000 SG7 (1 billion)</strong> — the only supply that enters circulation at launch. The genesis pool is the working float: it is what bot-gated acquisition distributes, what ecosystem services are priced in, and what the settlement rail clears against while the ecosystem is young.</li>
+<li><strong>Locked Reserve (proposed):</strong> the remaining <strong>9,000,000,000 SG7</strong> are minted to a locked reserve/treasury at issuance and do not circulate. Reserve coins are released only in published tranches, each tranche tied to a published ecosystem milestone (adoption and usage markers of the kind listed in Section 9A), under rules fixed at design lock. The size, number, and milestone triggers of tranches are <strong>design-lock TBD</strong> — deliberately unspecified in this draft, because a release schedule written before the legal gate and the design lock would be a promise this paper does not make.</li>
+<li><strong>The Seven Standard rate (proposed):</strong> ecosystem access is denominated at <strong>seven coins to the dollar — $1 = 7 SG7</strong> — for bot-gated acquisition and in-ecosystem service pricing (e.g., a $29/mo swarm service is a 203 SG7 service). The rate is the house conversion standard inside the ecosystem, in keeping with the Seven motif; it is an access/pricing parameter of the ecosystem, <strong>not</strong> a market price, a redemption promise, or a valuation. Arithmetic notes (illustrations only): distribution of the 1,000,000,000 genesis pool at the Seven Standard rate corresponds to ≈ $142.9 million of ecosystem throughput (1,000,000,000 ÷ 7 ≈ $142,857,143); distribution of the full 10,000,000,000 cap corresponds to ≈ $1.43 billion of ecosystem throughput (10,000,000,000 ÷ 7 ≈ $1,428,571,429). Both figures measure the design's scale at each stage; neither is a forecast.</li>
+<li><strong>Burn (proposed mechanism):</strong> a defined share of settlement fees actually collected is permanently burned quarterly — under the modeled parameters, a 0.7% settlement fee of which 49% (7 × 7) is burned. The burn is indexed to real usage, never to a calendar promise, and a taper formula — burn strength scales with (supply − floor) ÷ (initial supply − floor) — shrinks it as supply falls, so the supply glides toward the <strong>Seven Floor of 7,000,000,000 SG7</strong> and levels there permanently instead of burning toward zero; a hard cap makes crossing the floor mathematically impossible. The full calculation, formulas, and 10-year Low/Base/High scenarios are in the companion document <strong><a href="burn-model.md">burn-model.md</a></strong> (Base scenario: supply ends Year 10 at ≈ 9,094,000,000, 90.94% of original). A burn is a design mechanism under consideration — not scheduled, not guaranteed, would only ever be described factually after it occurs, and is <strong>never a price promise</strong>: it changes supply arithmetic, not value.</li>
+<li><strong>Fees (proposed concept):</strong> a small settlement fee on rail transactions — 0.7% under the modeled parameters — split between the burn above and ecosystem operations and the treasury policy in Section 4.4. Final rate to be set at design lock.</li>
+<li><strong>Governance (proposed):</strong> no governance rights are promised. If any holder-input mechanism is ever introduced, it will be described in its own document at that time.</li>
+</ul>
+<p><strong>Deliberately absent:</strong> any statement about price, listing, exchange availability, yield, or return. None is made anywhere in this paper, and none should be inferred.</p>
+<p><em>How these parameters are designed to come into use — phase by phase, with the measurable markers that would prove each phase happened — is laid out in Section 9A (The Road to Value).</em></p>
+<hr>
+<h2>8. Competitive Advantage</h2>
+<h3>8.1 Versus DOGE and the meme coins</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Dimension</th><th>Meme coins (e.g., DOGE)</th><th>SG7 (as designed)</th></tr></thead>
+<tbody>
+<tr><td>Reason to exist</td><td>A joke that caught attention</td><td>Settlement + access in an operating ecosystem</td></tr>
+<tr><td>Identity layer</td><td>None</td><td>x401-pattern verified identity on agent transactions</td></tr>
+<tr><td>Authorization</td><td>Key possession only</td><td>Signed human mandates; tampering breaks the signature</td></tr>
+<tr><td>Native utility</td><td>None — buys nothing its issuer runs</td><td>Access key across live products from design day one</td></tr>
+<tr><td>Payment size fit</td><td>Retail speculation amounts</td><td>Nano-amounts native — built for per-claim machine payments</td></tr>
+<tr><td>Scarcity</td><td>DOGE is inflationary by design</td><td>Proposed fixed cap (10B), fee-burned down toward a hard 7B floor</td></tr>
+<tr><td>Anchor story</td><td>A dog</td><td>Sovereignty, gold-policy discipline, and the Seven brand</td></tr>
+</tbody></table></div>
+<p>DOGE's advantage is fame. Fame is real, and this paper does not pretend otherwise — but fame is the <em>only</em> advantage, and it belongs to whoever holds attention this week. SG7's bet is that when agents start moving serious money, the market will pay for the coin whose transactions can <strong>prove who authorized them</strong>. Beating a meme does not require being funnier. It requires being <em>usable for the thing the economy actually needs next</em>.</p>
+<h3>8.2 Versus plain stablecoins</h3>
+<p>Stablecoins are excellent digital dollars — and deliberately featureless. A stablecoin can settle a nano-payment, but it carries no native mandate system (the authorization must be built elsewhere), no ecosystem access function, and no treasury discipline beyond its peg. SG7 does not compete with stablecoins as a dollar substitute; it is designed as the <strong>authorized-agent layer</strong> stablecoins lack: mandates, identity, and ecosystem utility wrapped around settlement. In practice the two can coexist — the rail pattern is asset-agnostic — but only one of them is designed, end to end, for agents acting under signed human authority.</p>
+<h3>8.3 The moat</h3>
+<p>The moat is not the token contract; anyone can copy a contract. The moat is the combination: (1) an <strong>operating ecosystem</strong> that honors the coin, (2) a <strong>brand</strong> (Sovereign / Seven / gold) with years of content and community already attached to it, and (3) an <strong>authorization-first design</strong> aligned with where regulators and platforms demonstrably moved in September–October 2026. Copying any one is easy. Copying all three, already assembled, is the work of years.</p>
+<hr>
+<h2>9. Roadmap — With the Legal Gate First</h2>
+<ul>
+<li><strong>Phase 0 — Concept (current).</strong> This paper. Name, brand, and trade dress development. Ecosystem continues operating and growing without the coin. Community discussion.</li>
+<li><strong>Phase 1 — Design lock.</strong> Finalize token parameters, mandate specification, and rail integration design against the live NanoPay pattern. Publish a superseding specification.</li>
+<li><strong>Phase 2 — LEGAL REVIEW GATE.</strong> Independent legal review of the entire design — securities law, money transmission, tax, and consumer-protection analysis in every jurisdiction the project would touch — <strong>must be completed, and its conclusions satisfied, before any issuance, sale, or distribution is even scheduled.</strong> If the review says the design cannot proceed as drawn, the design changes or the project stops. <strong>There is no issuance before this gate. There are no exceptions to this gate.</strong></li>
+<li><strong>Phase 3 — Test deployment.</strong> Non-transferable test assets on a test network; mandate and settlement flows exercised against the live ecosystem in sandbox form.</li>
+<li><strong>Phase 4 — Issuance decision.</strong> Only after Phases 1–3, a separate written go/no-go decision, with final parameters, disclosures, and compliance measures published in advance.</li>
+<li><strong>Post-clearance possibility — the instrument layer.</strong> A companion memo, <a href="instrument-layer.md">instrument-layer.md</a>, sketches — for legal structuring only — a possible later phase in which a real issuing entity's documented treasury obligation, held by an independent escrow agent and collateralized by real, disclosed assets, could underpin the treasury policy in Section 4.4. It is not an instrument, it cannot be signed, filed, marketed, or sold, and it may only ever be considered after the Phase 2 gate, in a form structured by independent securities counsel.</li>
+</ul>
+<p>No dates are attached to any phase. A roadmap with dates would be a promise; this is a sequence.</p>
+<p>The adoption milestones that run on this legal sequence — what gets built, launched, and measured at each stage, and the markers that would prove it — are set out in Section 9A (The Road to Value), immediately below.</p>
+<hr>
+<h2>9A. The Road to Value — An Adoption-Milestone Roadmap</h2>
+<p>Sections 7 and 9 describe what SG7 is designed to be, and the legal sequence that controls whether it may exist at all. This section describes how it is designed to <em>come into use</em> — which is where any value it ever has would have to come from. It is written under the same discipline as the rest of this paper, and one line of it governs everything below:</p>
+<blockquote><p><strong>Milestones are targets, not guarantees; a coin's market value, if any ever exists, is set by the market and cannot be promised by this paper.</strong></p></blockquote>
+<p>Nothing in this section projects a price, a return, or appreciation, and nothing here should be read as doing so. What it describes instead are <strong>value drivers</strong> — utility demand from products that already sell, fee burns indexed to real usage, a supply that only ever contracts toward a published floor, and a real revenue ecosystem operating underneath — together with the <strong>measurable markers</strong> by which anyone can check whether adoption is actually happening. If the markers do not move, the road is not being traveled, and this paper would rather attach its own scoreboard than let anyone discover that later.</p>
+<p>Two audiences read this road differently, and both are answered on the same facts:</p>
+<ul>
+<li><strong>For the public — transparency.</strong> Every phase below names the numbers that will be published as it completes: bots deployed, claims settled, SG7 burned to date, circulating supply measured against the Seven Floor, treasury disclosures published. Progress is meant to be <em>verifiable</em>, not narrated. A supply that only tightens when real people really use the system is a claim anyone can audit against the published counters.</li>
+<li><strong>For private partners — the underwriting view.</strong> The coin is not the business. Underneath it sit operating revenue lines that exist today: Alice subscriptions and agent plans, swarm services, and Capital 7's local services (Section 6). The design adds two disciplines partners can underwrite against: a genesis pool of 1 billion coins as the only launch float, and a 9 billion locked reserve released only in tranches tied to published milestones (Section 7) — no silent inflation of the float, no insider unlocks off-schedule.</li>
+</ul>
+<p><strong>The gate still governs.</strong> Any phase below that involves the coin itself begins only after the Phase 2 legal review gate in Section 9 is passed. The bots, the ecosystem, and the revenue lines do not wait for the coin. The coin waits for the law.</p>
+<h3>Phase 1 — FOUNDATION</h3>
+<p><em>Paper, brand, domains, legal gate.</em></p>
+<ul>
+<li><strong>Deliverables:</strong> this white paper and its companion documents (burn model, trade dress, token parameters at design lock) published in versioned form; the Sovereign / Seven brand and trade dress finalized; the project's domains secured; independent legal review engaged and the Phase 2 gate worked through to its conclusion.</li>
+<li><strong>Markers that prove it happened:</strong> the published, versioned specification itself; a public statement of the legal gate's outcome, including whatever design changes it required; brand and domain assets live and in use across the ecosystem's existing channels.</li>
+</ul>
+<h3>Phase 2 — THE SWARM LAUNCHES</h3>
+<p><em>NanoPay + Cybersecurity bots live as products; the waitlist converts.</em></p>
+<ul>
+<li><strong>Deliverables:</strong> Alice NanoPay Bots and the Alice Cybersecurity Nanobots graduate from labs to live, purchasable products; bot-gated access mechanics built — acquiring and running the swarm is the door to the genesis pool; the waitlist built during the concept stage is offered conversion into first real deployments.</li>
+<li><strong>Markers that prove it happened:</strong> number of swarms deployed and active; number of businesses running them; waitlist-to-customer conversions — published as product numbers, the way the ecosystem already reports its work.</li>
+</ul>
+<h3>Phase 3 — SETTLEMENT GOES LIVE</h3>
+<p><em>Signed claims settling in SG7 at the Seven Standard; first burns.</em></p>
+<ul>
+<li><strong>Deliverables:</strong> the x401-pattern signing flow and the x402-pattern rail move from demonstration to production inside the ecosystem — agents settling signed claims in SG7 at the Seven Standard rate ($1 = 7 SG7), customers paying swarm services in SG7; the first quarterly fee burns executed under the burn model and reported after they occur.</li>
+<li><strong>Markers that prove it happened:</strong> cumulative signed claims settled; settlement volume in SG7 and in dollar terms; <strong>SG7 burned to date</strong>, quarter by quarter; circulating supply and its distance to the Seven Floor — published as facts, after the fact.</li>
+</ul>
+<h3>Phase 4 — THE TREASURY BUILDS</h3>
+<p><em>Ecosystem revenue funds the gold-referenced treasury policy; tranches unlock on published milestones.</em></p>
+<ul>
+<li><strong>Deliverables:</strong> ecosystem revenue begins funding the treasury policy of Section 4.4 under its published schedule, with custodian and verification method disclosed when — and only when — a reserve actually exists; the first locked-reserve tranches release, each matched to the published milestone that triggered it; quarterly treasury reporting begins. The instrument-layer concept (companion memo, <a href="instrument-layer.md">instrument-layer.md</a>) may be evaluated in this phase — by counsel, post-clearance, in structured form — or set aside; it is an option for lawyers, not a promise to holders.</li>
+<li><strong>Markers that prove it happened:</strong> treasury disclosures published on cadence; every tranche release publicly matched to its milestone; circulating supply, reserve balance, and distance to the Seven Floor in every quarterly report.</li>
+</ul>
+<h3>Phase 5 — THE STANDARD WIDENS</h3>
+<p><em>Third-party businesses accept the signed-mandate standard; agent-to-agent settlement crosses the fence.</em></p>
+<ul>
+<li><strong>Deliverables:</strong> services outside the issuer's own ecosystem verify x401-pattern mandates and settle in SG7; an Alice agent pays a third party's agent under its owner's signed mandate — the authorization standard, not just the coin, becomes the shared infrastructure.</li>
+<li><strong>Markers that prove it happened:</strong> number of third-party businesses accepting the standard; external (non-ecosystem) claims settled; the share of total settlement volume originating outside the issuer's own products — the single number that shows whether SG7 is becoming infrastructure or remained a house currency.</li>
+</ul>
+<h3>What "value" means in this paper</h3>
+<p>If SG7 is ever worth anything, this design says it will be because people and their agents <em>use</em> it: to authorize payments that can prove who approved them, to settle claims too small for any other rail, to unlock products that already sell. The mechanics around it — the burns, the floor, the tranche discipline — exist for one reason: so that usage, and only usage, tightens the supply. That is the whole argument of this section. It is an argument about adoption, published with its scoreboard attached — not a promise about price, which no honest paper can make.</p>
+<hr>
+<h2>10. Risks &amp; Disclaimers — Read This Section Twice</h2>
+<ol>
+<li><strong>Concept stage.</strong> SG7 does not exist. No token has been issued, sold, or distributed. This paper is a design document, not an offering document.</li>
+<li><strong>No returns are promised or implied.</strong> Nothing here is a prediction of price, value, demand, or profit. Anyone who tells you SG7 will be worth any amount is not speaking for this document.</li>
+<li><strong>Not gold-backed.</strong> SG7 is not redeemable for gold. No gold reserve exists today. Section 4.4 describes a <em>policy target</em> for a future treasury, which may never be established. The word "Gold" in the name is branding and philosophy, not collateral.</li>
+<li><strong>Legal gate.</strong> Tokenization is gated on independent legal review (Phase 2). Digital assets are subject to securities, commodities, money-transmission, tax, and consumer-protection law, which varies by jurisdiction and changes frequently. The design may be altered, delayed, or abandoned to comply.</li>
+<li><strong>Regulatory uncertainty.</strong> The x401/x402 patterns and agent-identity frameworks referenced here are recent (October 2026) and evolving; standards, platform policies, and regulatory positions may change in ways that help or harm this design.</li>
+<li><strong>Technology risk.</strong> Smart contracts, wallets, and payment rails carry bug, exploit, and key-loss risk. A mandate system reduces authorization risk; it does not eliminate custody risk. Lose your keys, lose your assets — that remains true here.</li>
+<li><strong>Market risk.</strong> If issued, a token could lose some or all of its value, could be illiquid, and could fail to be listed or supported anywhere. Ecosystem access utility depends on the continued operation of the ecosystem's products, which are businesses subject to ordinary business risk.</li>
+<li><strong>No affiliation.</strong> This project is not affiliated with, endorsed by, or connected to Proof (the company behind x401), Meta, Amazon, Shopify, or any other company named in this paper as context. References to x401 and x402 describe open protocol <em>patterns</em> the design is modeled on.</li>
+<li><strong>Forward-looking statements.</strong> Everything in Sections 4–9 describes intentions and designs as of October 2026. Intentions change. Only facts stated in the present tense about the existing ecosystem (Section 6) are represented as current, and even those describe businesses that can change their offerings at any time.</li>
+</ol>
+<hr>
+<h2>11. Closing</h2>
+<p>The agent economy will have money. The only question is what kind: money that began as a joke and can prove nothing — or money designed, from the first line, so that every agent who touches it can prove <strong>who sent it, what its human approved, and that nothing was changed along the way.</strong></p>
+<p>Sovereign Gold Seven is the second kind — proposed, on paper, honestly gated, and plugged into products that already answer phones, book jobs, publish the news, and teach the system. Tiny payments. Verified agents. Your signature, or it doesn't count.</p>
+<hr>
+<p><em>Sovereign Gold Seven (SG7) — Concept White Paper v0.1 · October 2026 · Paper stage only · No token issued · Legal review precedes any issuance</em></p>
+</article>
+<footer>
+  Sovereign Gold Seven &middot; SG7<br>
+  Concept stage &mdash; no token has been issued, offered, or sold<br>
+  <a href="index.html">&larr; Back to SG7</a>
+</footer>
+</body>
+</html>
