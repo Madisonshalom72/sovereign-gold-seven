@@ -127,14 +127,18 @@ Most token projects promise an ecosystem later. This one starts from an ecosyste
 
 > **Everything in this section is a PROPOSAL for discussion, not a final specification and not a promise.** Final parameters, if the project ever proceeds past the legal gate (Section 9), will be published in a superseding document. No parameter here creates any right or expectation.
 
-- **Supply (proposed):** a fixed, capped supply with no inflationary minting after issuance. A cap in the range of **77 million** is proposed, keeping the Seven motif (77,000,000) while remaining scarce relative to meme-coin supplies printed in the hundreds of billions. Final figure to be set at design lock.
+- **Supply (proposed):** a fixed, capped supply of **10,000,000,000 SG7 (10 billion)**, with no inflationary minting after issuance — a large enough base for nano-denominated agent settlement at the Seven Standard rate, permanently capped, and designed to contract under the burn mechanism below toward a hard floor of 7,000,000,000 (the Seven Floor). Final figure to be set at design lock.
 - **Distribution (proposed):** allocations across ecosystem treasury, public circulation, team/founder vesting, and a reserve fund — with vesting and lock periods for insider allocations published before any circulation. No allocation figure is final in this draft.
-- **The Seven Standard rate (proposed):** ecosystem access is denominated at **seven coins to the dollar — $1 = 7 SG7** — for bot-gated acquisition and in-ecosystem service pricing (e.g., a $29/mo swarm service is a 203 SG7 service). The rate is the house conversion standard inside the ecosystem, in keeping with the Seven motif; it is an access/pricing parameter of the ecosystem, **not** a market price, a redemption promise, or a valuation. Arithmetic note (illustration only): at the proposed 77,000,000 cap, full distribution at the Seven Standard rate corresponds to $11,000,000 of ecosystem throughput — a measure of the design's scale, not a forecast.
-- **Burn (proposed concept):** a portion of ecosystem fees collected in SG7 *may* be permanently burned on a published schedule, introducing deflationary pressure tied to real product usage rather than speculation. A burn is a design concept under consideration — it is not scheduled, not guaranteed, and would only ever be described factually after it occurs.
-- **Fees (proposed concept):** a small settlement fee on rail transactions, directed to ecosystem operations and the treasury policy in Section 4.4. Rate not set in this draft.
+- **Genesis Pool (proposed):** circulation begins with a **genesis pool of 1,000,000,000 SG7 (1 billion)** — the only supply that enters circulation at launch. The genesis pool is the working float: it is what bot-gated acquisition distributes, what ecosystem services are priced in, and what the settlement rail clears against while the ecosystem is young.
+- **Locked Reserve (proposed):** the remaining **9,000,000,000 SG7** are minted to a locked reserve/treasury at issuance and do not circulate. Reserve coins are released only in published tranches, each tranche tied to a published ecosystem milestone (adoption and usage markers of the kind listed in Section 9A), under rules fixed at design lock. The size, number, and milestone triggers of tranches are **design-lock TBD** — deliberately unspecified in this draft, because a release schedule written before the legal gate and the design lock would be a promise this paper does not make.
+- **The Seven Standard rate (proposed):** ecosystem access is denominated at **seven coins to the dollar — $1 = 7 SG7** — for bot-gated acquisition and in-ecosystem service pricing (e.g., a $29/mo swarm service is a 203 SG7 service). The rate is the house conversion standard inside the ecosystem, in keeping with the Seven motif; it is an access/pricing parameter of the ecosystem, **not** a market price, a redemption promise, or a valuation. Arithmetic notes (illustrations only): distribution of the 1,000,000,000 genesis pool at the Seven Standard rate corresponds to ≈ $142.9 million of ecosystem throughput (1,000,000,000 ÷ 7 ≈ $142,857,143); distribution of the full 10,000,000,000 cap corresponds to ≈ $1.43 billion of ecosystem throughput (10,000,000,000 ÷ 7 ≈ $1,428,571,429). Both figures measure the design's scale at each stage; neither is a forecast.
+- **Burn (proposed mechanism):** a defined share of settlement fees actually collected is permanently burned quarterly — under the modeled parameters, a 0.7% settlement fee of which 49% (7 × 7) is burned. The burn is indexed to real usage, never to a calendar promise, and a taper formula — burn strength scales with (supply − floor) ÷ (initial supply − floor) — shrinks it as supply falls, so the supply glides toward the **Seven Floor of 7,000,000,000 SG7** and levels there permanently instead of burning toward zero; a hard cap makes crossing the floor mathematically impossible. The full calculation, formulas, and 10-year Low/Base/High scenarios are in the companion document **[burn-model.md](burn-model.md)** (Base scenario: supply ends Year 10 at ≈ 9,094,000,000, 90.94% of original). A burn is a design mechanism under consideration — not scheduled, not guaranteed, would only ever be described factually after it occurs, and is **never a price promise**: it changes supply arithmetic, not value.
+- **Fees (proposed concept):** a small settlement fee on rail transactions — 0.7% under the modeled parameters — split between the burn above and ecosystem operations and the treasury policy in Section 4.4. Final rate to be set at design lock.
 - **Governance (proposed):** no governance rights are promised. If any holder-input mechanism is ever introduced, it will be described in its own document at that time.
 
 **Deliberately absent:** any statement about price, listing, exchange availability, yield, or return. None is made anywhere in this paper, and none should be inferred.
+
+*How these parameters are designed to come into use — phase by phase, with the measurable markers that would prove each phase happened — is laid out in Section 9A (The Road to Value).*
 
 ---
 
@@ -149,7 +153,7 @@ Most token projects promise an ecosystem later. This one starts from an ecosyste
 | Authorization | Key possession only | Signed human mandates; tampering breaks the signature |
 | Native utility | None — buys nothing its issuer runs | Access key across live products from design day one |
 | Payment size fit | Retail speculation amounts | Nano-amounts native — built for per-claim machine payments |
-| Scarcity | DOGE is inflationary by design | Proposed fixed cap (77M concept) |
+| Scarcity | DOGE is inflationary by design | Proposed fixed cap (10B), fee-burned down toward a hard 7B floor |
 | Anchor story | A dog | Sovereignty, gold-policy discipline, and the Seven brand |
 
 DOGE's advantage is fame. Fame is real, and this paper does not pretend otherwise — but fame is the *only* advantage, and it belongs to whoever holds attention this week. SG7's bet is that when agents start moving serious money, the market will pay for the coin whose transactions can **prove who authorized them**. Beating a meme does not require being funnier. It requires being *usable for the thing the economy actually needs next*.
@@ -171,8 +175,67 @@ The moat is not the token contract; anyone can copy a contract. The moat is the 
 - **Phase 2 — LEGAL REVIEW GATE.** Independent legal review of the entire design — securities law, money transmission, tax, and consumer-protection analysis in every jurisdiction the project would touch — **must be completed, and its conclusions satisfied, before any issuance, sale, or distribution is even scheduled.** If the review says the design cannot proceed as drawn, the design changes or the project stops. **There is no issuance before this gate. There are no exceptions to this gate.**
 - **Phase 3 — Test deployment.** Non-transferable test assets on a test network; mandate and settlement flows exercised against the live ecosystem in sandbox form.
 - **Phase 4 — Issuance decision.** Only after Phases 1–3, a separate written go/no-go decision, with final parameters, disclosures, and compliance measures published in advance.
+- **Post-clearance possibility — the instrument layer.** A companion memo, [instrument-layer.md](instrument-layer.md), sketches — for legal structuring only — a possible later phase in which a real issuing entity's documented treasury obligation, held by an independent escrow agent and collateralized by real, disclosed assets, could underpin the treasury policy in Section 4.4. It is not an instrument, it cannot be signed, filed, marketed, or sold, and it may only ever be considered after the Phase 2 gate, in a form structured by independent securities counsel.
 
 No dates are attached to any phase. A roadmap with dates would be a promise; this is a sequence.
+
+The adoption milestones that run on this legal sequence — what gets built, launched, and measured at each stage, and the markers that would prove it — are set out in Section 9A (The Road to Value), immediately below.
+
+---
+
+## 9A. The Road to Value — An Adoption-Milestone Roadmap
+
+Sections 7 and 9 describe what SG7 is designed to be, and the legal sequence that controls whether it may exist at all. This section describes how it is designed to *come into use* — which is where any value it ever has would have to come from. It is written under the same discipline as the rest of this paper, and one line of it governs everything below:
+
+> **Milestones are targets, not guarantees; a coin's market value, if any ever exists, is set by the market and cannot be promised by this paper.**
+
+Nothing in this section projects a price, a return, or appreciation, and nothing here should be read as doing so. What it describes instead are **value drivers** — utility demand from products that already sell, fee burns indexed to real usage, a supply that only ever contracts toward a published floor, and a real revenue ecosystem operating underneath — together with the **measurable markers** by which anyone can check whether adoption is actually happening. If the markers do not move, the road is not being traveled, and this paper would rather attach its own scoreboard than let anyone discover that later.
+
+Two audiences read this road differently, and both are answered on the same facts:
+
+- **For the public — transparency.** Every phase below names the numbers that will be published as it completes: bots deployed, claims settled, SG7 burned to date, circulating supply measured against the Seven Floor, treasury disclosures published. Progress is meant to be *verifiable*, not narrated. A supply that only tightens when real people really use the system is a claim anyone can audit against the published counters.
+- **For private partners — the underwriting view.** The coin is not the business. Underneath it sit operating revenue lines that exist today: Alice subscriptions and agent plans, swarm services, and Capital 7's local services (Section 6). The design adds two disciplines partners can underwrite against: a genesis pool of 1 billion coins as the only launch float, and a 9 billion locked reserve released only in tranches tied to published milestones (Section 7) — no silent inflation of the float, no insider unlocks off-schedule.
+
+**The gate still governs.** Any phase below that involves the coin itself begins only after the Phase 2 legal review gate in Section 9 is passed. The bots, the ecosystem, and the revenue lines do not wait for the coin. The coin waits for the law.
+
+### Phase 1 — FOUNDATION
+
+*Paper, brand, domains, legal gate.*
+
+- **Deliverables:** this white paper and its companion documents (burn model, trade dress, token parameters at design lock) published in versioned form; the Sovereign / Seven brand and trade dress finalized; the project's domains secured; independent legal review engaged and the Phase 2 gate worked through to its conclusion.
+- **Markers that prove it happened:** the published, versioned specification itself; a public statement of the legal gate's outcome, including whatever design changes it required; brand and domain assets live and in use across the ecosystem's existing channels.
+
+### Phase 2 — THE SWARM LAUNCHES
+
+*NanoPay + Cybersecurity bots live as products; the waitlist converts.*
+
+- **Deliverables:** Alice NanoPay Bots and the Alice Cybersecurity Nanobots graduate from labs to live, purchasable products; bot-gated access mechanics built — acquiring and running the swarm is the door to the genesis pool; the waitlist built during the concept stage is offered conversion into first real deployments.
+- **Markers that prove it happened:** number of swarms deployed and active; number of businesses running them; waitlist-to-customer conversions — published as product numbers, the way the ecosystem already reports its work.
+
+### Phase 3 — SETTLEMENT GOES LIVE
+
+*Signed claims settling in SG7 at the Seven Standard; first burns.*
+
+- **Deliverables:** the x401-pattern signing flow and the x402-pattern rail move from demonstration to production inside the ecosystem — agents settling signed claims in SG7 at the Seven Standard rate ($1 = 7 SG7), customers paying swarm services in SG7; the first quarterly fee burns executed under the burn model and reported after they occur.
+- **Markers that prove it happened:** cumulative signed claims settled; settlement volume in SG7 and in dollar terms; **SG7 burned to date**, quarter by quarter; circulating supply and its distance to the Seven Floor — published as facts, after the fact.
+
+### Phase 4 — THE TREASURY BUILDS
+
+*Ecosystem revenue funds the gold-referenced treasury policy; tranches unlock on published milestones.*
+
+- **Deliverables:** ecosystem revenue begins funding the treasury policy of Section 4.4 under its published schedule, with custodian and verification method disclosed when — and only when — a reserve actually exists; the first locked-reserve tranches release, each matched to the published milestone that triggered it; quarterly treasury reporting begins. The instrument-layer concept (companion memo, [instrument-layer.md](instrument-layer.md)) may be evaluated in this phase — by counsel, post-clearance, in structured form — or set aside; it is an option for lawyers, not a promise to holders.
+- **Markers that prove it happened:** treasury disclosures published on cadence; every tranche release publicly matched to its milestone; circulating supply, reserve balance, and distance to the Seven Floor in every quarterly report.
+
+### Phase 5 — THE STANDARD WIDENS
+
+*Third-party businesses accept the signed-mandate standard; agent-to-agent settlement crosses the fence.*
+
+- **Deliverables:** services outside the issuer's own ecosystem verify x401-pattern mandates and settle in SG7; an Alice agent pays a third party's agent under its owner's signed mandate — the authorization standard, not just the coin, becomes the shared infrastructure.
+- **Markers that prove it happened:** number of third-party businesses accepting the standard; external (non-ecosystem) claims settled; the share of total settlement volume originating outside the issuer's own products — the single number that shows whether SG7 is becoming infrastructure or remained a house currency.
+
+### What "value" means in this paper
+
+If SG7 is ever worth anything, this design says it will be because people and their agents *use* it: to authorize payments that can prove who approved them, to settle claims too small for any other rail, to unlock products that already sell. The mechanics around it — the burns, the floor, the tranche discipline — exist for one reason: so that usage, and only usage, tightens the supply. That is the whole argument of this section. It is an argument about adoption, published with its scoreboard attached — not a promise about price, which no honest paper can make.
 
 ---
 
