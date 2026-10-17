@@ -233,6 +233,55 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
 .foot-in p{color:var(--bone-dim);font-size:.8rem;max-width:760px;line-height:1.7}
 .foot-in .mono-line{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.14em;color:#8f8875}
 
+/* ---------- PROJECTOR ---------- */
+.projector{margin-top:18px;border:1px solid rgba(246,205,110,.4);border-radius:20px;padding:30px 34px;
+  background:linear-gradient(120deg, rgba(217,164,65,.07), rgba(217,164,65,.02) 55%, rgba(58,226,255,.03));position:relative;overflow:hidden}
+.projector h3{font-family:'Cinzel',serif;font-size:1.35rem;color:#fff;letter-spacing:.04em}
+.projector h3 .prop{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.28em;color:#0f0d08;
+  background:linear-gradient(180deg,var(--gold-hi),var(--gold));border-radius:5px;padding:3px 8px;vertical-align:middle;margin-left:10px}
+.projector .calc-disc{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.04em;color:#e8cf9a;line-height:1.7;
+  border-left:2px solid var(--gold);padding-left:12px;margin:16px 0 22px}
+.calc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:820px){.calc-grid{grid-template-columns:1fr}}
+.calc-grid label{display:block;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.26em;color:var(--gold);margin-bottom:8px;text-transform:uppercase}
+.calc-grid input[type=number],.calc-grid select{width:100%;background:rgba(6,7,11,.75);border:1px solid rgba(217,164,65,.45);border-radius:12px;
+  color:var(--bone);font-family:'JetBrains Mono',monospace;font-size:1.05rem;padding:12px 14px;outline:none}
+.calc-grid input[type=number]:focus,.calc-grid select:focus{border-color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,164,65,.18)}
+.calc-grid input[type=range]{width:100%;accent-color:var(--gold);margin-top:14px}
+.calc-out{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:24px}
+@media(max-width:1020px){.calc-out{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.calc-out{grid-template-columns:1fr}}
+.calc-out .co{border:1px solid rgba(217,164,65,.22);border-radius:14px;padding:16px 18px;background:rgba(6,7,11,.45)}
+.calc-out .co b{display:block;font-family:'JetBrains Mono',monospace;font-size:1.18rem;color:var(--gold-hi);margin-bottom:4px}
+.calc-out .co span{font-size:.78rem;color:var(--bone-dim);letter-spacing:.04em}
+.calc-hero{margin-top:18px;text-align:center;border:1px solid rgba(246,205,110,.5);border-radius:16px;padding:26px 20px;
+  background:linear-gradient(120deg, rgba(217,164,65,.13), rgba(217,164,65,.03))}
+.calc-hero .ch-label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+.calc-hero .ch-value{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.1;
+  background:linear-gradient(100deg,var(--gold-hi2),var(--gold-hi) 40%,var(--gold) 70%,var(--gold-deep));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.calc-hero .ch-sub{font-size:.86rem;color:var(--bone-dim);margin-top:6px}
+.calc-deriv{margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:.76rem;color:#a9e6f5;line-height:1.75;
+  border:1px dashed rgba(58,226,255,.3);border-radius:12px;padding:14px 18px;background:rgba(58,226,255,.03)}
+
+/* ---------- FACTORY ---------- */
+.fac{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+@media(max-width:1020px){.fac{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.fac{grid-template-columns:1fr}}
+.fcard{grid-column:span 2;position:relative;overflow:hidden;transition:transform .3s ease,border-color .3s ease}
+.fcard.wide{grid-column:span 3}
+@media(max-width:1020px){.fcard,.fcard.wide{grid-column:span 1}}
+.fcard:hover{transform:translateY(-5px);border-color:rgba(246,205,110,.6)}
+.fcard::before{content:"";position:absolute;inset:0 0 auto 0;height:1px;background:linear-gradient(90deg,transparent,rgba(246,205,110,.75),transparent)}
+.fcard .glyph{font-family:'Cinzel',serif;font-weight:900;font-size:1.3rem;color:var(--gold);border:1px solid rgba(217,164,65,.4);
+  width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+  background:radial-gradient(circle at 35% 30%, rgba(246,205,110,.25), rgba(217,164,65,.05))}
+.fcard h3{font-size:1.08rem;color:#fff;font-weight:700;letter-spacing:.02em}
+.fcard p{color:var(--bone-dim);font-size:.9rem;margin-top:6px}
+.fcard .price{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:.8rem;font-weight:700;color:var(--gold-hi);letter-spacing:.06em}
+.fcard .ptag{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.24em;color:#0f0d08;
+  background:linear-gradient(180deg,var(--gold-hi),var(--gold));border-radius:5px;padding:2px 7px;vertical-align:middle;margin-left:8px}
+
 /* ---------- REVEAL ---------- */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .85s cubic-bezier(.2,.7,.2,1), transform .85s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -258,8 +307,10 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
     <div class="nav-links">
       <a href="#pillars">Pillars</a>
       <a href="#standard">Seven Standard</a>
+      <a href="#projector">Projector</a>
       <a href="#how">How It Works</a>
       <a href="#ecosystem">Ecosystem</a>
+      <a href="#factory">Factory</a>
       <a href="#whitepaper">White Paper</a>
       <a href="#roadmap">Roadmap</a>
       <a class="btn btn-gold small" href="#waitlist">Join the Waitlist</a>
@@ -492,6 +543,7 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
       <div class="panel stat rv"><b>≈ $1.43 BILLION</b><span>ECOSYSTEM THROUGHPUT IF THE FULL CAP WERE DISTRIBUTED AT THE SEVEN STANDARD — ≈ $142.9M AT THE GENESIS POOL.</span></div>
     </div>
     <p class="disclaimer-line rv">PROPOSED DESIGN PARAMETERS — NOT FINAL. THE SEVEN STANDARD IS AN ECOSYSTEM ACCESS &amp; PRICING PARAMETER — NOT A MARKET PRICE, NOT A REDEMPTION PROMISE, NOT A VALUATION. THROUGHPUT FIGURES ARE ARITHMETIC ILLUSTRATIONS ONLY — NOT FORECASTS.</p>
+    <p class="disclaimer-line rv">CARVED FROM THE LOCKED RESERVE — ALL PROPOSED, CAP UNCHANGED AT 10B: <b style="color:var(--gold-hi)">FOUNDERS 700M</b> (HOSKINS · FERGUSON — TRUST-HELD, MILESTONE + VESTING LOCKS) · <b style="color:var(--gold-hi)">CREATOR REWARDS 100M</b> · <b style="color:var(--gold-hi)">AIRDROP BUDGET 200M</b> (ATTESTED WALLETS ONLY) · <b style="color:var(--gold-hi)">CHARITY RESERVE 100M</b> — ITS OWN PUBLIC WALLET FOR FEEDING EVENTS &amp; VERIFIED-NEED AID. EVERY MEAL ON-CHAIN. (WHITE PAPER §7 · §9C · §9D · §9E)</p>
 
     <div class="burn rv">
       <svg class="flame" viewBox="0 0 64 64" aria-hidden="true">
@@ -504,6 +556,42 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
         <h3>THE BURN <span class="prop">PROPOSED</span></h3>
         <p>A portion of every ecosystem settlement fee collected in SG7 is <strong>burned on a published schedule</strong> — permanently removed from circulation. As real usage grows, circulating supply only ever shrinks toward a hard floor: the <strong>7,000,000,000 Seven Floor</strong>, below which burns stop. Deflation driven by product usage, not speculation. <em>Proposed mechanism — not scheduled, not guaranteed; the detailed burn model lives in the white paper package.</em></p>
       </div>
+    </div>
+
+    <div class="projector rv" id="projector">
+      <h3>THE GROWTH PROJECTOR <span class="prop">ILLUSTRATIVE</span></h3>
+      <p class="calc-disc">ILLUSTRATIVE SCENARIOS ONLY. SG7 IS A CONCEPT — NOT ISSUED OR SOLD. IF A MARKET EVER EXISTS, THE MARKET SETS THE PRICE; A HOLDING COULD BE WORTH MORE, LESS, OR NOTHING. THIS TOOL RUNS THE ARITHMETIC OF WHITE PAPER §9B ON THE BURN MODEL'S PUBLISHED SCENARIOS — IT PREDICTS NOTHING.</p>
+      <div class="calc-grid">
+        <div>
+          <label for="pjAmount">Your amount — every $7 counts</label>
+          <input type="number" id="pjAmount" value="70" min="0" step="7" inputmode="decimal">
+        </div>
+        <div>
+          <label for="pjScenario">Ecosystem scenario (burn model)</label>
+          <select id="pjScenario">
+            <option value="low">Low — $250M start · +25%/yr</option>
+            <option value="base" selected>Base — $500M start · +45%/yr</option>
+            <option value="high">High — $1B start · +65%/yr</option>
+          </select>
+        </div>
+        <div>
+          <label for="pjYear">Year — <span id="pjYearLabel">Year 10</span></label>
+          <input type="range" id="pjYear" min="1" max="10" step="1" value="10">
+        </div>
+      </div>
+      <div class="calc-out">
+        <div class="co"><b id="pjCoins">490 SG7</b><span>YOUR HOLDING AT THE SEVEN STANDARD ($1 = 7 SG7)</span></div>
+        <div class="co"><b id="pjVolume">$14.17B</b><span>SCENARIO SETTLEMENT VOLUME THAT YEAR</span></div>
+        <div class="co"><b id="pjSupply">9.094B SG7</b><span>TOTAL SUPPLY AT YEAR END — BURNED DOWN FROM 10B</span></div>
+        <div class="co"><b id="pjBurned">0.906B SG7</b><span>CUMULATIVE BURNED BY THEN — THE SUPPLY SHRINK</span></div>
+      </div>
+      <div class="calc-hero">
+        <div class="ch-label">Possible value under this scenario</div>
+        <div class="ch-value" id="pjValue">$763.50</div>
+        <div class="ch-sub" id="pjShare">490 SG7 = 0.0000054% of the Year-10 supply under the Base scenario</div>
+      </div>
+      <p class="calc-deriv" id="pjDeriv">DERIVATION — notional per coin = scenario volume ÷ year-end supply = $14.17B ÷ 9.094B = $1.55817 per SG7 (a velocity-of-one illustration: the coin's aggregate value set equal to one year of settlement volume). 490 × $1.55817 = $763.50. At the Seven Standard itself, the same 490 SG7 is $70 of in-ecosystem value — the design's own conversion, unchanged. Full method: White Paper §9B.</p>
+      <p class="disclaimer-line">SCENARIO VOLUMES ARE ASSUMPTIONS CHOSEN TO DISPLAY THE MECHANISM — NOT PREDICTIONS. REAL VOLUME COULD BE ZERO. "GROWTH" HERE MEANS GROWTH OF THE ECOSYSTEM UNDER A STATED ASSUMPTION — NEVER GROWTH OF ANYONE'S MONEY.</p>
     </div>
   </section>
 
@@ -560,10 +648,77 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
     </div>
   </section>
 
-  <!-- 06 WHITE PAPER -->
+  <!-- 06 THE FACTORY -->
+  <section id="factory">
+    <div class="sec-head rv">
+      <div class="eyebrow">06 · The Factory</div>
+      <h2>Built in the <span class="gold-text">Factory.</span></h2>
+      <p>One product bench, priced in SG7 at the Seven Standard. Every line is a standing reason to acquire and hold the coin for <em>use</em> — agent plans, swarm deployments, scans, sponsorships, guides, artifacts. All lines proposed; every existing dollar price and checkout stays exactly as it is.</p>
+    </div>
+    <div class="fac">
+      <article class="panel fcard rv">
+        <div class="glyph">A</div><h3>Alice Agent Plans</h3>
+        <p>The nine agents — receptionist, follow-up, reviews, estimator, content, repo, operator, captions, guardian — paid monthly in the coin.</p>
+        <div class="price">203 – 2,079 SG7 / MO</div>
+      </article>
+      <article class="panel fcard rv">
+        <div class="glyph">T</div><h3>Alice Platform Tiers</h3>
+        <p>Founding, Starter, Pro, and White-label — the flagship subscriptions denominated in SG7.</p>
+        <div class="price">343 – 3,479 SG7 / MO</div>
+      </article>
+      <article class="panel fcard rv">
+        <div class="glyph">W</div><h3>AI Website Generation</h3>
+        <p>The generated-site offer — the smallest-priced line in the catalog, sized to be a first purchase.</p>
+        <div class="price">70 SG7 · ONE-TIME</div>
+      </article>
+      <article class="panel fcard rv">
+        <div class="glyph">N</div><h3>NanoPay Bots Deployment</h3>
+        <p>Acquiring and running the swarm itself — the gate product that manufactures every future holder.</p>
+        <div class="price">PER DEPLOYMENT · AT DESIGN LOCK</div>
+      </article>
+      <article class="panel fcard rv">
+        <div class="glyph">C</div><h3>Cybersecurity Nanobots</h3>
+        <p>WatchTower oversight, plus the proposed Deep Scan report — recurring protection, priced in SG7.</p>
+        <div class="price">203 SG7 / MO · 70 SG7 PER SCAN</div>
+      </article>
+      <article class="panel fcard rv">
+        <div class="glyph">S</div><h3>Station Sponsorships</h3>
+        <p>Sponsored blocks on AI News Daily and segment sponsorships on SG7 Wire — outside budgets become SG7 demand.</p>
+        <div class="price">RATE CARD IN SG7 · PROPOSED</div>
+      </article>
+      <article class="panel fcard rv">
+        <div class="glyph">B</div><h3>Playbook &amp; Sovereign Local AI</h3>
+        <p>The sovereignty library — the Playbook bundle and the local-AI guide, priced for the brand's home crowd.</p>
+        <div class="price">≈ 175 SG7 · ≈ 140 SG7</div>
+      </article>
+      <article class="panel fcard rv">
+        <div class="glyph">F</div><h3>Seven Standard Field Guide</h3>
+        <p>The plain-English handbook: mandates, the gate, the burn, how to verify a claim. The first read, bought with the coin it explains.</p>
+        <div class="price">49 SG7</div>
+      </article>
+      <article class="panel fcard rv">
+        <div class="glyph">M</div><h3>Merch &amp; Member Artifacts</h3>
+        <p>Crowned Seven trade dress on apparel, and the numbered Founder-Era Member Artifact — issued only to swarm-attested holders.</p>
+        <div class="price">203 SG7 · 700 SG7</div>
+      </article>
+      <article class="panel fcard wide rv">
+        <div class="glyph">V</div><h3>SG7 WIRE — The Show <span class="ptag">PROPOSED</span></h3>
+        <p>The coin's own news show: the Settlement Report, the Burn Report, the Road to Value scoreboard, Builder Spotlight, and the Mandate Minute — a sister segment alongside AI News Daily, never merged with it. The ecosystem's numbers, reported on a cadence, with the receipts attached.</p>
+        <div class="price">WEEKLY REPORT + TWICE-WEEKLY BRIEF · CONCEPT PACKAGE READY</div>
+      </article>
+      <article class="panel fcard wide rv">
+        <div class="glyph">R</div><h3>Creator Rewards <span class="ptag">PROPOSED</span></h3>
+        <p>Creators paid in SG7 for approved, published videos — 350 SG7 short-form · 1,400 SG7 long-form · 700 SG7 livestream segment — from a proposed 100,000,000 SG7 pool. Swarm-attested wallets only, and every paid video must disclose it: <strong style="color:var(--bone)">"Paid promotion — compensated in SG7."</strong> No disclosure, no payment. (White Paper §9C.) An <strong style="color:var(--bone)">airdrop budget</strong> (proposed 200,000,000 SG7) sits beside it — dropped only to x401-verified, swarm-attested wallets, in campaign tranches: the airdrop that can't be farmed by bots. (White Paper §9D.)</p>
+        <div class="price">NO SWARM. NO COIN. — EARNING INCLUDED</div>
+      </article>
+    </div>
+    <p class="disclaimer-line rv">ALL LINES PROPOSED — CONCEPT STAGE. SG7 PRICES ARE THE SAME LINES DENOMINATED AT THE SEVEN STANDARD; NOTHING HERE IS AN INVESTMENT OFFER, AND NO LINE IS MARKETED ON RESALE VALUE.</p>
+  </section>
+
+  <!-- 07 WHITE PAPER -->
   <section id="whitepaper">
     <div class="sec-head rv">
-      <div class="eyebrow">06 · The White Paper</div>
+      <div class="eyebrow">07 · The White Paper</div>
       <h2>Read the <span class="gold-text">whole argument.</span></h2>
       <p>The Concept White Paper (v0.1 · October 2026) lays out the problem — meme money, anonymous agents, oversized rails — the five utility pillars, the bot-gated distribution model, the proposed token parameters, the competitive case against meme coins and plain stablecoins, and a risk section that states plainly what SG7 is not. Read Section 10 twice.</p>
     </div>
@@ -575,10 +730,10 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
     </div>
   </section>
 
-  <!-- 07 ROADMAP -->
+  <!-- 08 ROADMAP -->
   <section id="roadmap">
     <div class="sec-head rv">
-      <div class="eyebrow">07 · The Road to Value</div>
+      <div class="eyebrow">08 · The Road to Value</div>
       <h2>A sequence, <span class="gold-text">not a promise.</span></h2>
       <p>No dates are attached to any phase. A roadmap with dates would be a promise; this is an order of operations — and the legal gate sits inside the foundation, before anything else can move.</p>
     </div>
@@ -615,10 +770,10 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
     </div>
   </section>
 
-  <!-- 08 WAITLIST -->
+  <!-- 09 WAITLIST -->
   <section id="waitlist">
     <div class="panel waitlist rv">
-      <div class="eyebrow" style="justify-content:center">08 · The Waitlist</div>
+      <div class="eyebrow" style="justify-content:center">09 · The Waitlist</div>
       <h2>Acquire the swarm.<br><span class="gold-text">Access the standard.</span></h2>
       <p>The waitlist carries design updates only: new papers, design-lock publications, legal-gate outcomes, and phase changes. No payment. No purchase. There is nothing to buy.</p>
       <a class="btn btn-gold" href="mailto:capital7lllc@gmail.com?subject=SG7%20waitlist">Join the SG7 Waitlist</a>
@@ -721,6 +876,42 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
       ctx.globalAlpha = 1;
     })(0);
   }
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+  /* ---------- GROWTH PROJECTOR (White Paper §9B) ----------
+     Every figure below is transcribed verbatim from burn-model.md §5:
+     vol = scenario settlement volume that year ($B), sup = total supply
+     at year end (B SG7), burn = cumulative burned (B SG7). The only math
+     performed is the §9B derivation: notional per coin = vol / sup. */
+  var PJ = {
+    low:  { name:"Low",  vol:[0.25,0.31,0.39,0.49,0.61,0.76,0.95,1.19,1.49,1.86],  sup:[9.994,9.987,9.977,9.966,9.951,9.933,9.911,9.883,9.849,9.807], burn:[0.006,0.013,0.023,0.034,0.049,0.067,0.089,0.117,0.151,0.193] },
+    base: { name:"Base", vol:[0.50,0.72,1.05,1.52,2.21,3.20,4.65,6.74,9.77,14.17], sup:[9.988,9.971,9.946,9.910,9.859,9.786,9.684,9.542,9.349,9.094], burn:[0.012,0.029,0.054,0.090,0.141,0.214,0.316,0.458,0.651,0.906] },
+    high: { name:"High", vol:[1.00,1.65,2.72,4.49,7.41,12.23,20.18,33.30,54.94,90.65], sup:[9.976,9.937,9.873,9.772,9.611,9.364,9.005,8.522,7.955,7.429], burn:[0.024,0.063,0.127,0.228,0.389,0.636,0.995,1.478,2.045,2.571] }
+  };
+  var amt = document.getElementById("pjAmount"), sel = document.getElementById("pjScenario"),
+      yr = document.getElementById("pjYear"), yrL = document.getElementById("pjYearLabel"),
+      el = function(id){ return document.getElementById(id); };
+  if (!amt || !sel || !yr) return;
+  function money(v){ return "$" + v.toLocaleString("en-US",{minimumFractionDigits:2, maximumFractionDigits:2}); }
+  function run(){
+    var D = parseFloat(amt.value); if (isNaN(D) || D < 0) D = 0;
+    var s = PJ[sel.value], y = parseInt(yr.value, 10), i = y - 1;
+    var coins = D * 7, vol = s.vol[i], sup = s.sup[i], burned = s.burn[i];
+    var per = vol / sup, val = coins * per, share = sup > 0 ? (coins / (sup * 1e9)) * 100 : 0;
+    yrL.textContent = "Year " + y;
+    el("pjCoins").textContent = coins.toLocaleString("en-US") + " SG7";
+    el("pjVolume").textContent = "$" + vol.toFixed(2) + "B";
+    el("pjSupply").textContent = sup.toFixed(3) + "B SG7";
+    el("pjBurned").textContent = burned.toFixed(3) + "B SG7";
+    el("pjValue").textContent = money(val);
+    el("pjShare").textContent = coins.toLocaleString("en-US") + " SG7 = " + share.toFixed(7) + "% of the Year-" + y + " supply under the " + s.name + " scenario";
+    el("pjDeriv").textContent = "DERIVATION — notional per coin = scenario volume ÷ year-end supply = $" + vol.toFixed(2) + "B ÷ " + sup.toFixed(3) + "B = $" + per.toFixed(5) + " per SG7 (a velocity-of-one illustration: the coin's aggregate value set equal to one year of settlement volume). " + coins.toLocaleString("en-US") + " × $" + per.toFixed(5) + " = " + money(val) + ". At the Seven Standard itself, the same " + coins.toLocaleString("en-US") + " SG7 is " + money(D) + " of in-ecosystem value — the design's own conversion, unchanged. Full method: White Paper §9B.";
+  }
+  amt.addEventListener("input", run); sel.addEventListener("change", run); yr.addEventListener("input", run);
+  run();
 })();
 </script>
 </body>
