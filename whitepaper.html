@@ -119,6 +119,25 @@ footer a{color:var(--gold-hi); text-decoration:none}
   .status-callout{padding:15px 17px}
   blockquote{padding-left:16px; font-size:1.06rem}
 }
+
+/* ---------- VIDEO TILES (ecosystem strip) ---------- */
+.vt-doc-head{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.26em;color:var(--gold);text-transform:uppercase;margin:34px 0 6px}
+.vt-doc-sub{font-size:.92rem;color:var(--bone-dim);margin:0 0 16px}
+.vt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:0 0 10px}
+@media(max-width:560px){.vt-grid{grid-template-columns:1fr}}
+.vtile{position:relative;overflow:hidden;border:1px solid var(--panel-border);border-radius:14px;
+  background:linear-gradient(165deg, rgba(255,255,255,.05), rgba(255,255,255,.012));
+  padding:18px;display:flex;flex-direction:column;text-decoration:none;
+  transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease}
+.vtile:hover{transform:translateY(-3px);border-color:rgba(246,205,110,.6)}
+.vtile .vt-visual{height:118px;border-radius:10px;overflow:hidden;margin-bottom:14px;border:1px solid rgba(217,164,65,.28);background:#07070d}
+.vtile .vt-visual video{width:100%;height:100%;display:block;object-fit:cover}
+.vtile h3{font-family:'Cinzel',serif;font-size:1rem;font-weight:800;color:#fff;letter-spacing:.05em;margin:0 0 6px}
+.vtile p{color:var(--bone-dim);font-size:.88rem;line-height:1.6;flex:1;margin:0}
+.vtile .vt-link{margin-top:12px;display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;
+  font-size:.68rem;letter-spacing:.14em;color:var(--gold-hi)}
+.vtile:hover .vt-link{text-decoration:underline}
+@media (prefers-reduced-motion: reduce){.vtile{transition:none}}
 </style>
 </head>
 <body>
@@ -131,6 +150,46 @@ footer a{color:var(--gold-hi); text-decoration:none}
 <h1 class="doctitle">SOVEREIGN GOLD SEVEN (SG7)</h1>
 <h2 class="docsubtitle">Programmable Money for the Agent Economy — Authorized, Identity-Verified, Settled in Nano-Amounts</h2>
 <p class="docmeta"><strong>White Paper — Concept Draft v0.1 · October 2026</strong> <strong>Status: CONCEPT / PAPER STAGE ONLY. No token has been issued. Nothing in this document is an offer to sell a security or any other asset. See Section 10 (Risks &amp; Disclaimers) before reading anything else as fact.</strong></p>
+<div class="vt-doc-head">The Ecosystem In Tiles</div>
+<p class="vt-doc-sub">The doors this paper describes — in motion. The paper stays a paper; the doors are one tap each.</p>
+<div class="vt-grid">
+      <a class="vtile" href="store.html">
+        <div class="vt-visual"><video data-vtile muted loop playsinline autoplay preload="metadata" poster="assets/tiles/tile-store.jpg" src="assets/tiles/tile-store.mp4" aria-label="THE STORE — video tile"></video></div>
+        <h3>THE STORE</h3>
+        <p>Sovereign Gold Coin Seven on the things people actually wear, drink from, hang, and drive — every line priced in SG7 at the Seven Standard.</p>
+        <span class="vt-link">ENTER THE STORE →</span>
+      </a>
+      <a class="vtile" href="hall.html">
+        <div class="vt-visual"><video data-vtile muted loop playsinline autoplay preload="metadata" poster="assets/tiles/tile-court.jpg" src="assets/tiles/tile-court.mp4" aria-label="THE GOLDEN HALL — video tile"></video></div>
+        <h3>THE GOLDEN HALL</h3>
+        <p>The coin's meeting hall — the tile-view Court, the Green Room, and the wall of seats, live in your browser.</p>
+        <span class="vt-link">ENTER THE HALL →</span>
+      </a>
+      <a class="vtile" href="hall.html">
+        <div class="vt-visual"><video data-vtile muted loop playsinline autoplay preload="metadata" poster="assets/tiles/tile-wire.jpg" src="assets/tiles/tile-wire.mp4" aria-label="SG7 WIRE — video tile"></video></div>
+        <h3>SG7 WIRE</h3>
+        <p>The coin's own news desk — live editions from the Hall's stage, and the board showcases, recorded in the open.</p>
+        <span class="vt-link">WATCH THE WIRE →</span>
+      </a>
+      <a class="vtile" href="metrics.html">
+        <div class="vt-visual"><video data-vtile muted loop playsinline autoplay preload="metadata" poster="assets/tiles/tile-metrics.jpg" src="assets/tiles/tile-metrics.mp4" aria-label="THE METRICS BOARD — video tile"></video></div>
+        <h3>THE METRICS BOARD</h3>
+        <p>The public ledger of growth — eyes, users, settlement, burn — published in the open, never estimated.</p>
+        <span class="vt-link">READ THE BOARD →</span>
+      </a>
+      <a class="vtile" href="https://aliceaihub.xyz" target="_blank" rel="noopener">
+        <div class="vt-visual"><video data-vtile muted loop playsinline autoplay preload="metadata" poster="assets/tiles/tile-office.jpg" src="assets/tiles/tile-office.mp4" aria-label="THE OFFICE — video tile"></video></div>
+        <h3>THE OFFICE</h3>
+        <p>Alice — the AI office behind the ecosystem. AI agents for local businesses, live and selling today.</p>
+        <span class="vt-link">VISIT THE OFFICE →</span>
+      </a>
+      <a class="vtile" href="https://aliceaihub.xyz/pricing.html" target="_blank" rel="noopener">
+        <div class="vt-visual"><video data-vtile muted loop playsinline autoplay preload="metadata" poster="assets/tiles/tile-offers.jpg" src="assets/tiles/tile-offers.mp4" aria-label="OFFERS — video tile"></video></div>
+        <h3>OFFERS</h3>
+        <p>The office's offers — plans, agents, and the $9.99 site. The ecosystem's cash register, open now.</p>
+        <span class="vt-link">SEE THE OFFERS →</span>
+      </a>
+</div>
 <hr>
 <h2>1. Abstract</h2>
 <p>The next economy will not be run by people clicking "buy." It will be run by AI agents — software acting on behalf of humans — requesting data, hiring other agents, paying for services, and moving money thousands of times a day in amounts too small for today's payment rails.</p>
@@ -432,5 +491,35 @@ footer a{color:var(--gold-hi); text-decoration:none}
   Concept stage &mdash; no token has been issued, offered, or sold<br>
   <a href="index.html">&larr; Back to SG7</a>
 </footer>
+
+<script>
+/* video tiles: pause off-screen; posters only under reduced motion */
+(function(){
+  var vids = document.querySelectorAll('video[data-vtile]');
+  if (!vids.length) return;
+  var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  var reduced = !!(mq && mq.matches);
+  if (reduced) {
+    vids.forEach(function(v){ v.removeAttribute('autoplay'); v.pause(); });
+    if (mq && mq.addEventListener) mq.addEventListener('change', function(){ location.reload(); });
+    return;
+  }
+  if (!('IntersectionObserver' in window)) return;
+  var visible = new Set();
+  function tryPlay(v){ var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      var v = en.target;
+      if (en.isIntersecting) { visible.add(v); tryPlay(v); }
+      else { visible.delete(v); v.pause(); }
+    });
+  }, {rootMargin: '60px'});
+  vids.forEach(function(v){ io.observe(v); });
+  /* strict autoplay policies: a first tap anywhere wakes the visible tiles */
+  var kick = function(){ visible.forEach(tryPlay); window.removeEventListener('pointerdown', kick); window.removeEventListener('touchstart', kick); };
+  window.addEventListener('pointerdown', kick);
+  window.addEventListener('touchstart', kick);
+})();
+</script>
 </body>
 </html>
