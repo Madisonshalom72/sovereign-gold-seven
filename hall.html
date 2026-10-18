@@ -175,7 +175,7 @@ nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);-webkit-backdrop
   display:inline-flex;gap:.5em;align-items:center}
 .readout b{color:var(--gold-hi2);font-weight:700}
 .readout .rd-cyan{color:var(--cyan)}
-.stage-screen{position:relative;aspect-ratio:16/9;background:
+.stage-screen{position:relative;width:100%;aspect-ratio:16/9;min-height:480px;background:
   radial-gradient(700px 380px at 50% 0%, rgba(246,205,110,.14), transparent 65%),
   radial-gradient(500px 300px at 85% 110%, rgba(58,226,255,.06), transparent 60%),
   linear-gradient(180deg,#0b0f1e 0%, #07070d 100%)}
@@ -196,10 +196,45 @@ nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);-webkit-backdrop
 @keyframes coinTurn{0%,100%{transform:rotateY(0deg)}50%{transform:rotateY(360deg)}}
 .stage-idle h3{font-family:'Cinzel',serif;font-size:clamp(1.3rem,2.8vw,1.85rem);font-weight:800;color:#fff;letter-spacing:.05em}
 .stage-idle p{color:var(--bone-dim);font-size:.98rem;max-width:540px}
-.stage-idle .btn{margin-top:18px}
+.stage-idle .btn{margin-top:0}
+.stage-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:18px}
 .stage-note{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:#8f8875;margin-top:14px;line-height:1.7}
 #courtRoom{display:none;width:100%;height:100%;position:relative;z-index:3}
 #courtRoom iframe{display:block;width:100%;height:100%;border:0}
+/* LIVE STAGE SIZING CONTRACT — while the room is open the stage is a working
+   surface, not a poster: the 16/9 poster box is under 190px tall on a phone,
+   which crops the meeting's own title bar and bottom toolbar inside the frame.
+   In .live the box gets a tall, explicit height at every width, and the iframe
+   keeps filling the box exactly (width/height 100%, no transform, no scaling),
+   so the room's full interface is inside the frame and tappable. */
+.stage-screen.live{aspect-ratio:auto;height:min(80vh,720px);min-height:560px}
+/* On narrow screens the idle overlay joins the flow so the stage box grows to
+   fit it — coin, Enter and Record controls, and every note line stay inside
+   the frame instead of being center-cropped by it. The live box above keeps
+   its explicit height once the room opens (the overlay is hidden by then). */
+@media(max-width:940px){.stage-screen{aspect-ratio:auto}.stage-idle{position:relative;inset:auto}}
+.stage-note.host{color:#cdb87e}
+#recLine{text-align:center;margin-top:14px}
+.bar-right{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.rec-dot{flex:none;width:9px;height:9px;border-radius:50%;background:#ff5252;box-shadow:0 0 10px rgba(255,82,82,.75)}
+.btn.rec-on{border-color:rgba(255,82,82,.75);color:#ffc4c4}
+#rdRec.rec-live{color:#ff7070}
+@keyframes enterPulse{0%{box-shadow:0 0 0 0 rgba(246,205,110,.55), 0 8px 28px rgba(217,164,65,.35)}100%{box-shadow:0 0 0 24px rgba(246,205,110,0), 0 8px 28px rgba(217,164,65,.35)}}
+.btn.pulse{animation:enterPulse .8s ease-out 3}
+@keyframes framePulse{0%{outline:3px solid rgba(246,205,110,.85);outline-offset:0}100%{outline:3px solid rgba(246,205,110,0);outline-offset:12px}}
+.stage-frame.pulse{animation:framePulse .8s ease-out 3}
+/* Court Wall seats are controls: they take the visitor to the stage. */
+.seat{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.seat:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.seat .seat-go{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.16em;color:var(--gold-hi)}
+.seat.throne .seat-go{font-size:.7rem;color:var(--gold-hi2)}
+/* The sealed Chamber tile answers a tap in place — it never opens anything. */
+.hall-tile.sealed{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.hall-tile.sealed:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.hall-tile.sealed.open{border-color:rgba(246,205,110,.65)}
+.hall-tile .sealed-note{display:none;margin-top:14px;border:1px dashed rgba(217,164,65,.45);border-radius:12px;
+  padding:12px 14px;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.06em;line-height:1.7;color:var(--gold-hi2)}
+.hall-tile.sealed.open .sealed-note{display:block}
 .court-lower{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;margin-top:18px;align-items:start}
 @media(max-width:940px){.court-lower{grid-template-columns:1fr}}
 .etiquette{display:grid;grid-template-columns:1fr;gap:18px}
@@ -314,12 +349,45 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
 .rv{opacity:0;transform:translateY(26px);transition:opacity .85s cubic-bezier(.2,.7,.2,1), transform .85s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 
+/* ---------- SMALL SCREENS · FIT + EVENNESS ---------- */
+@media(max-width:640px){
+  .wrap{padding:0 16px}
+  section{padding:54px 0 4px}
+  .nav-in{gap:10px;padding:10px 0}
+  .brand{gap:8px;min-width:0}
+  .brand svg{width:30px;height:30px;flex:none}
+  .brand .bname{font-size:.72rem;letter-spacing:.07em;white-space:nowrap}
+  .brand .bname small{display:none}
+  .nav-links{gap:0}
+  .nav-links .btn.small{padding:.5rem .8rem;font-size:.75rem;white-space:nowrap}
+  .eyebrow{font-size:.62rem;letter-spacing:.18em;gap:10px}
+  .eyebrow::before{width:24px}
+  .hall-hero .eyebrow::after{width:24px}
+  .panel{padding:26px 22px}
+  .gr-panel{padding:24px 20px}
+  .gr-head>*{min-width:0}
+  .gr-panel .gr-title{font-size:.6rem;letter-spacing:.16em}
+  .stage-bar{padding:12px 14px}
+  .coin-turn{width:76px;height:76px;margin-bottom:8px}
+  .stage-idle{padding:22px 18px}
+  .stage-idle p{font-size:.9rem}
+  .stage-screen{min-height:520px}
+  .stage-screen.live{height:82vh;height:82dvh;min-height:560px;max-height:820px}
+  .wall-title{font-size:.62rem;letter-spacing:.18em}
+  .wall-sub{font-size:.6rem;letter-spacing:.12em}
+  .schedule-panel .sched-line{max-width:100%;white-space:normal;line-height:1.6;text-align:center}
+  .schedule-panel .sched-line .dot{flex:none}
+  .chamber-panel{padding:28px 22px}
+  .waitlist{padding:44px 20px}
+}
+
 /* ---------- REDUCED MOTION ---------- */
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   .ticker-track,.medallion svg,.medallion .halo,.coin-turn svg,.stage-screen::after,.seat.throne .throne-coin::after,.stage-bar .sb-name::before{animation:none!important}
   .rv{opacity:1;transform:none;transition:none}
   .btn,.seat,.hall-tile,.bg-card{transition:none}
+  .btn.pulse,.stage-frame.pulse{animation:none!important}
 }
 </style>
 </head>
@@ -495,14 +563,17 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
     <div class="stage-frame rv">
       <div class="stage-bar">
         <span class="sb-name">THE COURT · GOLDEN HALL</span>
-        <div class="readouts" aria-hidden="true">
+        <span class="bar-right">
+          <button class="btn btn-ghost small rec-btn" id="recBtnBar" type="button" aria-pressed="false"><span class="rec-dot" aria-hidden="true"></span><span class="rec-label">RECORD SESSION</span></button>
+          <span class="readouts" aria-hidden="true">
           <span class="readout">SYS · <b id="rdSys">STANDBY</b></span>
           <span class="readout">LAYOUT · <b>TILE GRID</b></span>
           <span class="readout">ENTRY · <b id="rdEntry">TAP TO OPEN</b></span>
-          <span class="readout">REC · <b class="rd-cyan">ANNOUNCED ONLY</b></span>
-        </div>
+          <span class="readout">REC · <b class="rd-cyan" id="rdRec">ANNOUNCED ONLY</b></span>
+          </span>
+        </span>
       </div>
-      <div class="stage-screen">
+      <div class="stage-screen" id="stageScreen">
         <span class="hud-corner tl"></span><span class="hud-corner tr"></span><span class="hud-corner bl"></span><span class="hud-corner br"></span>
         <div class="stage-idle" id="courtIdle">
           <div class="coin-turn" aria-hidden="true"><svg viewBox="0 0 600 600" aria-hidden="true">
@@ -541,12 +612,20 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
               </svg></div>
           <h3>The room is dark until you enter.</h3>
           <p>The meeting loads only when you tap. You land in the Green Room first — the pre-join check — with your camera and microphone off, joining muted, the court laid out in tile view.</p>
-          <button class="btn btn-gold" id="enterCourt" type="button">Enter the Court</button>
+          <div class="stage-actions">
+            <button class="btn btn-gold" id="enterCourt" type="button">Enter the Court</button>
+            <button class="btn btn-ghost rec-btn" id="recBtnIdle" type="button" aria-pressed="false"><span class="rec-dot" aria-hidden="true"></span><span class="rec-label">RECORD SESSION</span></button>
+          </div>
           <div class="stage-note" id="courtNote">FREE MEETING ROOM · RUNS INSIDE THIS PAGE · NO ACCOUNT, NO DOWNLOAD</div>
+          <div class="stage-note host" id="courtHostNote">FIRST IN? YOU ARE THE HOST — IF THE ROOM ASKS YOU TO LOG IN, LOG IN THERE TO OPEN THE COURT, OR WAIT A MOMENT WHILE IT OPENS. EVERYONE AFTER YOU WALKS STRAIGHT IN.</div>
+          <div class="stage-note" id="recHelp">Open sessions only — recording is announced before the red light, every time.</div>
+          <div class="stage-note" id="recHelp2">A RECORDING MADE HERE SAVES AS A FILE ON YOUR OWN DEVICE — NOTHING IS UPLOADED ANYWHERE.</div>
         </div>
         <div id="courtRoom" role="region" aria-label="The Court — live meeting room"></div>
       </div>
     </div>
+
+    <p class="stage-note" id="recLine" role="status" hidden></p>
 
     <div class="wall rv">
       <div class="wall-head">
@@ -554,7 +633,7 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
         <span class="wall-sub">WHO HOLDS THE FLOOR WHEN THE COURT SITS</span>
       </div>
       <div class="wall-grid">
-        <div class="seat throne">
+        <div class="seat throne" role="button" tabindex="0" aria-label="The Throne, host seat — go to the Court stage">
           <span class="seat-tag">HOST SEAT</span>
           <div class="throne-coin" aria-hidden="true"><svg viewBox="0 0 600 600" aria-hidden="true">
                 <defs>
@@ -592,45 +671,52 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
               </svg></div>
           <h4>THE THRONE</h4>
           <p>The host's seat. The sitting is called to order from here, the floor is kept from here, and the court is closed from here.</p>
+          <div class="seat-go" aria-hidden="true">HOST SEAT — TAP TO GO TO THE STAGE →</div>
         </div>
-        <div class="seat">
+        <div class="seat" role="button" tabindex="0" aria-label="The Chair — go to the Court stage">
           <span class="seat-tag">OFFICER</span>
           <div class="seat-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#d9a441" stroke-width="2.4" stroke-linecap="round"><path d="M14 6v18M34 6v18M14 16h20M9 24h30M12 24v14M36 24v14M9 38h30M24 6v7"/></svg></div>
           <h4>THE CHAIR</h4>
           <p>Convenes the sitting and holds the agenda. Recognizes speakers in turn; no one holds the floor unrecognized.</p>
+          <div class="seat-go" aria-hidden="true">TAP TO GO TO THE STAGE →</div>
         </div>
-        <div class="seat">
+        <div class="seat" role="button" tabindex="0" aria-label="Sergeant-at-Arms — go to the Court stage">
           <span class="seat-tag">OFFICER</span>
           <div class="seat-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#d9a441" stroke-width="2.4" stroke-linecap="round"><circle cx="17" cy="24" r="8"/><path d="M25 24h15M34 24v7M40 24v5"/></svg></div>
           <h4>SERGEANT-AT-ARMS</h4>
           <p>Keeps the door and the peace of the room. Admits by the host's leave and removes disruption without debate.</p>
+          <div class="seat-go" aria-hidden="true">TAP TO GO TO THE STAGE →</div>
         </div>
-        <div class="seat">
+        <div class="seat" role="button" tabindex="0" aria-label="The Secretary — go to the Court stage">
           <span class="seat-tag">OFFICER</span>
           <div class="seat-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#d9a441" stroke-width="2.4" stroke-linecap="round"><rect x="13" y="7" width="22" height="34" rx="3"/><path d="M19 16h10M19 23h10M19 30h7"/></svg></div>
           <h4>THE SECRETARY</h4>
           <p>Keeps the minutes — the Secretary's bot takes the notes at the table. Nothing counts until it is written into the record.</p>
+          <div class="seat-go" aria-hidden="true">TAP TO GO TO THE STAGE →</div>
         </div>
-        <div class="seat">
+        <div class="seat" role="button" tabindex="0" aria-label="SG7 Wire stage — go to the Court stage">
           <span class="seat-tag">ON AIR DESK</span>
           <div class="seat-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#d9a441" stroke-width="2.4" stroke-linecap="round"><circle cx="24" cy="24" r="3.2" fill="#d9a441" stroke="none"/><path d="M16.8 16.8a10.2 10.2 0 0 0 0 14.4M31.2 16.8a10.2 10.2 0 0 1 0 14.4M12.2 12.2a16.8 16.8 0 0 0 0 23.6M35.8 12.2a16.8 16.8 0 0 1 0 23.6"/></svg></div>
           <h4>SG7 WIRE — STAGE</h4>
           <p>The broadcast seat. Live editions of the WIRE are hosted from here, facing the gallery.</p>
+          <div class="seat-go" aria-hidden="true">TAP TO GO TO THE STAGE →</div>
         </div>
-        <div class="seat wide">
+        <div class="seat wide" role="button" tabindex="0" aria-label="The Gallery — go to the Court stage">
           <span class="seat-tag">COMMUNITY</span>
           <div class="seat-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#d9a441" stroke-width="2.2"><rect x="7" y="10" width="9" height="9" rx="2.5"/><rect x="19.5" y="10" width="9" height="9" rx="2.5"/><rect x="32" y="10" width="9" height="9" rx="2.5"/><rect x="7" y="25" width="9" height="9" rx="2.5"/><rect x="19.5" y="25" width="9" height="9" rx="2.5"/><rect x="32" y="25" width="9" height="9" rx="2.5"/></svg></div>
           <h4>THE GALLERY</h4>
           <p>Community seating — open to anyone who walks in. Attendance confers no status, no membership, and no claim.</p>
+          <div class="seat-go" aria-hidden="true">TAP TO GO TO THE STAGE →</div>
         </div>
-        <div class="seat wide">
+        <div class="seat wide" role="button" tabindex="0" aria-label="The Floor — go to the Court stage">
           <span class="seat-tag">COMMUNITY</span>
           <div class="seat-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#d9a441" stroke-width="2.4" stroke-linecap="round"><path d="M12 13h24M17 13v19M31 13v19M9 38h30M24 13V8"/><circle cx="24" cy="5.5" r="2.3" fill="#d9a441" stroke="none"/></svg></div>
           <h4>THE FLOOR</h4>
           <p>Where a guest of the gallery is heard — by the host's leave, in turn, on the record.</p>
+          <div class="seat-go" aria-hidden="true">TAP TO GO TO THE STAGE →</div>
         </div>
       </div>
-      <p class="wall-note">The Court's seating — live faces appear in the room when a session opens.</p>
+      <p class="wall-note">The Court's seating — live faces appear in the room when a session opens. Tap any seat to go to the stage.</p>
     </div>
 
     <div class="court-lower">
@@ -712,12 +798,13 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
         <p>Live sessions, face to face in the browser — the tile-view court, hosted from the throne, gallery beneath. The room opens on your tap.</p>
         <a class="tile-link" href="#court">ENTER THE COURT →</a>
       </div>
-      <div class="hall-tile sealed rv">
+      <div class="hall-tile sealed rv" id="chamberTile" role="button" tabindex="0" aria-expanded="false" aria-label="The Chamber — sealed, by invitation only">
         <span class="sealed-chip">SEALED</span>
         <div class="tile-visual"><span class="tv-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#d9a441" stroke-width="2.2"><rect x="6" y="4" width="36" height="40" rx="6" stroke-dasharray="4 5" opacity=".65"/><path d="M17 40V20a7 7 0 0 1 14 0v20"/><circle cx="24" cy="27" r="3" fill="#d9a441" stroke="none"/></svg></span></div>
         <h3>THE CHAMBER</h3>
         <p>The inner working room of the Founding Principals, the Seven Seats, and the Role Reserve — described here, entered only by invitation.</p>
         <span class="tile-none">ITS DOOR IS NOT ON THIS PAGE</span>
+        <div class="sealed-note" id="chamberNote">SEALED — BY INVITATION ONLY. The Chamber's door is handed to a person by name; it is never published, posted, or linked — there is nothing here to tap through to. That is the point of a sealed door.</div>
       </div>
       <div class="hall-tile rv">
         <div class="tile-visual"><span class="tv-coin" aria-hidden="true"><svg viewBox="0 0 600 600" aria-hidden="true">
@@ -756,13 +843,13 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
               </svg></span></div>
         <h3>SG7 WIRE</h3>
         <p>The coin's show — live editions broadcast from the Hall's stage, and where the recorded board showcases air for everyone to watch.</p>
-        <span class="tile-none">AIR TIMES ANNOUNCED ON THE SCHEDULE</span>
+        <a class="tile-link" href="#schedule">AIR TIMES ANNOUNCED ON THE SCHEDULE →</a>
       </div>
       <div class="hall-tile rv">
         <div class="tile-visual"><span class="tv-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#d9a441" stroke-width="2.2" stroke-linecap="round"><rect x="11" y="5" width="26" height="38" rx="3"/><path d="M17 14h14M17 21h14M17 28h9"/><circle cx="31" cy="35" r="4.5" fill="rgba(217,164,65,.25)"/></svg></span></div>
         <h3>THE RECORD</h3>
         <p>Minutes, decisions, and the Genesis Drop Ledger — records kept in the open, where anyone can check them in the open.</p>
-        <span class="tile-none">WRITTEN BY THE SECRETARY · KEPT IN THE OPEN</span>
+        <a class="tile-link" href="#schedule">WRITTEN BY THE SECRETARY · KEPT IN THE OPEN →</a>
       </div>
       <div class="hall-tile rv">
         <div class="tile-visual"><span class="tv-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#d9a441" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19v10h6l15 9V10L15 19H9Z"/><path d="M35 17a9 9 0 0 1 0 14"/></svg></span></div>
@@ -893,6 +980,8 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
   if(!btn){ return; }
   btn.addEventListener('click', function(){
     btn.disabled = true;
+    var screen = document.getElementById('stageScreen');
+    if(screen){ screen.classList.add('live'); }
     btn.textContent = 'OPENING THE COURT…';
     if(rdSys){ rdSys.textContent = 'OPENING'; }
     if(rdEntry){ rdEntry.textContent = 'GREEN ROOM'; }
@@ -930,6 +1019,8 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
       window.SG7Court = api;
     };
     s.onerror = function(){
+      var screen2 = document.getElementById('stageScreen');
+      if(screen2){ screen2.classList.remove('live'); }
       btn.disabled = false;
       btn.textContent = 'ENTER THE COURT';
       if(rdSys){ rdSys.textContent = 'STANDBY'; }
@@ -958,7 +1049,7 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
   ];
   var FALLBACK_ANN = [
     'THE GOLDEN HALL IS OPEN — THE COURT SITS ON THE ANNOUNCED SCHEDULE',
-    'THE HISTORY SERIES RUNS TEN PARTS — GOLD, FROM LYDIA TO THE SOVEREIGN',
+    'THE HISTORY SERIES RUNS ELEVEN PARTS — GOLD, FROM LYDIA TO THE MESSIAH',
     'THE SG7 STORE IS LIVE — TWENTY-FOUR PRODUCTS AT THE SEVEN STANDARD',
     'CONCEPT STAGE — NO TOKEN HAS BEEN ISSUED, OFFERED, OR SOLD'
   ];
@@ -1080,6 +1171,128 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
     });
   }
   loadHeadlines();
+})();
+</script>
+
+<script>
+/* THE COURT WALL + SEALED TILE — every seat is a working control: a tap (or
+   Enter/Space on the keyboard) carries the visitor to the Court stage and
+   pulses the Enter control — or, once the room is open, the stage frame.
+   The sealed Chamber tile answers in place; it links nowhere, by design. */
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function goToStage(){
+    var frame = document.querySelector('.stage-frame');
+    var idle = document.getElementById('courtIdle');
+    var btn = document.getElementById('enterCourt');
+    if(frame){ frame.scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block: 'center'}); }
+    setTimeout(function(){
+      var roomOpen = idle && idle.style.display === 'none';
+      var target = (!roomOpen && btn) ? btn : frame;
+      if(!target){ return; }
+      target.classList.remove('pulse');
+      void target.offsetWidth;
+      target.classList.add('pulse');
+      setTimeout(function(){ target.classList.remove('pulse'); }, 2600);
+    }, reduced ? 60 : 650);
+  }
+  document.querySelectorAll('.seat').forEach(function(seat){
+    seat.addEventListener('click', goToStage);
+    seat.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); goToStage(); }
+    });
+  });
+  var tile = document.getElementById('chamberTile');
+  if(tile){
+    var toggle = function(){
+      var open = tile.classList.toggle('open');
+      tile.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    tile.addEventListener('click', toggle);
+    tile.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+    });
+  }
+})();
+</script>
+
+<script>
+/* RECORD SESSION — an honest screen recorder for the public Court.
+   Desktop-class browsers: the browser's own picker chooses what to capture
+   (this tab, a window, or the screen); the recording is assembled in the page
+   and saved as a file on the visitor's OWN device. Nothing is uploaded
+   anywhere — there is no server side to this control at all.
+   Phone browsers generally expose no capture API to web pages: the control
+   then shows the built-in-recorder instruction in place. It never pretends
+   to record when it cannot. */
+(function(){
+  var FALLBACK = 'On a phone, use your built-in screen recorder from the swipe-down panel to record the court.';
+  var btns = [document.getElementById('recBtnIdle'), document.getElementById('recBtnBar')].filter(Boolean);
+  var line = document.getElementById('recLine');
+  var rdRec = document.getElementById('rdRec');
+  if(!btns.length){ return; }
+  var supported = !!(navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia && window.MediaRecorder);
+  var recording = false, rec = null, stream = null, chunks = [], timer = null, t0 = 0;
+
+  function showLine(txt){ if(line){ line.hidden = false; line.textContent = txt; } }
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function fmt(ms){
+    var s = Math.floor(ms / 1000), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), ss = s % 60;
+    return (h > 0 ? h + ':' + pad(m) : pad(m)) + ':' + pad(ss);
+  }
+  function setState(){
+    btns.forEach(function(b){
+      var l = b.querySelector('.rec-label');
+      if(l){ l.textContent = recording ? 'STOP RECORDING' : 'RECORD SESSION'; }
+      b.classList.toggle('rec-on', recording);
+      b.setAttribute('aria-pressed', recording ? 'true' : 'false');
+    });
+    if(rdRec){
+      rdRec.classList.toggle('rec-live', recording);
+      if(!recording){ rdRec.textContent = 'ANNOUNCED ONLY'; }
+    }
+  }
+  function tick(){ if(rdRec && recording){ rdRec.textContent = '● REC ' + fmt(Date.now() - t0); } }
+  function stopTracks(){ if(stream){ stream.getTracks().forEach(function(t){ try{ t.stop(); }catch(e){} }); stream = null; } }
+  function finish(){
+    if(timer){ clearInterval(timer); timer = null; }
+    var type = (rec && rec.mimeType) ? rec.mimeType : 'video/webm';
+    var blob = new Blob(chunks, {type: type});
+    chunks = []; rec = null;
+    recording = false; setState(); stopTracks();
+    if(!blob.size){ showLine('THE RECORDING CAME BACK EMPTY — NOTHING WAS SAVED.'); return; }
+    var ext = type.indexOf('mp4') >= 0 ? 'mp4' : 'webm';
+    var d = new Date();
+    var name = 'SG7-Court-Session-' + d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) +
+               '-' + pad(d.getHours()) + pad(d.getMinutes()) + '.' + ext;
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = name;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+    showLine('SAVED — THE RECORDING IS A FILE ON YOUR DEVICE (' + name + '). NOTHING WAS UPLOADED.');
+  }
+  function stopRecording(){ if(rec && rec.state !== 'inactive'){ rec.stop(); } else { recording = false; setState(); stopTracks(); } }
+  function startRecording(){
+    if(!supported){ showLine(FALLBACK); return; }
+    navigator.mediaDevices.getDisplayMedia({video: true, audio: true}).then(function(st){
+      stream = st;
+      chunks = [];
+      try { rec = new MediaRecorder(stream); }
+      catch(e){ stopTracks(); showLine('THIS BROWSER COULD NOT START A RECORDING. ' + FALLBACK); return; }
+      rec.ondataavailable = function(ev){ if(ev.data && ev.data.size){ chunks.push(ev.data); } };
+      rec.onstop = finish;
+      var vt = stream.getVideoTracks()[0];
+      if(vt){ vt.addEventListener('ended', function(){ if(recording){ stopRecording(); } }); }
+      rec.start(1000);
+      recording = true; t0 = Date.now(); setState(); tick();
+      timer = setInterval(tick, 500);
+      showLine('RECORDING — THE RED LIGHT IS ON. TAP STOP RECORDING TO SAVE THE FILE TO YOUR DEVICE.');
+    }).catch(function(){
+      showLine('RECORDING CANCELLED — NOTHING WAS CAPTURED.');
+    });
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ recording ? stopRecording() : startRecording(); }); });
 })();
 </script>
 
