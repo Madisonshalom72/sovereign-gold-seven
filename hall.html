@@ -147,7 +147,8 @@ nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);-webkit-backdrop
 .bg-card{border:1px solid var(--panel-border);border-radius:16px;overflow:hidden;background:rgba(10,12,20,.6);
   transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease}
 .bg-card:hover{transform:translateY(-4px);border-color:rgba(246,205,110,.6);box-shadow:0 16px 38px rgba(0,0,0,.5), 0 8px 30px rgba(217,164,65,.14)}
-.bg-card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.bg-card img,.bg-card video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#07070d}
+.bg-note{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;color:#8f8875;margin-top:10px}
 .bg-card .bg-meta{padding:14px 16px 16px}
 .bg-card h4{font-family:'Cinzel',serif;font-size:.98rem;font-weight:800;color:#fff;letter-spacing:.03em}
 .bg-card p{color:var(--bone-dim);font-size:.84rem;margin:5px 0 12px;line-height:1.55}
@@ -543,9 +544,10 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
         <span class="gr-title">THE BACKDROP PACK · TAKE ONE WITH YOU</span>
         <span class="gr-how">INSIDE THE ROOM: OPEN THE ⋯ MENU → VIRTUAL BACKGROUND → ADD YOURS.</span>
       </div>
+      <p class="bg-note">THE PREVIEWS MOVE — THE DOWNLOAD IS THE FULL STILL BACKDROP.</p>
       <div class="bg-grid">
         <div class="bg-card">
-          <img src="assets/backgrounds/throne-room.jpg" alt="The Throne Room backdrop — a grand navy court with gold columns of light and the SG7 medallion overhead" loading="lazy">
+          <video data-vtile muted loop playsinline autoplay preload="metadata" poster="assets/backgrounds/throne-room.jpg" src="assets/backgrounds/bg-throne.mp4" aria-label="The Throne Room backdrop — a grand navy court with gold columns of light and the SG7 medallion overhead — video preview"></video>
           <div class="bg-meta">
             <h4>The Throne Room</h4>
             <p>The grand court — columns of light, the medallion overhead, the floor line in gold.</p>
@@ -553,7 +555,7 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
           </div>
         </div>
         <div class="bg-card">
-          <img src="assets/backgrounds/court-wall.jpg" alt="The Court Wall backdrop — the Hall's seating-tile wall with the SG7 medallion in the hero tile" loading="lazy">
+          <video data-vtile muted loop playsinline autoplay preload="metadata" poster="assets/backgrounds/court-wall.jpg" src="assets/backgrounds/bg-court.mp4" aria-label="The Court Wall backdrop — the Hall's seating-tile wall with the SG7 medallion in the hero tile — video preview"></video>
           <div class="bg-meta">
             <h4>The Court Wall</h4>
             <p>The seating wall itself behind you — the room, carried into your room.</p>
@@ -561,7 +563,7 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
           </div>
         </div>
         <div class="bg-card">
-          <img src="assets/backgrounds/seal-navy-studio.jpg" alt="Seal Navy Studio backdrop — a clean navy studio field with the SG7 medallion in the corner" loading="lazy">
+          <video data-vtile muted loop playsinline autoplay preload="metadata" poster="assets/backgrounds/seal-navy-studio.jpg" src="assets/backgrounds/bg-studio.mp4" aria-label="Seal Navy Studio backdrop — a clean navy studio field with the SG7 medallion in the corner — video preview"></video>
           <div class="bg-meta">
             <h4>Seal Navy Studio</h4>
             <p>Clean Seal Navy and a single gold rule — the seal in the corner, nothing to distract.</p>
@@ -569,7 +571,7 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
           </div>
         </div>
         <div class="bg-card">
-          <img src="assets/backgrounds/the-vault.jpg" alt="The Vault backdrop — deep navy with a concentric gold door-ring and the SG7 medallion sealed at its center" loading="lazy">
+          <video data-vtile muted loop playsinline autoplay preload="metadata" poster="assets/backgrounds/the-vault.jpg" src="assets/backgrounds/bg-vault.mp4" aria-label="The Vault backdrop — deep navy with a concentric gold door-ring and the SG7 medallion sealed at its center — video preview"></video>
           <div class="bg-meta">
             <h4>The Vault</h4>
             <p>The door-ring of the vault, turning in gold — the coin sealed at its center.</p>
