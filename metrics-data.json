@@ -186,9 +186,9 @@
   ],
   "ticker": "SG7",
   "ga": {
-    "property": null,
+    "property": 559434443,
     "status": "pending",
-    "note": "No GA4 property exists for the coin site yet. When it is created, these are the headline numbers it reports — the same four Madison reads on the Alice property — pulled weekly into this file.",
+    "note": "GA4 property created (559434443, measurement ID G-0493ZR1LN2) and the tag is live in the page code on index, store, and metrics — data pending first sessions: counting starts when the pages republish, and the headline numbers are then pulled weekly into this file. The white paper page gets its tag in a later pass.",
     "users": null,
     "sessions": null,
     "views": null,
