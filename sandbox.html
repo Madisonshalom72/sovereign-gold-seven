@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sandbox — Sovereign Gold Coin Seven · Build on the Standard</title>
+<meta name="description" content="The Sandbox — the drafting table of Sovereign Gold Coin Seven (SG7): a high-tech futuristic sandbox world where builders sketch smart cities and kingdoms in the Seven Standard's dress. Concept stage — no token has been issued, offered, or sold.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+Phoenician&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0493ZR1LN2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0493ZR1LN2');
+</script>
+<style>
+
+:root{
+  --gold:#d9a441; --gold-hi:#f6cd6e; --gold-hi2:#ffe9a8; --gold-deep:#966c20;
+  --ink:#0a0a0e; --navy:#0d1120; --bone:#ece8df; --bone-dim:#b9b2a2;
+  --cyan:#3ae2ff; --up:#3ce68f; --dn:#ff7070;
+  --panel:linear-gradient(160deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
+  --panel-border:rgba(217,164,65,.24);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Space Grotesk',system-ui,sans-serif; color:var(--bone);
+  background:
+    radial-gradient(1200px 720px at 50% -8%, rgba(246,205,110,.16), transparent 62%),
+    radial-gradient(900px 620px at 88% 18%, rgba(58,226,255,.05), transparent 60%),
+    radial-gradient(800px 600px at 8% 55%, rgba(217,164,65,.05), transparent 60%),
+    linear-gradient(180deg,#0c1122 0%, #0a0a0e 52%, #07070b 100%);
+  background-attachment:fixed;
+  overflow-x:hidden; line-height:1.6;
+}
+::selection{background:var(--gold); color:#171106}
+a{color:var(--gold-hi)}
+.mono{font-family:'JetBrains Mono',monospace}
+.serif{font-family:'Cinzel',serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+section{padding:72px 0 8px;position:relative}
+.sec-head{max-width:820px;margin-bottom:40px}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.34em;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:38px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+h1,h2{font-family:'Cinzel',serif;line-height:1.08;color:#fff}
+h2{font-size:clamp(1.9rem,4.4vw,3rem);font-weight:800;margin:16px 0 14px}
+.sec-head p{color:var(--bone-dim);font-size:1.06rem;max-width:680px}
+.sec-head p strong{color:var(--bone)}
+.gold-text{background:linear-gradient(100deg,var(--gold-hi2) 0%,var(--gold-hi) 35%,var(--gold) 65%,var(--gold-deep) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(8,9,14,.72);border-bottom:1px solid rgba(217,164,65,.22)}
+.nav-in{display:flex;align-items:center;gap:18px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--bone)}
+.brand .bname{font-family:'Cinzel',serif;font-weight:800;letter-spacing:.14em;font-size:.86rem;color:#fff}
+.brand .bname small{display:block;font-family:'JetBrains Mono',monospace;font-weight:400;letter-spacing:.3em;font-size:.58rem;color:var(--gold)}
+.nav-links{margin-left:auto;display:flex;gap:26px;align-items:center}
+.nav-links a{color:var(--bone-dim);text-decoration:none;font-size:.86rem;letter-spacing:.06em}
+.nav-links a:hover{color:var(--gold-hi)}
+.nav-links a.on{color:var(--gold-hi)}
+@media(max-width:900px){.nav-links a:not(.btn){display:none}}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.04em;
+  padding:.82rem 1.55rem;border-radius:999px;font-size:.95rem;transition:transform .25s ease, box-shadow .25s ease;cursor:pointer;border:none;font-family:inherit}
+.btn-gold{background:linear-gradient(180deg,var(--gold-hi2),var(--gold-hi) 30%,var(--gold) 62%,#b98a2e);color:#1c1305;
+  border:1px solid #6e4d12;box-shadow:0 8px 28px rgba(217,164,65,.35), inset 0 1px 0 #fff3cf}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(217,164,65,.45), inset 0 1px 0 #fff3cf}
+.btn-gold:disabled{opacity:.65;transform:none;cursor:wait}
+.btn-ghost{background:rgba(217,164,65,.06);color:var(--bone);border:1px solid rgba(217,164,65,.45)}
+.btn-ghost:hover{transform:translateY(-2px);border-color:var(--gold)}
+.btn.small{padding:.55rem 1.1rem;font-size:.82rem}
+.panel{background:var(--panel);border:1px solid var(--panel-border);border-radius:20px;
+  padding:34px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.disclaimer-line{margin-top:18px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.06em;color:#cdb87e;line-height:1.7}
+.concept-line{margin-top:26px;display:flex;gap:12px;align-items:flex-start;max-width:640px;
+  border:1px solid rgba(246,205,110,.4);background:rgba(246,205,110,.07);border-radius:12px;padding:12px 16px;
+  font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.05em;color:var(--gold-hi2);line-height:1.55}
+.concept-line .dot{flex:none;width:9px;height:9px;margin-top:5px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 12px var(--gold-hi)}
+footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgba(6,6,10,.6)}
+.foot-in{padding:44px 0 52px;display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center}
+.foot-in .fbrand{font-family:'Cinzel',serif;letter-spacing:.22em;color:#fff;font-size:.9rem}
+.foot-in p{color:var(--bone-dim);font-size:.8rem;max-width:760px;line-height:1.7}
+.foot-in .mono-line{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.14em;color:#8f8875}
+.foot-links{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;line-height:1.9}
+.foot-links a{color:var(--gold-hi);text-decoration:none}
+.foot-links a:hover{color:var(--gold-hi2)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .85s cubic-bezier(.2,.7,.2,1), transform .85s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:640px){
+  section{padding:54px 0 4px}
+  .nav-in{gap:10px;padding:10px 0}
+  .brand{gap:8px;min-width:0}
+  .brand svg{width:30px;height:30px;flex:none}
+  .brand .bname{font-size:.72rem;letter-spacing:.07em;white-space:nowrap}
+  .brand .bname small{display:none}
+  .nav-links{gap:0}
+  .nav-links .btn.small{padding:.5rem .8rem;font-size:.75rem;white-space:nowrap}
+  .eyebrow{font-size:.62rem;letter-spacing:.18em;gap:10px}
+  .eyebrow::before{width:24px}
+  .sb-hero .eyebrow::after{width:24px}
+  .panel{padding:26px 22px}
+  .waitlist{padding:44px 20px}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .ticker-track,.medallion svg,.medallion .halo{animation:none!important}
+  .rv{opacity:1;transform:none;transition:none}
+  .btn,.pal-btn,.tb-btn{transition:none}
+}
+
+/* ---------- LIVE DATA TICKER ---------- */
+.ticker{position:relative;z-index:3;overflow:hidden;
+  background:linear-gradient(90deg, rgba(10,13,24,.97), rgba(16,20,38,.97) 50%, rgba(10,13,24,.97));
+  border-block:1px solid rgba(217,164,65,.55);
+  box-shadow:0 10px 34px rgba(0,0,0,.5), inset 0 1px 0 rgba(246,205,110,.25), inset 0 -1px 0 rgba(58,226,255,.12)}
+.ticker::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg, rgba(7,8,13,.9), transparent 7%, transparent 93%, rgba(7,8,13,.9))}
+.ticker-track{display:flex;width:max-content;animation:tick 95s linear infinite;position:relative}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.tk-group{display:flex;align-items:center;width:max-content}
+.tk-item{display:inline-flex;align-items:center;gap:.55em;white-space:nowrap;padding:.58rem 0;
+  font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.05em;color:var(--bone)}
+.tk-tag{font-weight:700;font-size:.64rem;letter-spacing:.18em;color:#0d1120;background:linear-gradient(180deg,var(--gold-hi),var(--gold));
+  border-radius:4px;padding:.14em .5em}
+.tk-tag.wire{color:var(--gold-hi2);background:rgba(58,226,255,.13);border:1px solid rgba(58,226,255,.4)}
+.tk-sym{font-weight:700;color:#fff}
+.tk-up{color:var(--up);font-weight:700}
+.tk-dn{color:var(--dn);font-weight:700}
+.tk-sep{color:var(--gold);padding:0 1.1rem;font-size:.7rem}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- SANDBOX ---------- */
+.sb-hero{position:relative;padding:58px 0 6px;overflow:hidden;text-align:center}
+.sb-hero .eyebrow{justify-content:center}
+.sb-hero .eyebrow::after{content:"";width:38px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.sb-hero h1{font-size:clamp(2.6rem,7vw,4.4rem);font-weight:900;letter-spacing:.02em;margin:14px 0 10px}
+.sb-hero .lede{max-width:760px;margin:0 auto;color:var(--bone-dim);font-size:1.08rem}
+.sb-hero .lede strong{color:var(--bone)}
+.sb-frame{max-width:820px;margin:26px auto 0;text-align:left}
+.sb-frame p{color:var(--bone-dim);margin-bottom:12px}
+.sb-frame p strong{color:var(--gold-hi)}
+.medallion{position:relative;width:min(216px,52vw);margin:26px auto 4px;filter:drop-shadow(0 18px 44px rgba(217,164,65,.35))}
+.medallion::before{content:"";position:absolute;inset:-22%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle at 50% 46%, rgba(246,205,110,.36), rgba(217,164,65,.12) 48%, transparent 68%)}
+.medallion .halo{position:absolute;inset:-13%;border-radius:50%;pointer-events:none;
+  border:1px dashed rgba(217,164,65,.42);animation:spinSlow 52s linear infinite}
+.medallion .halo::before{content:"";position:absolute;top:-4px;left:50%;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;
+  background:var(--gold-hi);box-shadow:0 0 12px var(--gold-hi)}
+.medallion .halo-b{inset:-25%;border:1px solid rgba(217,164,65,.15);animation:spinRev 78s linear infinite}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+@keyframes spinRev{to{transform:rotate(-360deg)}}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+
+.builder-panel{padding:22px}
+.sb-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}
+.sb-toolbar .tb-label{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.22em;color:var(--gold)}
+#kbName{flex:1 1 210px;min-width:170px;background:rgba(7,9,16,.85);border:1px solid rgba(217,164,65,.45);border-radius:10px;
+  color:var(--gold-hi2);font-family:'Cinzel',serif;font-weight:800;letter-spacing:.14em;font-size:.95rem;
+  padding:.62rem .9rem;text-transform:uppercase;outline:none}
+#kbName:focus{border-color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,164,65,.18)}
+.tb-btn{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;font-weight:700;cursor:pointer;
+  background:rgba(217,164,65,.06);color:var(--bone);border:1px solid rgba(217,164,65,.4);border-radius:999px;padding:.55rem 1rem;transition:all .2s}
+.tb-btn:hover{border-color:var(--gold);color:var(--gold-hi)}
+.tb-btn.on{background:linear-gradient(180deg,var(--gold-hi2),var(--gold-hi) 30%,var(--gold) 62%,#b98a2e);color:#1c1305;border-color:#6e4d12}
+.tb-btn.warn:hover{border-color:#ff7070;color:#ffb1b1}
+.tb-seg{display:inline-flex;border:1px solid rgba(217,164,65,.4);border-radius:999px;overflow:hidden}
+.tb-seg .tb-btn{border:none;border-radius:0}
+.tb-seg .tb-btn + .tb-btn{border-left:1px solid rgba(217,164,65,.4)}
+.sb-stage{position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(217,164,65,.3);
+  background:radial-gradient(900px 500px at 50% 0%, #131a38 0%, #0a0e20 55%, #06070d 100%);
+  box-shadow:inset 0 0 90px rgba(0,0,0,.55)}
+#sbxCanvas{display:block;width:100%;height:560px;touch-action:none;cursor:crosshair}
+.sb-hint{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.1em;color:#8f8875;margin-top:10px;text-align:center}
+.palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px;margin-top:16px}
+.pal-btn{background:rgba(10,13,24,.72);border:1px solid rgba(217,164,65,.25);border-radius:14px;padding:8px 6px 9px;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:2px;transition:all .2s;color:var(--bone)}
+.pal-btn canvas{width:64px;height:64px}
+.pal-btn .pname{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.1em;font-weight:700;text-align:center;color:var(--bone-dim);line-height:1.5}
+.pal-btn:hover{border-color:var(--gold);transform:translateY(-2px)}
+.pal-btn.on{border-color:var(--gold-hi);background:rgba(217,164,65,.1);box-shadow:0 0 0 1px var(--gold-hi), 0 8px 22px rgba(217,164,65,.18)}
+.pal-btn.on .pname{color:var(--gold-hi2)}
+.piece-cap{margin-top:12px;min-height:1.5em;text-align:center;color:var(--bone-dim);font-size:.92rem}
+.piece-cap strong{color:var(--gold-hi);letter-spacing:.06em}
+.sb-stats{display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:center;margin-top:14px;padding-top:14px;border-top:1px solid rgba(217,164,65,.18);
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:var(--gold-hi)}
+.sb-stats .dim{color:#8f8875}
+.save-line{margin-top:10px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.05em;color:#cdb87e;line-height:1.7}
+
+.reg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.reg-card{background:var(--panel);border:1px solid var(--panel-border);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.reg-card .rc-tag{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.24em;color:var(--cyan)}
+.reg-card h3{font-family:'Cinzel',serif;color:#fff;font-size:1.08rem;letter-spacing:.04em}
+.reg-card p{color:var(--bone-dim);font-size:.92rem;flex:1}
+.reg-card a{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;color:var(--gold-hi);text-decoration:none;font-weight:700}
+.reg-card a:hover{color:var(--gold-hi2)}
+.waitlist{padding:48px 34px;text-align:center}
+.waitlist h2{margin:10px 0 12px}
+.waitlist p{color:var(--bone-dim);max-width:560px;margin:0 auto 22px}
+.waitlist .eyebrow{justify-content:center}
+@media(max-width:640px){
+  #sbxCanvas{height:480px}
+  .builder-panel{padding:14px}
+  .palette{grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Sovereign Gold Seven — home">
+      <svg width="38" height="38" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="none" stroke="#d9a441" stroke-width="3" stroke-dasharray="99 20" transform="rotate(-42 24 24)"/><circle cx="40.5" cy="12.5" r="2.4" fill="#3ae2ff"/><text x="24" y="33" text-anchor="middle" font-family="Cinzel,serif" font-weight="900" font-size="23" fill="#f6cd6e">7</text></svg>
+      <span class="bname">SOVEREIGN GOLD SEVEN<small>SG7 · THE SANDBOX</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#pillars">Pillars</a>
+      <a href="index.html#standard">Seven Standard</a>
+      <a href="index.html#factory">Factory</a>
+      <a href="store.html">Store</a>
+      <a href="index.html#whitepaper">White Paper</a>
+      <a href="metrics.html">Metrics</a>
+      <a href="hall.html">Hall</a>
+      <a class="btn btn-gold small" href="index.html#waitlist">Join the Waitlist</a>
+    </div>
+  </div>
+</nav>
+
+<div class="ticker" aria-label="Live data band — SG7 announcements, crypto market prices, and tech and crypto headlines">
+  <div class="ticker-track" id="tickerTrack">
+    <div class="tk-group">
+      <span class="tk-item"><span class="tk-tag">SG7</span> THE GOLDEN HALL IS OPEN — THE COURT SITS ON THE ANNOUNCED SCHEDULE</span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-sym">BTC</span> <span data-price="bitcoin">—</span> <span data-chg="bitcoin"></span></span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-sym">ETH</span> <span data-price="ethereum">—</span> <span data-chg="ethereum"></span></span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-sym">SOL</span> <span data-price="solana">—</span> <span data-chg="solana"></span></span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-tag">SG7</span> SEVEN TO THE DOLLAR ✦ NO SWARM. NO COIN. ✦ YOUR SIGNATURE, OR IT DOESN'T COUNT</span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-sym">XRP</span> <span data-price="ripple">—</span> <span data-chg="ripple"></span></span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-sym">DOGE</span> <span data-price="dogecoin">—</span> <span data-chg="dogecoin"></span></span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-sym">ADA</span> <span data-price="cardano">—</span> <span data-chg="cardano"></span></span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-tag">SG7</span> CONCEPT STAGE — NO TOKEN HAS BEEN ISSUED, OFFERED, OR SOLD</span><span class="tk-sep">✦</span>
+    </div>
+    <div class="tk-group" aria-hidden="true">
+      <span class="tk-item"><span class="tk-tag">SG7</span> THE GOLDEN HALL IS OPEN — THE COURT SITS ON THE ANNOUNCED SCHEDULE</span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-sym">BTC</span> <span data-price="bitcoin">—</span> <span data-chg="bitcoin"></span></span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-sym">ETH</span> <span data-price="ethereum">—</span> <span data-chg="ethereum"></span></span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-sym">SOL</span> <span data-price="solana">—</span> <span data-chg="solana"></span></span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-tag">SG7</span> SEVEN TO THE DOLLAR ✦ NO SWARM. NO COIN. ✦ YOUR SIGNATURE, OR IT DOESN'T COUNT</span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-sym">XRP</span> <span data-price="ripple">—</span> <span data-chg="ripple"></span></span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-sym">DOGE</span> <span data-price="dogecoin">—</span> <span data-chg="dogecoin"></span></span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-sym">ADA</span> <span data-price="cardano">—</span> <span data-chg="cardano"></span></span><span class="tk-sep">✦</span>
+      <span class="tk-item"><span class="tk-tag">SG7</span> CONCEPT STAGE — NO TOKEN HAS BEEN ISSUED, OFFERED, OR SOLD</span><span class="tk-sep">✦</span>
+    </div>
+  </div>
+</div>
+
+<main>
+<header class="sb-hero">
+  <div class="wrap">
+    <div class="eyebrow">The Builder&rsquo;s Floor · The Golden Hall</div>
+    <div class="medallion" role="img" aria-label="The SG7 coin medallion: a deep gold coin with a dentil rim, the crowned seven, and the legends Sovereign Gold Coin Seven and SG7 · Est · MMXXVI."><span class="halo" aria-hidden="true"></span><span class="halo halo-b" aria-hidden="true"></span><svg viewBox="0 0 600 600" aria-hidden="true">
+                <defs>
+                  <radialGradient id="faceGold" cx="42%" cy="36%" r="80%">
+                    <stop offset="0%" stop-color="#ffedb0"/><stop offset="34%" stop-color="#f6cd6e"/>
+                    <stop offset="66%" stop-color="#d9a441"/><stop offset="88%" stop-color="#bb882c"/>
+                    <stop offset="100%" stop-color="#966c20"/>
+                  </radialGradient>
+                  <linearGradient id="rimGold" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#f6cd6e"/><stop offset=".5" stop-color="#a87c28"/><stop offset="1" stop-color="#f0c75e"/>
+                  </linearGradient>
+                  <path id="obvTop" d="M 84,300 A 216,216 0 0 1 516,300"/>
+                  <path id="obvBot" d="M 84,300 A 216,216 0 0 0 516,300"/>
+                </defs>
+                <circle cx="300" cy="300" r="297" fill="url(#rimGold)"/>
+                <circle cx="300" cy="300" r="290" fill="#7c5518"/>
+                <circle cx="300" cy="300" r="283" fill="none" stroke="#5f420f" stroke-width="13" stroke-dasharray="3.5 11.3" opacity=".85"/>
+                <circle cx="300" cy="300" r="266" fill="url(#faceGold)"/>
+                <circle cx="300" cy="300" r="252" fill="none" stroke="rgba(90,60,10,.5)" stroke-width="2"/>
+                <circle cx="300" cy="300" r="182" fill="none" stroke="rgba(90,60,10,.4)" stroke-width="1.5"/>
+                <text font-family="Cinzel,serif" font-weight="700" font-size="27" letter-spacing="5" fill="#3a2708">
+                  <textPath href="#obvTop" startOffset="50%" text-anchor="middle">SOVEREIGN GOLD COIN SEVEN</textPath>
+                </text>
+                <text font-family="Cinzel,serif" font-weight="700" font-size="25" letter-spacing="5" fill="#3a2708">
+                  <textPath href="#obvBot" startOffset="50%" text-anchor="middle">SG7 · EST · MMXXVI</textPath>
+                </text>
+                <rect x="-6" y="-6" width="12" height="12" transform="translate(84,300) rotate(45)" fill="#3a2708"/>
+                <rect x="-6" y="-6" width="12" height="12" transform="translate(516,300) rotate(45)" fill="#3a2708"/>
+                <g fill="#43300a">
+                  <path d="M222 228 L222 174 L261 200 L300 162 L339 200 L378 174 L378 228 Z"/>
+                  <circle cx="222" cy="162" r="10"/><circle cx="300" cy="148" r="10"/><circle cx="378" cy="162" r="10"/>
+                </g>
+                <text x="304" y="466" text-anchor="middle" font-family="Cinzel,serif" font-weight="900" font-size="240" fill="rgba(255,238,180,.5)">7</text>
+                <text x="300" y="462" text-anchor="middle" font-family="Cinzel,serif" font-weight="900" font-size="240" fill="#221503">7</text>
+              </svg></div>
+    <h1>THE <span class="gold-text">SANDBOX</span></h1>
+    <p class="lede">Ethereum lets builders raise apps on a base layer. The Seven Standard lets builders raise <strong>ROOMS</strong> &mdash; and rooms become districts, districts become smart cities, cities become kingdoms.</p>
+    <div class="sb-frame">
+      <p><strong>This page is the drafting table</strong> &mdash; sketch a city in the Standard&rsquo;s dress. Chartered builds on the real Standard open with the architects, after the legal gate.</p>
+      <div class="concept-line"><span class="dot"></span><span>DESIGN-STAGE CONCEPT &mdash; NO TOKEN HAS BEEN ISSUED, OFFERED, OR SOLD. THE SANDBOX IS A SKETCHING TABLE, NOT A FINANCIAL VENUE: IT OFFERS NOTHING, SELLS NOTHING, AND ADVISES NOTHING.</span></div>
+    </div>
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="#builder">Start Building</a>
+      <a class="btn btn-ghost" href="#first-builds">The First Builds</a>
+    </div>
+  </div>
+</header>
+
+<section id="builder">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">The Drafting Table</div>
+      <h2>Raise your <span class="gold-text">kingdom.</span></h2>
+      <p>Pick a piece, tap the plot, and watch a smart city stand up in neon navy and gold &mdash; spires that stream the data, crowns that harvest the sun, halls where the record is kept. <strong>Drag to pan, scroll or pinch to zoom.</strong></p>
+    </div>
+    <div class="panel builder-panel rv">
+      <div class="sb-toolbar">
+        <span class="tb-label">NAME YOUR BUILD</span>
+        <input id="kbName" type="text" maxlength="26" placeholder="UNTITLED KINGDOM" autocomplete="off" aria-label="Name your kingdom">
+        <span class="tb-seg" role="group" aria-label="Mode">
+          <button class="tb-btn on" id="modeBuild" type="button">BUILD</button>
+          <button class="tb-btn" id="modeErase" type="button">ERASE</button>
+        </span>
+        <button class="tb-btn" id="zoomOut" type="button" aria-label="Zoom out">&minus;</button>
+        <button class="tb-btn" id="zoomIn" type="button" aria-label="Zoom in">+</button>
+        <button class="tb-btn warn" id="btnClear" type="button">CLEAR</button>
+        <button class="tb-btn warn" id="btnReset" type="button">RESET</button>
+        <button class="tb-btn" id="btnSnap" type="button">SNAPSHOT PNG</button>
+      </div>
+      <div class="sb-stage">
+        <canvas id="sbxCanvas" aria-label="Sandbox city builder canvas"></canvas>
+      </div>
+      <p class="sb-hint">TAP A TILE TO PLACE &middot; OCCUPIED TILES REFUSE &middot; DRAG TO PAN &middot; WHEEL / PINCH TO ZOOM</p>
+      <div class="palette" id="palette">
+        <button class="pal-btn" type="button" data-piece="spire" aria-label="Place DATA SPIRE"><canvas width="84" height="84" aria-hidden="true"></canvas><span class="pname">DATA SPIRE</span></button>
+        <button class="pal-btn" type="button" data-piece="crown" aria-label="Place SOLAR CROWN TOWER"><canvas width="84" height="84" aria-hidden="true"></canvas><span class="pname">SOLAR CROWN TOWER</span></button>
+        <button class="pal-btn" type="button" data-piece="hall" aria-label="Place THE HALL"><canvas width="84" height="84" aria-hidden="true"></canvas><span class="pname">THE HALL</span></button>
+        <button class="pal-btn" type="button" data-piece="vault" aria-label="Place VAULT DOME"><canvas width="84" height="84" aria-hidden="true"></canvas><span class="pname">VAULT DOME</span></button>
+        <button class="pal-btn" type="button" data-piece="mint" aria-label="Place MINT FOUNDRY"><canvas width="84" height="84" aria-hidden="true"></canvas><span class="pname">MINT FOUNDRY</span></button>
+        <button class="pal-btn" type="button" data-piece="court" aria-label="Place COURT PAVILION"><canvas width="84" height="84" aria-hidden="true"></canvas><span class="pname">COURT PAVILION</span></button>
+        <button class="pal-btn" type="button" data-piece="archive" aria-label="Place ARCHIVE PYRAMID"><canvas width="84" height="84" aria-hidden="true"></canvas><span class="pname">ARCHIVE PYRAMID</span></button>
+        <button class="pal-btn" type="button" data-piece="gate" aria-label="Place SKY GATE"><canvas width="84" height="84" aria-hidden="true"></canvas><span class="pname">SKY GATE</span></button>
+        <button class="pal-btn" type="button" data-piece="plaza" aria-label="Place PLAZA"><canvas width="84" height="84" aria-hidden="true"></canvas><span class="pname">PLAZA</span></button>
+        <button class="pal-btn" type="button" data-piece="habitat" aria-label="Place HABITAT BLOCK"><canvas width="84" height="84" aria-hidden="true"></canvas><span class="pname">HABITAT BLOCK</span></button>
+        <button class="pal-btn" type="button" data-piece="bloom" aria-label="Place POWER BLOOM"><canvas width="84" height="84" aria-hidden="true"></canvas><span class="pname">POWER BLOOM</span></button>
+        <button class="pal-btn" type="button" data-piece="observatory" aria-label="Place OBSERVATORY"><canvas width="84" height="84" aria-hidden="true"></canvas><span class="pname">OBSERVATORY</span></button>
+      </div>
+      <p class="piece-cap" id="pieceCap"></p>
+      <div class="sb-stats"><span id="sbStats"></span><span class="dim" id="sbSaveMsg"></span></div>
+      <p class="save-line">BUILDS SAVE ON <strong>YOUR DEVICE ONLY</strong> &mdash; NOTHING UPLOADS, NOTHING IS SENT ANYWHERE. THE SNAPSHOT IS YOURS TO KEEP OR SHARE.</p>
+    </div>
+  </div>
+</section>
+
+<section id="first-builds">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">The Registry · First Entries</div>
+      <h2>The first builds <span class="gold-text">already stand.</span></h2>
+      <p>The Sandbox is where the next districts are sketched. The first rooms raised on the Standard are already open &mdash; walk them, then come back and draw your own.</p>
+    </div>
+    <div class="reg-grid">
+      <div class="reg-card rv">
+        <span class="rc-tag">ROOM 01 · THE COURT</span>
+        <h3>THE GOLDEN HALL</h3>
+        <p>The coin&rsquo;s court &mdash; live sessions in tile view, the Court Wall of seats, the Green Room, and the sealed Chamber. The first room ever raised on the Standard.</p>
+        <a href="hall.html">ENTER THE HALL &rarr;</a>
+      </div>
+      <div class="reg-card rv">
+        <span class="rc-tag">ROOM 02 · THE BOOK</span>
+        <h3>THE BIBLE ROOM</h3>
+        <p>A quiet room for the Book behind the gold stories &mdash; a Hebrew lexicon of 63 checked words, and the SG7 Media film theater.</p>
+        <a href="bible-room.html">ENTER THE BIBLE ROOM &rarr;</a>
+      </div>
+      <div class="reg-card rv">
+        <span class="rc-tag">ROOM 03 · THE SCHOOL</span>
+        <h3>THE PALEO HEBREW CLASSROOM</h3>
+        <p>Four classes, twenty-two letters, one Reading Room &mdash; learn the ancient script and read the First Commandment yourself.</p>
+        <a href="classroom.html">ENTER THE CLASSROOM &rarr;</a>
+      </div>
+      <div class="reg-card rv">
+        <span class="rc-tag">WORLD 01 · THE GAME</span>
+        <h3>KING&rsquo;S GOLD</h3>
+        <p>The first kingdom in play &mdash; World 1 of the King&rsquo;s quest to take back his vault, playable in the browser. Its levels were sketched on tables like this one.</p>
+        <a href="play/">PLAY KING&rsquo;S GOLD &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="waitlist">
+  <div class="wrap">
+    <div class="panel waitlist rv">
+      <div class="eyebrow">The Waitlist</div>
+      <h2>Be there when the <span class="gold-text">architects open the gate.</span></h2>
+      <p>The waitlist carries design updates and session announcements: new rooms, design-lock publications, legal-gate outcomes, and the first chartered builds. No payment. No purchase. There is nothing to buy.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="mailto:capital7lllc@gmail.com?subject=SG7%20waitlist">Join the SG7 Waitlist</a>
+        <a class="btn btn-ghost" href="hall.html">Back to the Golden Hall</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <svg width="44" height="44" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="none" stroke="#d9a441" stroke-width="3" stroke-dasharray="99 20" transform="rotate(-42 24 24)"/><circle cx="40.5" cy="12.5" r="2.4" fill="#3ae2ff"/><text x="24" y="33" text-anchor="middle" font-family="Cinzel,serif" font-weight="900" font-size="23" fill="#f6cd6e">7</text></svg>
+    <div class="fbrand">SOVEREIGN GOLD SEVEN · SG7 — THE SANDBOX</div>
+    <p>Paper stage only · No token issued · Legal review precedes any issuance · The Sandbox is a community building space — not a financial venue: it offers nothing, sells nothing, and advises nothing. Gold is brand and treasury <em>policy</em> — not collateral, and nothing here is redeemable for gold.</p>
+    <div class="foot-links"><a href="ten-commandments.html">The Ten Commandments</a> · <a href="classroom.html">Paleo Hebrew Classroom</a> · <a href="hall.html">The Golden Hall</a> · <a href="index.html">Home</a> · <a href="bible-room.html">The Bible Room</a></div>
+    <div class="mono-line">© MMXXVI · CAPITAL 7 / THE ALICE ECOSYSTEM · CONCEPT MATERIALS — PROVISIONAL PENDING TRADEMARK CLEARANCE AND LEGAL REVIEW</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:.12});
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
+
+<script>
+/* THE LIVE DATA BAND — one continuous moving stream, three real feeds:
+   SG7 announcements (announcements.json on this site, with an identical
+   built-in fallback), crypto prices (CoinGecko public API, refreshed
+   every 60s IN PLACE — the scroll never restarts), and tech + crypto
+   headlines (public RSS via rss2json). Any feed that fails leaves its
+   slots blank or dashed — a number is never invented. */
+(function(){
+  var track = document.getElementById('tickerTrack');
+  if(!track){ return; }
+  var SEP = '✦';
+  var COINS = [
+    {id:'bitcoin', sym:'BTC'}, {id:'ethereum', sym:'ETH'}, {id:'solana', sym:'SOL'},
+    {id:'ripple', sym:'XRP'}, {id:'dogecoin', sym:'DOGE'}, {id:'cardano', sym:'ADA'}
+  ];
+  var FALLBACK_ANN = [
+    'THE GOLDEN HALL IS OPEN — THE COURT SITS ON THE ANNOUNCED SCHEDULE',
+    'THE HISTORY SERIES RUNS ELEVEN PARTS — GOLD, FROM LYDIA TO THE MESSIAH',
+    'THE SG7 STORE IS LIVE — TWENTY-FOUR PRODUCTS AT THE SEVEN STANDARD',
+    'CONCEPT STAGE — NO TOKEN HAS BEEN ISSUED, OFFERED, OR SOLD'
+  ];
+  function el(tag, cls, text){
+    var e = document.createElement(tag);
+    if(cls){ e.className = cls; }
+    if(text != null){ e.textContent = text; }
+    return e;
+  }
+  function sep(){ return el('span','tk-sep',SEP); }
+  function annItem(text, idx){
+    var it = el('span','tk-item');
+    it.appendChild(el('span','tk-tag','SG7'));
+    var t = el('span', null, text); t.setAttribute('data-ann', String(idx));
+    it.appendChild(t); return it;
+  }
+  function priceItem(c){
+    var it = el('span','tk-item');
+    it.appendChild(el('span','tk-sym', c.sym));
+    var p = el('span', null, '—'); p.setAttribute('data-price', c.id);
+    var ch = el('span', null, ''); ch.setAttribute('data-chg', c.id);
+    it.appendChild(p); it.appendChild(ch); return it;
+  }
+  function newsItem(tag, title){
+    var it = el('span','tk-item');
+    var tg = el('span','tk-tag wire', tag); it.appendChild(tg);
+    it.appendChild(el('span', null, title)); return it;
+  }
+  function buildGroup(){
+    var g = el('div','tk-group');
+    FALLBACK_ANN.slice(0,2).forEach(function(t,i){ g.appendChild(annItem(t,i)); g.appendChild(sep()); });
+    COINS.slice(0,3).forEach(function(c){ g.appendChild(priceItem(c)); g.appendChild(sep()); });
+    var anchorN = el('span'); anchorN.setAttribute('data-news-anchor','1'); anchorN.style.display='contents';
+    g.appendChild(anchorN);
+    FALLBACK_ANN.slice(2).forEach(function(t,i){ g.appendChild(annItem(t,i+2)); g.appendChild(sep()); });
+    COINS.slice(3).forEach(function(c){ g.appendChild(priceItem(c)); g.appendChild(sep()); });
+    var anchorN2 = el('span'); anchorN2.setAttribute('data-news-anchor','2'); anchorN2.style.display='contents';
+    g.appendChild(anchorN2);
+    return g;
+  }
+  var gA = buildGroup(), gB = buildGroup();
+  gB.setAttribute('aria-hidden','true');
+  track.innerHTML = '';
+  track.appendChild(gA); track.appendChild(gB);
+
+  /* — SG7 announcements: refresh the built-in items from the site file — */
+  fetch('announcements.json', {cache:'no-store'}).then(function(r){
+    if(!r.ok){ throw new Error('ann'); } return r.json();
+  }).then(function(d){
+    if(!d || !d.items || !d.items.length){ return; }
+    d.items.slice(0,4).forEach(function(item, i){
+      var txt = (item && item.text) ? String(item.text) : null;
+      if(!txt){ return; }
+      track.querySelectorAll('[data-ann="'+i+'"]').forEach(function(n){ n.textContent = txt; });
+    });
+  }).catch(function(){ /* built-in announcements stand */ });
+
+  /* — Crypto prices: CoinGecko public API, in-place refresh — */
+  function fmtUSD(v){
+    if(v == null || isNaN(v)){ return '—'; }
+    if(v >= 1000){ return '$' + v.toLocaleString('en-US',{maximumFractionDigits:0}); }
+    if(v >= 1){ return '$' + v.toFixed(2); }
+    return '$' + v.toFixed(4);
+  }
+  function setAll(attr, val){
+    track.querySelectorAll('['+attr+']').forEach(function(n){ n.textContent = val; });
+  }
+  function loadPrices(){
+    var url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,ripple,dogecoin,cardano&vs_currencies=usd&include_24hr_change=true';
+    fetch(url, {cache:'no-store'}).then(function(r){
+      if(!r.ok){ throw new Error('cg'); } return r.json();
+    }).then(function(d){
+      COINS.forEach(function(c){
+        var p = d[c.id]; if(!p){ return; }
+        track.querySelectorAll('[data-price="'+c.id+'"]').forEach(function(n){ n.textContent = fmtUSD(p.usd); });
+        var ch = p.usd_24h_change;
+        track.querySelectorAll('[data-chg="'+c.id+'"]').forEach(function(n){
+          if(ch == null || isNaN(ch)){ n.textContent=''; return; }
+          var up = ch >= 0;
+          n.textContent = (up ? '▲ ' : '▼ ') + Math.abs(ch).toFixed(2) + '%';
+          n.className = up ? 'tk-up' : 'tk-dn';
+        });
+      });
+    }).catch(function(){ /* slots stay dashed — never invent a price */ });
+  }
+  loadPrices();
+  setInterval(loadPrices, 60000);
+
+  /* — Headlines: CoinDesk + Cointelegraph (crypto) and TechCrunch (tech) via rss2json — */
+  var FEEDS = [
+    {tag:'COINDESK', url:'https://www.coindesk.com/arc/outboundfeeds/rss/'},
+    {tag:'COINTELEGRAPH', url:'https://cointelegraph.com/rss'},
+    {tag:'TECHCRUNCH', url:'https://techcrunch.com/feed/'}
+  ];
+  function injectHeadlines(items){
+    if(!items.length){ return; }
+    track.querySelectorAll('[data-news-anchor]').forEach(function(anchor){
+      items.forEach(function(h){
+        anchor.parentNode.insertBefore(newsItem(h.tag, h.title), anchor);
+        anchor.parentNode.insertBefore(sep(), anchor);
+      });
+    });
+  }
+  function loadHeadlines(){
+    var jobs = FEEDS.map(function(f){
+      var u = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(f.url);
+      return fetch(u, {cache:'no-store'}).then(function(r){ return r.json(); }).then(function(d){
+        if(!d || d.status !== 'ok' || !d.items){ return []; }
+        return d.items.slice(0,4).map(function(it){ return {tag:f.tag, title:String(it.title || '').trim()}; })
+          .filter(function(h){ return h.title.length > 0; });
+      }).catch(function(){ return []; });
+    });
+    Promise.all(jobs).then(function(results){
+      var all = [];
+      /* interleave sources so the stream alternates desks */
+      var max = Math.max.apply(null, results.map(function(r){ return r.length; }).concat([0]));
+      for(var i=0;i<max;i++){ results.forEach(function(r){ if(r[i]){ all.push(r[i]); } }); }
+      injectHeadlines(all.slice(0,9));
+    });
+  }
+  loadHeadlines();
+})();
+</script>
+
+
+<script>
+/* THE SANDBOX — a playable isometric drafting table.
+   Vanilla canvas: a 12x12 glowing plot, twelve pieces drawn in code,
+   pan/zoom camera, ghost placement, autosave to THIS device only. */
+(function(){
+'use strict';
+var GRID = 12, TW = 68, TH = 34;
+var LS_KEY = 'sg7SandboxV1';
+var canvas = document.getElementById('sbxCanvas');
+var ctx = canvas.getContext('2d');
+var W = 0, H = 0, DPR = 1;
+var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+var cam = {x:0, y:0, z:1};
+var state = {name:'', pieces:{}};
+var selected = 'spire', mode = 'build';
+var hover = null, refuse = {key:null, at:-9};
+var lastOrder = [];
+var saveMsg = document.getElementById('sbSaveMsg');
+
+/* ---------- helpers ---------- */
+function hash(n){ var x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+function key(x,y){ return x + ',' + y; }
+function proj(x, y, z){
+  return [W/2 + cam.x + (x - y) * (TW/2) * cam.z,
+          148 + cam.y + (x + y) * (TH/2) * cam.z - (z||0) * cam.z];
+}
+function poly(pts, fill, stroke, lw){
+  ctx.beginPath();
+  ctx.moveTo(pts[0][0], pts[0][1]);
+  for(var i=1;i<pts.length;i++){ ctx.lineTo(pts[i][0], pts[i][1]); }
+  ctx.closePath();
+  if(fill){ ctx.fillStyle = fill; ctx.fill(); }
+  if(stroke){ ctx.strokeStyle = stroke; ctx.lineWidth = lw || 1; ctx.stroke(); }
+}
+function ellipse(cx, cy, rx, ry, fill, stroke, lw){
+  ctx.beginPath(); ctx.ellipse(cx, cy, Math.max(rx,.1), Math.max(ry,.1), 0, 0, Math.PI*2);
+  if(fill){ ctx.fillStyle = fill; ctx.fill(); }
+  if(stroke){ ctx.strokeStyle = stroke; ctx.lineWidth = lw || 1; ctx.stroke(); }
+}
+/* one small lit window inside a face quad [bl,br,tr,tl] */
+function win(quad, u, v, du, dv, color, a){
+  function lerp(p,q,t){ return [p[0]+(q[0]-p[0])*t, p[1]+(q[1]-p[1])*t]; }
+  var b = lerp(quad[0], quad[1], u), tp = lerp(quad[3], quad[2], u);
+  var b2 = lerp(quad[0], quad[1], u+du), tp2 = lerp(quad[3], quad[2], u+du);
+  poly([lerp(b,tp,v), lerp(b2,tp2,v), lerp(b2,tp2,v+dv), lerp(b,tp,v+dv)],
+       'rgba(' + color + ',' + a.toFixed(3) + ')', null);
+}
+function faceWindows(quad, rows, cols, seed, t, warm){
+  for(var r=0;r<rows;r++){ for(var c=0;c<cols;c++){
+    var h1 = hash(seed + r*17.3 + c*7.9);
+    if(h1 < 0.22) continue;                       /* dark window */
+    var fl = reduced ? 0.8 : 0.55 + 0.45 * Math.sin(t*1.6 + h1*40.0);
+    var a = 0.25 + 0.6 * Math.max(0, fl) * (0.5 + h1*0.5);
+    var col = (warm && h1 > 0.45) ? '246,205,110' : '120,225,255';
+    win(quad, 0.10 + (c + 0.22) * (0.80/cols), 0.10 + (r + 0.2) * (0.78/rows),
+        0.5 * (0.80/cols), 0.42 * (0.78/rows), col, a);
+  }}
+}
+/* an isometric box on the current tile context C.P; returns its face quads */
+function box(C, x0,y0,x1,y1, z0, h, colTop, colL, colR, edge){
+  var P = C.P, z1 = z0 + h;
+  var sB = P(x0,y1,z0), sF = P(x1,y1,z0), eB = P(x1,y0,z0);
+  var sBt = P(x0,y1,z1), sFt = P(x1,y1,z1), eBt = P(x1,y0,z1), nT = P(x0,y0,z1);
+  var south = [sB, sF, sFt, sBt], east = [sF, eB, eBt, sFt];
+  poly(south, colL, edge); poly(east, colR, edge);
+  poly([nT, eBt, sFt, sBt], colTop, edge);
+  return {south:south, east:east};
+}
+var NAVY = {top:'#22305f', l:'#141d40', r:'#0d1430', edge:'rgba(120,170,255,.28)'};
+var GOLDTRIM = 'rgba(217,164,65,.55)';
+
+/* ---------- the twelve pieces ---------- */
+var PIECES = {};
+function def(id, name, cap, stat, maxH, draw){ PIECES[id] = {id:id, name:name, cap:cap, stat:stat, maxH:maxH, draw:draw}; }
+
+def('spire','DATA SPIRE','streams the district\u2019s data skyward \u2014 the nervous system of the smart city.','spire',182, function(g,C){
+  var f = box(C, .34,.34,.66,.66, 0, 116, NAVY.top, NAVY.l, NAVY.r, NAVY.edge);
+  faceWindows(f.south, 6, 1, C.seed, C.t, false); faceWindows(f.east, 6, 1, C.seed+3, C.t, false);
+  box(C, .41,.41,.59,.59, 116, 26, '#2a3a70', '#18224a', '#101736', NAVY.edge);
+  var a = C.P(.5,.5,142), b = C.P(.5,.5,178);
+  g.strokeStyle = 'rgba(58,226,255,.8)'; g.lineWidth = 1.6*C.s;
+  g.beginPath(); g.moveTo(a[0],a[1]); g.lineTo(b[0],b[1]); g.stroke();
+  var pulse = reduced ? .8 : .55 + .45*Math.sin(C.t*2.6 + C.seed);
+  g.save(); g.shadowColor = '#3ae2ff'; g.shadowBlur = 14*C.s*pulse;
+  ellipse(b[0], b[1], 3.4*C.s, 3.4*C.s, 'rgba(160,240,255,'+(0.55+0.45*pulse)+')', null); g.restore();
+});
+def('crown','SOLAR CROWN TOWER','a crown of light panels \u2014 harvests the sun and powers the block.','spire',112, function(g,C){
+  var f = box(C, .26,.26,.74,.74, 0, 82, NAVY.top, NAVY.l, NAVY.r, NAVY.edge);
+  faceWindows(f.south, 4, 2, C.seed, C.t, true); faceWindows(f.east, 4, 2, C.seed+5, C.t, true);
+  for(var i=0;i<6;i++){
+    var a = i*Math.PI/3 + (reduced ? 0 : C.t*0.12);
+    var c = C.P(.5 + .30*Math.cos(a), .5 + .30*Math.sin(a), 94 + (i%2)*7);
+    g.save(); g.translate(c[0], c[1]); g.rotate(0.5);
+    g.fillStyle = 'rgba(246,205,110,.92)'; g.strokeStyle = 'rgba(150,108,32,.9)'; g.lineWidth = 1;
+    var w = 8.5*C.s, h = 4.4*C.s;
+    g.beginPath(); g.moveTo(0,-h); g.lineTo(w,0); g.lineTo(0,h); g.lineTo(-w,0); g.closePath(); g.fill(); g.stroke(); g.restore();
+  }
+  var gem = C.P(.5,.5,104);
+  g.save(); g.shadowColor = '#f6cd6e'; g.shadowBlur = 16*C.s;
+  ellipse(gem[0], gem[1], 4*C.s, 4*C.s, '#ffe9a8', null); g.restore();
+});
+def('hall','THE HALL','where the district gathers \u2014 governance, ceremony, and the record.','hall',60, function(g,C){
+  var f = box(C, .12,.20,.88,.80, 0, 42, '#26336a', '#16204a', '#0e173a', GOLDTRIM);
+  faceWindows(f.south, 2, 4, C.seed, C.t, true); faceWindows(f.east, 2, 2, C.seed+7, C.t, true);
+  box(C, .06,.13,.94,.87, 42, 8, '#8a6a24', '#5f420f', '#4a340c', GOLDTRIM);
+  g.strokeStyle = 'rgba(246,205,110,.75)'; g.lineWidth = 1.6*C.s;
+  [.22,.40,.60,.78].forEach(function(lx){
+    var p1 = C.P(lx,.80,3), p2 = C.P(lx,.80,40);
+    g.beginPath(); g.moveTo(p1[0],p1[1]); g.lineTo(p2[0],p2[1]); g.stroke();
+  });
+  var e = C.P(.5,.8,24);
+  g.save(); g.translate(e[0], e[1]); g.rotate(Math.PI/4);
+  g.fillStyle = '#f6cd6e'; var s = 4.6*C.s; g.fillRect(-s/2,-s/2,s,s); g.restore();
+});
+def('vault','VAULT DOME','the treasury under glass and gold \u2014 reserves kept in the open.',null,86, function(g,C){
+  box(C, .16,.16,.84,.84, 0, 14, NAVY.top, NAVY.l, NAVY.r, GOLDTRIM);
+  var ctr = C.P(.5,.5,14), rx = C.tw*0.37*C.s, ry = rx*0.60;
+  var grad = g.createLinearGradient(0, ctr[1]-ry, 0, ctr[1]);
+  grad.addColorStop(0, 'rgba(255,233,168,.95)'); grad.addColorStop(.55, 'rgba(217,164,65,.75)'); grad.addColorStop(1, 'rgba(150,108,32,.6)');
+  g.beginPath(); g.ellipse(ctr[0], ctr[1], rx, ry, 0, Math.PI, 0); g.closePath();
+  g.fillStyle = grad; g.fill(); g.strokeStyle = 'rgba(111,77,18,.9)'; g.lineWidth = 1.2; g.stroke();
+  [.62,.3].forEach(function(k){
+    g.beginPath(); g.ellipse(ctr[0], ctr[1], rx*k, ry, 0, Math.PI, 0);
+    g.strokeStyle = 'rgba(111,77,18,.45)'; g.stroke();
+  });
+  g.beginPath(); g.ellipse(ctr[0], ctr[1], rx, ry*0.34, 0, Math.PI, 0);
+  g.strokeStyle = 'rgba(111,77,18,.45)'; g.stroke();
+  var top = C.P(.5,.5,14 + ry/C.s + 6);
+  g.save(); g.shadowColor = '#f6cd6e'; g.shadowBlur = 12*C.s;
+  ellipse(top[0], top[1], 3*C.s, 3*C.s, '#ffe9a8', null); g.restore();
+});
+def('mint','MINT FOUNDRY','where value is struck \u2014 the district\u2019s works and making.',null,84, function(g,C){
+  var f = box(C, .18,.20,.82,.80, 0, 40, '#232f5e', '#131c3c', '#0c132c', NAVY.edge);
+  faceWindows(f.south, 2, 3, C.seed, C.t, true);
+  box(C, .58,.24,.78,.44, 40, 34, '#2a3a70', '#18224a', '#101736', NAVY.edge);
+  var v = C.P(.68,.34,74), pu = reduced ? .7 : .5 + .5*Math.sin(C.t*3.1 + C.seed);
+  g.save(); g.shadowColor = '#ffb14e'; g.shadowBlur = 16*C.s*pu;
+  ellipse(v[0], v[1], 6.5*C.s, 3.2*C.s, 'rgba(255,177,78,'+(0.5+0.5*pu)+')', null); g.restore();
+  var d = C.P(.5,.8,0);
+  g.fillStyle = 'rgba(246,205,110,.85)'; g.fillRect(d[0]-5*C.s, d[1]-13*C.s, 10*C.s, 13*C.s);
+});
+def('court','COURT PAVILION','open-air assembly beneath a floating canopy \u2014 justice in the light.','hall',62, function(g,C){
+  box(C, .08,.08,.92,.92, 0, 7, '#2b3a74', '#1a2650', '#121c40', GOLDTRIM);
+  [[.12,.12],[.82,.12],[.12,.82],[.82,.82]].forEach(function(pt){
+    box(C, pt[0],pt[1],pt[0]+.06,pt[1]+.06, 7, 42, '#33448a', '#1d2a58', '#141f42', NAVY.edge);
+  });
+  var u = [C.P(.06,.06,49), C.P(.94,.06,49), C.P(.94,.94,49), C.P(.06,.94,49)];
+  poly(u, 'rgba(58,226,255,.16)', null);
+  box(C, .03,.03,.97,.97, 49, 6, '#a87c28', '#7c5518', '#5f420f', GOLDTRIM);
+});
+def('archive','ARCHIVE PYRAMID','every record, kept forever \u2014 the memory of the kingdom.',null,60, function(g,C){
+  box(C, .10,.10,.90,.90, 0, 18, '#26336a', '#16204a', '#0e173a', GOLDTRIM);
+  box(C, .23,.23,.77,.77, 18, 16, '#2b3a74', '#1a2650', '#121c40', GOLDTRIM);
+  box(C, .36,.36,.64,.64, 34, 14, '#33448a', '#1d2a58', '#16224a', GOLDTRIM);
+  var a = C.P(.5,.5,54), pu = reduced ? .8 : .5 + .5*Math.sin(C.t*2.2 + C.seed);
+  g.save(); g.shadowColor = '#f6cd6e'; g.shadowBlur = 15*C.s*pu;
+  g.translate(a[0], a[1]); g.rotate(Math.PI/4);
+  g.fillStyle = '#ffe9a8'; var s = 6*C.s; g.fillRect(-s/2,-s/2,s,s); g.restore();
+});
+def('gate','SKY GATE','the way in from above \u2014 arrivals, departures, and trade winds.',null,92, function(g,C){
+  box(C, .13,.30,.29,.70, 0, 76, '#26336a', '#16204a', '#0e173a', NAVY.edge);
+  box(C, .71,.30,.87,.70, 0, 76, '#26336a', '#16204a', '#0e173a', NAVY.edge);
+  box(C, .10,.30,.90,.70, 76, 10, '#8a6a24', '#5f420f', '#4a340c', GOLDTRIM);
+  var pu = reduced ? .3 : .22 + .1*Math.sin(C.t*1.8 + C.seed);
+  poly([C.P(.31,.5,3), C.P(.69,.5,3), C.P(.69,.5,73), C.P(.31,.5,73)], 'rgba(58,226,255,'+pu+')', 'rgba(58,226,255,.35)');
+  var c = C.P(.5,.5,38);
+  g.save(); g.shadowColor = '#3ae2ff'; g.shadowBlur = 18*C.s;
+  ellipse(c[0], c[1], 5*C.s, 12*C.s, 'rgba(160,240,255,.5)', null); g.restore();
+});
+def('plaza','PLAZA','a fountain of light at the city\u2019s heart \u2014 where the people meet.',null,58, function(g,C){
+  var P = C.P;
+  poly([P(.14,.14,0), P(.86,.14,0), P(.86,.86,0), P(.14,.86,0)], 'rgba(217,164,65,.07)', 'rgba(217,164,65,.5)');
+  poly([P(.30,.30,0), P(.70,.30,0), P(.70,.70,0), P(.30,.70,0)], null, 'rgba(58,226,255,.3)');
+  var ctr = P(.5,.5,0);
+  for(var i=0;i<3;i++){
+    var ph = reduced ? (i/3) : ((C.t*0.45 + i/3) % 1);
+    ellipse(ctr[0], ctr[1], (5 + ph*24)*C.s, (2.5 + ph*12)*C.s, null, 'rgba(246,205,110,'+((1-ph)*0.55)+')', 1.4);
+  }
+  var grad = g.createLinearGradient(0, ctr[1] - 54*C.s, 0, ctr[1]);
+  grad.addColorStop(0, 'rgba(58,226,255,0)'); grad.addColorStop(1, 'rgba(120,225,255,.55)');
+  g.fillStyle = grad; g.fillRect(ctr[0] - 2.6*C.s, ctr[1] - 54*C.s, 5.2*C.s, 54*C.s);
+  for(var j=0;j<5;j++){
+    var sp = P(.5 + (hash(C.seed+j*3.1)-.5)*.5, .5 + (hash(C.seed+j*7.7)-.5)*.5, 20 + hash(C.seed+j)*30);
+    ellipse(sp[0], sp[1], 1.4*C.s, 1.4*C.s, 'rgba(255,233,168,.8)', null);
+  }
+});
+def('habitat','HABITAT BLOCK','homes stacked in light \u2014 where the builders live.',null,82, function(g,C){
+  var f = box(C, .20,.20,.80,.80, 0, 64, NAVY.top, NAVY.l, NAVY.r, 'rgba(58,226,255,.22)');
+  faceWindows(f.south, 5, 3, C.seed, C.t, true); faceWindows(f.east, 5, 3, C.seed+9, C.t, true);
+  box(C, .30,.30,.70,.70, 64, 10, '#2a3a70', '#18224a', '#101736', NAVY.edge);
+});
+def('bloom','POWER BLOOM','a flower of pure energy \u2014 petals open to feed the grid.',null,56, function(g,C){
+  var b = C.P(.5,.5,0), t2 = C.P(.5,.5,38);
+  g.strokeStyle = '#966c20'; g.lineWidth = 3*C.s;
+  g.beginPath(); g.moveTo(b[0], b[1]); g.lineTo(t2[0], t2[1]); g.stroke();
+  var c = C.P(.5,.5,44);
+  for(var i=0;i<6;i++){
+    var a = i*Math.PI/3 + (reduced ? 0 : C.t*0.15);
+    g.save(); g.translate(c[0] + Math.cos(a)*15*C.s, c[1] + Math.sin(a)*7.5*C.s); g.rotate(a*0.5);
+    g.beginPath(); g.ellipse(0, 0, 9.5*C.s, 4.6*C.s, 0, 0, Math.PI*2);
+    g.fillStyle = 'rgba(246,205,110,.8)'; g.fill(); g.strokeStyle = 'rgba(150,108,32,.8)'; g.stroke(); g.restore();
+  }
+  var pu = reduced ? .8 : .55 + .45*Math.sin(C.t*2.4 + C.seed);
+  g.save(); g.shadowColor = '#3ae2ff'; g.shadowBlur = 15*C.s*pu;
+  ellipse(c[0], c[1], 5*C.s, 5*C.s, 'rgba(160,240,255,.95)', null); g.restore();
+});
+def('observatory','OBSERVATORY','eyes on the stars \u2014 navigation, weather, and wonder.',null,92, function(g,C){
+  var f = box(C, .30,.30,.70,.70, 0, 54, NAVY.top, NAVY.l, NAVY.r, NAVY.edge);
+  faceWindows(f.south, 3, 1, C.seed, C.t, false);
+  var ctr = C.P(.5,.5,54), rx = C.tw*0.235*C.s, ry = rx*0.62;
+  var grad = g.createLinearGradient(0, ctr[1]-ry, 0, ctr[1]);
+  grad.addColorStop(0, '#3d4f8f'); grad.addColorStop(1, '#1a2650');
+  g.beginPath(); g.ellipse(ctr[0], ctr[1], rx, ry, 0, Math.PI, 0); g.closePath();
+  g.fillStyle = grad; g.fill(); g.strokeStyle = GOLDTRIM; g.stroke();
+  g.save(); g.translate(ctr[0] + rx*0.25, ctr[1] - ry*0.55); g.rotate(0.6);
+  g.fillStyle = 'rgba(5,6,12,.85)'; g.fillRect(-2*C.s, -ry*0.42, 4*C.s, ry*0.8); g.restore();
+  var tw = reduced ? .7 : .4 + .6*Math.abs(Math.sin(C.t*1.3 + C.seed));
+  var st = C.P(.5,.5,54 + ry/C.s + 12);
+  g.strokeStyle = 'rgba(200,240,255,'+tw+')'; g.lineWidth = 1.2;
+  g.beginPath();
+  g.moveTo(st[0]-5*C.s, st[1]); g.lineTo(st[0]+5*C.s, st[1]);
+  g.moveTo(st[0], st[1]-5*C.s); g.lineTo(st[0], st[1]+5*C.s); g.stroke();
+});
+var ORDER = ['spire','crown','hall','vault','mint','court','archive','gate','plaza','habitat','bloom','observatory'];
+
+/* ---------- stars & dust ---------- */
+var stars = [], dust = [];
+function seedSky(){
+  stars = []; dust = [];
+  for(var i=0;i<150;i++){ stars.push({x:hash(i*1.7)*W, y:hash(i*2.3+9)*H, r:.6+hash(i*3.1)*1.3, p:hash(i*4.7)*6.28}); }
+  for(var j=0;j<42;j++){ dust.push({x:hash(j*5.3)*GRID, y:hash(j*6.1+2)*GRID, z:6+hash(j*7.7)*46, s:.12+hash(j*8.9)*.3, p:hash(j*9.4)*6.28}); }
+}
+
+/* ---------- persistence ---------- */
+function save(){
+  try{
+    localStorage.setItem(LS_KEY, JSON.stringify(state));
+    if(saveMsg) saveMsg.textContent = 'AUTOSAVED ON THIS DEVICE · ' + new Date().toLocaleTimeString();
+  }catch(e){ if(saveMsg) saveMsg.textContent = 'SAVE UNAVAILABLE IN THIS BROWSER'; }
+}
+function load(){
+  try{
+    var raw = localStorage.getItem(LS_KEY);
+    if(raw){ var d = JSON.parse(raw); if(d && d.pieces){ state = {name: d.name||'', pieces: d.pieces}; } }
+  }catch(e){}
+}
+
+/* ---------- stats ---------- */
+function stats(){
+  var n = 0, sp = 0, ha = 0;
+  for(var k in state.pieces){ var p = PIECES[state.pieces[k]]; if(!p) continue; n++; if(p.stat==='spire') sp++; if(p.stat==='hall') ha++; }
+  return {pieces:n, spires:sp, halls:ha};
+}
+function refreshStats(){
+  var s = stats(), el = document.getElementById('sbStats');
+  if(el) el.innerHTML = 'PIECES RAISED <b>' + s.pieces + '</b> &nbsp;·&nbsp; SPIRES <b>' + s.spires + '</b> &nbsp;·&nbsp; HALLS <b>' + s.halls + '</b> &nbsp;·&nbsp; PLOT ' + GRID + '&times;' + GRID;
+}
+
+/* ---------- drawing ---------- */
+function drawPiece(id, tx, ty, t, alpha){
+  var p = PIECES[id]; if(!p) return;
+  var C = { s: cam.z, tw: TW, t: t, seed: tx*31.7 + ty*17.3,
+    P: function(lx, ly, z){ return proj(tx + lx, ty + ly, z); } };
+  ctx.save();
+  if(alpha != null) ctx.globalAlpha = alpha;
+  p.draw(ctx, C);
+  ctx.restore();
+}
+function drawBanner(t){
+  var name = (state.name || '').trim() || 'UNTITLED KINGDOM';
+  var fs = Math.max(19, Math.min(32, W*0.042));
+  ctx.save();
+  ctx.font = '800 ' + fs + 'px Cinzel, serif';
+  try{ ctx.letterSpacing = '3px'; }catch(e){}
+  var tw = ctx.measureText(name).width;
+  var bw = Math.min(W - 24, tw + 96), bh = fs + 24, cx = W/2, by = 16;
+  var grad = ctx.createLinearGradient(0, by, 0, by + bh);
+  grad.addColorStop(0, '#ffe9a8'); grad.addColorStop(.35, '#f6cd6e'); grad.addColorStop(.7, '#d9a441'); grad.addColorStop(1, '#b98a2e');
+  ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 18; ctx.shadowOffsetY = 6;
+  ctx.beginPath();
+  ctx.moveTo(cx - bw/2, by + 6); ctx.lineTo(cx - bw/2 + 12, by); ctx.lineTo(cx + bw/2 - 12, by);
+  ctx.lineTo(cx + bw/2, by + 6); ctx.lineTo(cx + bw/2 - 14, by + bh/2); ctx.lineTo(cx + bw/2 - 2, by + bh);
+  ctx.lineTo(cx - bw/2 + 2, by + bh); ctx.lineTo(cx - bw/2 + 14, by + bh/2); ctx.closePath();
+  ctx.fillStyle = grad; ctx.fill();
+  ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+  ctx.strokeStyle = '#6e4d12'; ctx.lineWidth = 1.4; ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(cx - bw/2 + 16, by + bh - 6); ctx.lineTo(cx + bw/2 - 16, by + bh - 6);
+  ctx.strokeStyle = 'rgba(111,77,18,.5)'; ctx.lineWidth = 1; ctx.stroke();
+  ctx.save(); ctx.translate(cx, by - 1); ctx.rotate(Math.PI/4);
+  ctx.fillStyle = '#f6cd6e'; ctx.strokeStyle = '#6e4d12';
+  ctx.fillRect(-5, -5, 10, 10); ctx.strokeRect(-5, -5, 10, 10); ctx.restore();
+  ctx.fillStyle = '#1c1305'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(name, cx, by + bh/2 + 2);
+  ctx.font = '600 11.5px "JetBrains Mono", monospace';
+  try{ ctx.letterSpacing = '2px'; }catch(e){}
+  var s = stats();
+  ctx.fillStyle = 'rgba(246,205,110,.92)';
+  ctx.fillText(s.pieces + ' PIECES RAISED · ' + s.spires + ' SPIRES · ' + s.halls + ' HALLS', cx, by + bh + 17);
+  ctx.restore();
+  lastBanner = name;
+}
+var lastBanner = '';
+function render(t){
+  ctx.clearRect(0, 0, W, H);
+  /* stars */
+  for(var i=0;i<stars.length;i++){
+    var st = stars[i], a = reduced ? .5 : .3 + .3*Math.sin(t*0.9 + st.p);
+    ctx.fillStyle = 'rgba(200,225,255,' + a.toFixed(3) + ')';
+    ctx.fillRect(st.x, st.y, st.r, st.r);
+  }
+  /* platform */
+  var c00 = proj(0,0), c10 = proj(GRID,0), c11 = proj(GRID,GRID), c01 = proj(0,GRID);
+  var dep = 30*cam.z;
+  poly([[c01[0],c01[1]], [c11[0],c11[1]], [c11[0],c11[1]+dep], [c01[0],c01[1]+dep]], '#0a0e1e', 'rgba(217,164,65,.3)');
+  poly([[c11[0],c11[1]], [c10[0],c10[1]], [c10[0],c10[1]+dep], [c11[0],c11[1]+dep]], '#070a16', 'rgba(217,164,65,.3)');
+  var grd = ctx.createLinearGradient(0, c00[1], 0, c11[1]);
+  grd.addColorStop(0, '#121a3a'); grd.addColorStop(1, '#0a0f24');
+  poly([c00, c10, c11, c01], grd, 'rgba(217,164,65,.55)', 1.4);
+  /* tiles + pieces in painter order */
+  lastOrder = [];
+  var now = performance.now()/1000;
+  for(var s=0;s<=2*(GRID-1);s++){
+    for(var x=0;x<GRID;x++){
+      var y = s - x; if(y<0 || y>=GRID) continue;
+      var d = [proj(x,y), proj(x+1,y), proj(x+1,y+1), proj(x,y+1)];
+      poly(d, ((x+y)%2===0) ? 'rgba(120,160,255,.045)' : 'rgba(217,164,65,.04)', 'rgba(96,150,230,.14)');
+      var k = key(x,y), id = state.pieces[k];
+      if(hover && hover.x===x && hover.y===y){
+        poly(d, mode==='erase' ? 'rgba(255,90,90,.14)' : 'rgba(246,205,110,.13)', 'rgba(246,205,110,.85)', 1.4);
+      }
+      if(refuse.key===k && now - refuse.at < .5){
+        poly(d, 'rgba(255,70,70,' + (0.4*(1-(now-refuse.at)/.5)).toFixed(3) + ')', 'rgba(255,90,90,.9)', 1.6);
+      }
+      if(id){ lastOrder.push(k); drawPiece(id, x, y, t, null); }
+      else if(hover && hover.x===x && hover.y===y && mode==='build'){
+        lastOrder.push(k + ':ghost'); drawPiece(selected, x, y, t, .45);
+      }
+    }
+  }
+  /* light sweep over the plot */
+  if(!reduced){
+    var sw = ((t % 9) / 9) * (W + 420) - 210;
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(c00[0], c00[1]); ctx.lineTo(c10[0], c10[1]); ctx.lineTo(c11[0], c11[1]); ctx.lineTo(c01[0], c01[1]); ctx.closePath();
+    ctx.clip();
+    var sg = ctx.createLinearGradient(sw - 130, 0, sw + 130, 0);
+    sg.addColorStop(0, 'rgba(246,205,110,0)'); sg.addColorStop(.5, 'rgba(246,205,110,.10)'); sg.addColorStop(1, 'rgba(246,205,110,0)');
+    ctx.fillStyle = sg; ctx.fillRect(sw - 130, 0, 260, H);
+    ctx.restore();
+  }
+  /* gold dust */
+  for(var j=0;j<dust.length;j++){
+    var du = dust[j];
+    var pp = proj(du.x, du.y, du.z + (reduced ? 0 : Math.sin(t*.5 + du.p)*3));
+    var aa = .18 + .3*Math.abs(Math.sin(t*.7 + du.p));
+    ctx.fillStyle = 'rgba(246,205,110,' + aa.toFixed(3) + ')';
+    ctx.fillRect(pp[0], pp[1], 1.8*cam.z, 1.8*cam.z);
+    if(!reduced){ du.y -= du.s*0.016; if(du.y < -0.4){ du.y = GRID + 0.4; du.x = hash(j*3.3 + t)*GRID; } }
+  }
+  drawBanner(t);
+}
+
+/* ---------- interaction ---------- */
+function tileFromEvent(e){
+  var r = canvas.getBoundingClientRect();
+  var sx = e.clientX - r.left, sy = e.clientY - r.top;
+  var dx = (sx - (W/2 + cam.x)) / ((TW/2)*cam.z);
+  var dy = (sy - (148 + cam.y)) / ((TH/2)*cam.z);
+  var gx = Math.floor((dy + dx)/2), gy = Math.floor((dy - dx)/2);
+  if(gx<0 || gy<0 || gx>=GRID || gy>=GRID) return null;
+  return {x:gx, y:gy};
+}
+var pointers = new Map(), dragInfo = null, pinchInfo = null;
+canvas.addEventListener('pointerdown', function(e){
+  try{ canvas.setPointerCapture(e.pointerId); }catch(err){}
+  pointers.set(e.pointerId, {x:e.clientX, y:e.clientY});
+  if(pointers.size === 1){ dragInfo = {sx:e.clientX, sy:e.clientY, cx:cam.x, cy:cam.y, moved:false}; }
+  if(pointers.size === 2){
+    var pts = Array.from(pointers.values());
+    pinchInfo = {d: Math.hypot(pts[0].x-pts[1].x, pts[0].y-pts[1].y), z: cam.z, mx:(pts[0].x+pts[1].x)/2, my:(pts[0].y+pts[1].y)/2, cx:cam.x, cy:cam.y};
+    dragInfo = null;
+  }
+});
+canvas.addEventListener('pointermove', function(e){
+  if(pointers.has(e.pointerId)) pointers.set(e.pointerId, {x:e.clientX, y:e.clientY});
+  if(pinchInfo && pointers.size === 2){
+    var pts = Array.from(pointers.values());
+    var d = Math.hypot(pts[0].x-pts[1].x, pts[0].y-pts[1].y);
+    cam.z = Math.max(.45, Math.min(2.2, pinchInfo.z * (d / Math.max(pinchInfo.d,1))));
+    cam.x = pinchInfo.cx + ((pts[0].x+pts[1].x)/2 - pinchInfo.mx);
+    cam.y = pinchInfo.cy + ((pts[0].y+pts[1].y)/2 - pinchInfo.my);
+    return;
+  }
+  if(dragInfo && pointers.size === 1){
+    var dx = e.clientX - dragInfo.sx, dy = e.clientY - dragInfo.sy;
+    if(Math.abs(dx) + Math.abs(dy) > 7) dragInfo.moved = true;
+    if(dragInfo.moved){ cam.x = dragInfo.cx + dx; cam.y = dragInfo.cy + dy; }
+    return;
+  }
+  hover = tileFromEvent(e);
+});
+function endPointer(e){
+  var wasDrag = dragInfo && dragInfo.moved, wasPinch = !!pinchInfo;
+  pointers.delete(e.pointerId);
+  if(pointers.size < 2) pinchInfo = null;
+  if(pointers.size === 0){
+    if(!wasDrag && !wasPinch && dragInfo){ var tl = tileFromEvent(e); if(tl) tapTile(tl); }
+    dragInfo = null;
+  }
+}
+canvas.addEventListener('pointerup', endPointer);
+canvas.addEventListener('pointercancel', endPointer);
+canvas.addEventListener('pointerleave', function(){ if(!pointers.size) hover = null; });
+canvas.addEventListener('wheel', function(e){
+  e.preventDefault();
+  cam.z = Math.max(.45, Math.min(2.2, cam.z * (e.deltaY < 0 ? 1.1 : 0.9)));
+}, {passive:false});
+function tapTile(tl){
+  var k = key(tl.x, tl.y);
+  if(mode === 'build'){
+    if(state.pieces[k]){ refuse = {key:k, at:performance.now()/1000}; return; }
+    state.pieces[k] = selected;
+  } else {
+    if(!state.pieces[k]){ refuse = {key:k, at:performance.now()/1000}; return; }
+    delete state.pieces[k];
+  }
+  save(); refreshStats();
+}
+
+/* ---------- controls ---------- */
+function setMode(m){
+  mode = m;
+  document.getElementById('modeBuild').classList.toggle('on', m==='build');
+  document.getElementById('modeErase').classList.toggle('on', m==='erase');
+}
+document.getElementById('modeBuild').addEventListener('click', function(){ setMode('build'); });
+document.getElementById('modeErase').addEventListener('click', function(){ setMode('erase'); });
+document.getElementById('zoomIn').addEventListener('click', function(){ cam.z = Math.min(2.2, cam.z*1.2); });
+document.getElementById('zoomOut').addEventListener('click', function(){ cam.z = Math.max(.45, cam.z/1.2); });
+document.getElementById('btnClear').addEventListener('click', function(){ state.pieces = {}; save(); refreshStats(); });
+document.getElementById('btnReset').addEventListener('click', function(){
+  state = {name:'', pieces:{}}; try{ localStorage.removeItem(LS_KEY); }catch(e){}
+  document.getElementById('kbName').value = ''; save(); refreshStats();
+});
+document.getElementById('btnSnap').addEventListener('click', function(){
+  render(performance.now()/1000);
+  var nm = (state.name || 'untitled-kingdom').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'') || 'kingdom';
+  if(canvas.toBlob){
+    canvas.toBlob(function(b){
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(b); a.download = nm + '.png'; a.click();
+      setTimeout(function(){ URL.revokeObjectURL(a.href); }, 4000);
+    }, 'image/png');
+  }
+});
+var nameInput = document.getElementById('kbName');
+nameInput.addEventListener('input', function(){ state.name = nameInput.value.toUpperCase(); save(); });
+
+/* palette */
+var capEl = document.getElementById('pieceCap');
+function selectPiece(id){
+  selected = id; setMode('build');
+  document.querySelectorAll('.pal-btn').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-piece')===id); });
+  var p = PIECES[id];
+  capEl.innerHTML = '<strong>' + p.name + '</strong> &mdash; ' + p.cap;
+}
+document.querySelectorAll('.pal-btn').forEach(function(b){
+  b.addEventListener('click', function(){ selectPiece(b.getAttribute('data-piece')); });
+});
+function drawIcons(){
+  document.querySelectorAll('.pal-btn canvas').forEach(function(cv){
+    var id = cv.parentNode.getAttribute('data-piece'), p = PIECES[id];
+    var g = cv.getContext('2d'), s2 = 2;
+    cv.width = 84*s2; cv.height = 84*s2; g.scale(s2, s2);
+    var ks = Math.min(.66, 88/(p.maxH*0.58 + 28));
+    var C = { s: ks, tw: 64, t: 1.3, seed: 4.2, P: function(lx, ly, z){
+      return [42 + (lx - ly) * 32 * ks, 72 + (lx + ly - 1) * 16 * ks - z * ks * 0.58];
+    } };
+    var bg = g.createRadialGradient(42, 42, 4, 42, 42, 38);
+    bg.addColorStop(0, 'rgba(246,205,110,.16)'); bg.addColorStop(1, 'rgba(246,205,110,0)');
+    g.fillStyle = bg; g.fillRect(0, 0, 84, 84);
+    g.beginPath();
+    var d0 = C.P(0,0,0), d1 = C.P(1,0,0), d2 = C.P(1,1,0), d3 = C.P(0,1,0);
+    g.moveTo(d0[0], d0[1]); g.lineTo(d1[0], d1[1]); g.lineTo(d2[0], d2[1]); g.lineTo(d3[0], d3[1]); g.closePath();
+    g.fillStyle = 'rgba(217,164,65,.07)'; g.fill();
+    g.strokeStyle = 'rgba(217,164,65,.55)'; g.lineWidth = 1; g.stroke();
+    g.save(); p.draw(g, C); g.restore();
+  });
+}
+
+/* ---------- sizing & loop ---------- */
+function resize(){
+  var r = canvas.getBoundingClientRect();
+  DPR = Math.min(window.devicePixelRatio || 1, 2);
+  W = r.width; H = r.height;
+  canvas.width = Math.round(W * DPR); canvas.height = Math.round(H * DPR);
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  seedSky();
+}
+window.addEventListener('resize', resize);
+var last = 0;
+function loop(ts){
+  var t = ts/1000;
+  if(reduced){ if(!loop.done){ render(1.3); loop.done = true; } requestAnimationFrame(loop); return; }
+  render(t);
+  requestAnimationFrame(loop);
+}
+
+/* ---------- QA hook ---------- */
+if(/[?&]qa=1/.test(location.search)){
+  window.SBX = {
+    place: function(id, x, y){ if(PIECES[id] && x>=0 && y>=0 && x<GRID && y<GRID){ state.pieces[key(x,y)] = id; save(); refreshStats(); return true; } return false; },
+    erase: function(x, y){ delete state.pieces[key(x,y)]; save(); refreshStats(); },
+    clear: function(){ state.pieces = {}; save(); refreshStats(); },
+    setName: function(s){ state.name = String(s).toUpperCase(); nameInput.value = state.name; save(); },
+    projOf: function(x, y){ return proj(x + .5, y + .5, 0); },
+    state: function(){ var s = stats(); return {count:s.pieces, spires:s.spires, halls:s.halls, pieces:Object.assign({}, state.pieces), name:state.name, banner:lastBanner, order:lastOrder.slice()}; },
+    pump: function(){ render(performance.now()/1000); },
+    stored: function(){ try{ return localStorage.getItem(LS_KEY); }catch(e){ return null; } }
+  };
+}
+
+/* ---------- boot ---------- */
+load();
+nameInput.value = state.name || '';
+drawIcons();
+selectPiece('spire');
+refreshStats();
+resize();
+requestAnimationFrame(loop);
+})();
+</script>
+
+
+</body>
+</html>
