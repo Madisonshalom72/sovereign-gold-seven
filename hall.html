@@ -7,7 +7,7 @@
 <meta name="description" content="The Golden Hall — the virtual court of Sovereign Gold Coin Seven (SG7): a high-tech community meeting space in the browser, a tile-view Court, a green room with branded backdrops, and an invitation-only Chamber. A community space, not a financial venue. Concept stage — no token has been issued, offered, or sold.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+Phoenician&display=swap" rel="stylesheet">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0493ZR1LN2"></script>
 <script>
@@ -392,6 +392,31 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
 
 .hall-tile .tile-visual.tv-video{display:block;height:150px;padding:0;border-radius:12px;overflow:hidden;border:1px solid rgba(217,164,65,.28);background:#07070d}
 .hall-tile .tile-visual.tv-video video{width:100%;height:100%;display:block;object-fit:cover}
+
+/* ---------- PALEO HEBREW / THE LAW ---------- */
+.pal{font-family:'Noto Sans Phoenician',serif;direction:rtl;unicode-bidi:isolate;text-align:right}
+.paleo-icon{display:inline-flex;align-items:center;gap:14px;text-decoration:none;border:1px solid rgba(246,205,110,.5);
+  border-radius:999px;padding:.5rem 1.15rem .5rem .55rem;background:linear-gradient(165deg, rgba(246,205,110,.12), rgba(217,164,65,.04));
+  transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+.paleo-icon:hover{transform:translateY(-2px);border-color:var(--gold-hi);box-shadow:0 12px 30px rgba(0,0,0,.45),0 6px 22px rgba(217,164,65,.16)}
+.paleo-icon .pi-glyph{display:flex;align-items:center;justify-content:center;width:44px;height:44px;flex:none;border-radius:50%;
+  background:radial-gradient(circle at 38% 32%, #f6cd6e, #d9a441 58%, #966c20);color:#2a1c05;
+  font-family:'Noto Sans Phoenician',serif;font-size:1.5rem;line-height:1;
+  box-shadow:inset 0 0 0 2px rgba(90,60,10,.45), 0 4px 14px rgba(217,164,65,.35)}
+.paleo-icon .pi-label{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.16em;color:var(--gold-hi2);line-height:1.55;text-align:left}
+.paleo-icon .pi-label b{display:block;font-size:.78rem;color:#fff;letter-spacing:.2em}
+.foot-links{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;line-height:1.9}
+.foot-links a{color:var(--gold-hi);text-decoration:none}
+.foot-links a:hover{color:var(--gold-hi2)}
+.law-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:940px){.law-grid{grid-template-columns:1fr}}
+.law-tablet{background:linear-gradient(165deg, rgba(255,255,255,.05), rgba(255,255,255,.012));
+  border:1px solid var(--panel-border);border-radius:18px;padding:24px;position:relative;overflow:hidden}
+.law-tablet .lt-num{font-family:'Cinzel',serif;font-weight:900;font-size:1.45rem;color:var(--gold-hi)}
+.law-tablet h3{font-family:'Cinzel',serif;color:#fff;font-size:1rem;letter-spacing:.04em;margin:2px 0 12px}
+.law-tablet .pal{font-size:1.08rem;line-height:2.05;color:var(--gold-hi2);margin-bottom:8px}
+.law-tablet .lt-ref{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:#8f8875}
+.law-cta{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:26px}
 </style>
 </head>
 <body>
@@ -845,10 +870,50 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
         <p>The office's offers — plans, agents, and the $9.99 site. What the ecosystem sells today, while the coin is designed.</p>
         <a class="tile-link" href="https://aliceaihub.xyz/pricing.html" target="_blank" rel="noopener">SEE THE OFFERS →</a>
       </div>
+      <div class="hall-tile rv">
+        <div class="tile-visual"><span class="tv-ico" aria-hidden="true"><span lang="he" dir="rtl" style="font-family:'Noto Serif Hebrew',serif;font-size:44px;line-height:1;color:#d9a441">א</span></span></div>
+        <h3>THE BIBLE ROOM</h3>
+        <p>A quiet room off the Hall for the Book behind the gold stories — a Hebrew lexicon of 63 checked words, the doors to the tablets and the classroom, and the SG7 Media film theater.</p>
+        <a class="tile-link" href="bible-room.html">ENTER THE BIBLE ROOM →</a>
+      </div>
     </div>
   </section>
 
   <!-- SCHEDULE -->
+  <section id="law">
+    <div class="sec-head rv">
+      <div class="eyebrow">The Law · Exodus 20</div>
+      <h2>The Law, in <span class="gold-text">the ancient script.</span></h2>
+      <p>The Ten Commandments, lettered in the ancient script. Paleo Hebrew — the consonantal writing of ancient Israel, read right to left. The first three stand here; all ten stand on their own page, and the Classroom teaches every letter.</p>
+    </div>
+    <div class="law-grid">
+      <div class="law-tablet rv">
+        <div class="lt-num">I</div>
+        <h3>No other gods</h3>
+        <p class="pal" dir="rtl" lang="hbo">𐤋𐤀 𐤉𐤄𐤉𐤄 𐤋𐤊 𐤀𐤋𐤄𐤉𐤌 𐤀𐤇𐤓𐤉𐤌 𐤏𐤋 𐤐𐤍𐤉</p>
+        <div class="lt-ref">EXODUS 20:3</div>
+      </div>
+      <div class="law-tablet rv">
+        <div class="lt-num">II</div>
+        <h3>No graven image</h3>
+        <p class="pal" dir="rtl" lang="hbo">𐤋𐤀 𐤕𐤏𐤔𐤄 𐤋𐤊 𐤐𐤎𐤋 𐤅𐤊𐤋 𐤕𐤌𐤅𐤍𐤄 𐤀𐤔𐤓 𐤁𐤔𐤌𐤉𐤌 𐤌𐤌𐤏𐤋 𐤅𐤀𐤔𐤓 𐤁𐤀𐤓𐤑 𐤌𐤕𐤇𐤕 𐤅𐤀𐤔𐤓 𐤁𐤌𐤉𐤌 𐤌𐤕𐤇𐤕 𐤋𐤀𐤓𐤑</p>
+        <p class="pal" dir="rtl" lang="hbo">𐤋𐤀 𐤕𐤔𐤕𐤇𐤅𐤄 𐤋𐤄𐤌 𐤅𐤋𐤀 𐤕𐤏𐤁𐤃𐤌 𐤊𐤉 𐤀𐤍𐤊𐤉 𐤉𐤄𐤅𐤄 𐤀𐤋𐤄𐤉𐤊 𐤀𐤋 𐤒𐤍𐤀 𐤐𐤒𐤃 𐤏𐤅𐤍 𐤀𐤁𐤕 𐤏𐤋 𐤁𐤍𐤉𐤌 𐤏𐤋 𐤔𐤋𐤔𐤉𐤌 𐤅𐤏𐤋 𐤓𐤁𐤏𐤉𐤌 𐤋𐤔𐤍𐤀𐤉</p>
+        <p class="pal" dir="rtl" lang="hbo">𐤅𐤏𐤔𐤄 𐤇𐤎𐤃 𐤋𐤀𐤋𐤐𐤉𐤌 𐤋𐤀𐤄𐤁𐤉 𐤅𐤋𐤔𐤌𐤓𐤉 𐤌𐤑𐤅𐤕𐤉</p>
+        <div class="lt-ref">EXODUS 20:4–6</div>
+      </div>
+      <div class="law-tablet rv">
+        <div class="lt-num">III</div>
+        <h3>The Name, not in vain</h3>
+        <p class="pal" dir="rtl" lang="hbo">𐤋𐤀 𐤕𐤔𐤀 𐤀𐤕 𐤔𐤌 𐤉𐤄𐤅𐤄 𐤀𐤋𐤄𐤉𐤊 𐤋𐤔𐤅𐤀 𐤊𐤉 𐤋𐤀 𐤉𐤍𐤒𐤄 𐤉𐤄𐤅𐤄 𐤀𐤕 𐤀𐤔𐤓 𐤉𐤔𐤀 𐤀𐤕 𐤔𐤌𐤅 𐤋𐤔𐤅𐤀</p>
+        <div class="lt-ref">EXODUS 20:7</div>
+      </div>
+    </div>
+    <div class="law-cta">
+      <a class="btn btn-gold" href="ten-commandments.html">Read the Ten Commandments →</a>
+      <a class="paleo-icon" href="classroom.html" aria-label="Open the Paleo Hebrew Classroom"><span class="pi-glyph" aria-hidden="true">𐤀</span><span class="pi-label"><b>PALEO HEBREW</b>LEARN THE ANCIENT SCRIPT →</span></a>
+    </div>
+  </section>
+
   <section id="schedule">
     <div class="sec-head rv">
       <div class="eyebrow">Court Sessions · The Schedule</div>
@@ -897,6 +962,7 @@ footer{margin-top:110px;border-top:1px solid rgba(217,164,65,.22);background:rgb
     <svg width="44" height="44" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="none" stroke="#d9a441" stroke-width="3" stroke-dasharray="99 20" transform="rotate(-42 24 24)"/><circle cx="40.5" cy="12.5" r="2.4" fill="#3ae2ff"/><text x="24" y="33" text-anchor="middle" font-family="Cinzel,serif" font-weight="900" font-size="23" fill="#f6cd6e">7</text></svg>
     <div class="fbrand">SOVEREIGN GOLD SEVEN · SG7 — THE GOLDEN HALL</div>
     <p>Paper stage only · No token issued · Legal review precedes any issuance · The Golden Hall is a community meeting space — not a financial venue: it offers nothing, sells nothing, and advises nothing. Gold is brand and treasury <em>policy</em> — not collateral, and nothing here is redeemable for gold.</p>
+    <div class="foot-links"><a href="ten-commandments.html">The Ten Commandments</a> · <a href="classroom.html">Paleo Hebrew Classroom</a> · <a href="hall.html">The Golden Hall</a> · <a href="index.html">Home</a> · <a href="bible-room.html">The Bible Room</a></div>
     <div class="mono-line">© MMXXVI · CAPITAL 7 / THE ALICE ECOSYSTEM · CONCEPT MATERIALS — PROVISIONAL PENDING TRADEMARK CLEARANCE AND LEGAL REVIEW</div>
   </div>
 </footer>
