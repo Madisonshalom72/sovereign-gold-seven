@@ -179,6 +179,28 @@ a.door:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 24
 .film .fscript{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--mut)}
 .film p{color:var(--bone-dim);font-size:13.5px;flex:1}
 .film .btn{align-self:flex-start}
+/* ─── ANCIENT PICTURES ─── */
+.ap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;align-items:start}
+.ap{border:1px solid var(--line-soft);border-radius:20px;overflow:hidden;background:linear-gradient(180deg,var(--panel2),var(--panel))}
+.ap summary{list-style:none;cursor:pointer;display:block}
+.ap summary::-webkit-details-marker{display:none}
+.ap summary:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+.ap .apic{display:block;position:relative;border-bottom:1px solid var(--line-soft);background:#06070c}
+.ap .apic img{width:100%;height:auto;max-height:620px;object-fit:cover;object-position:center 22%}
+.ap .apic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 64%,rgba(6,7,12,.5));pointer-events:none}
+.ap .aph{display:block;padding:18px 20px 17px}
+.ap .apk{font-family:var(--mono);font-size:9.5px;letter-spacing:.3em;color:var(--gold)}
+.ap h3{font-family:var(--serif);font-weight:800;font-size:20px;letter-spacing:.03em;line-height:1.3;color:var(--bone);margin-top:6px}
+.ap .apd{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--gold-hi);margin-top:7px}
+.ap .apgo{display:block;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--gold-hi);margin-top:12px}
+.ap .apgo::after{content:" +"}
+.ap[open] .apgo::after{content:" −"}
+.ap .apbody{padding:2px 20px 20px;display:flex;flex-direction:column;gap:11px}
+.ap .apbody p{color:var(--bone-dim);font-size:14.5px;line-height:1.65}
+.ap .apbody p b{color:var(--bone)}
+.ap .apwhere{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--mut);line-height:1.8;border-top:1px dashed var(--line-soft);padding-top:11px}
+.ap .apwhere b{color:var(--gold-hi)}
+.ap .apsrc{font-size:12px;color:var(--mut);line-height:1.6}
 /* ─── WAITLIST ─── */
 .wait{border:1px solid var(--line);border-radius:22px;padding:38px 30px;text-align:center;background:radial-gradient(640px 300px at 50% -20%,rgba(217,164,65,.16),transparent 62%),linear-gradient(180deg,var(--panel2),var(--panel));margin:26px 0 74px}
 .wait h2{font-family:var(--serif);font-size:clamp(24px,4vw,34px);font-weight:800}
@@ -1358,7 +1380,85 @@ footer{border-top:1px solid var(--line);background:#08090f;padding:44px 0 30px;m
   </div>
 </section>
 
-<!-- ═══ 04 · WAITLIST ═══ -->
+<!-- ═══ 04 · ANCIENT PICTURES ═══ -->
+<section id="ancient">
+  <div class="sec-head"><span class="n">04</span><h2>ANCIENT PICTURES — <em>STORIES ON THE WALLS</em></h2></div>
+  <p class="sec-sub">Before the Book was in every hand, the stories were <b>painted on walls, scratched into silver, and carved in stone</b> — and some of them survived. Four real pictures from the ancient world, checked the way this room checks everything: <b>what it is, when it was made, and where it stands now</b>. Tap a picture to read its story.</p>
+  <div class="gold-rule"></div>
+  <div class="ap-grid">
+    <details class="ap rv">
+      <summary>
+        <span class="apic"><img src="assets/ancient/dura-europos-exodus-fresco.jpg" alt="Fresco of the Exodus from the Dura Europos synagogue: Moses splitting the sea, Israel crossing in ranks with shields raised, the Egyptians drowning below" loading="lazy"></span>
+        <span class="aph">
+          <span class="apk">PICTURE 01 · THE ONE FROM THE POST</span>
+          <h3>MOSES AT THE SEA — THE EXODUS ON A SYNAGOGUE WALL</h3>
+          <span class="apd">DURA EUROPOS, SYRIA · PAINTED ABOUT 244–256 AD</span>
+          <span class="apgo">READ THE STORY</span>
+        </span>
+      </summary>
+      <div class="apbody">
+        <p>Look at the wall the way the congregation did. <b>Moses stands twice in one scene</b> — once splitting the sea with his staff, once leading Israel through it — while the hand of God reaches down from the top of the frame, the drowned Egyptians tumble below, and the Israelite host marches out in ordered ranks, shields up. This is the west wall of a synagogue in Dura Europos, a Roman garrison town on the Euphrates, and it is <b>one of the oldest paintings of the Exodus anywhere on earth</b>.</p>
+        <p>A word on dates, because the post going around gets them wrong: the synagogue's own Aramaic inscription dates this building phase to <b>244 AD — not 303 BC</b>. The paintings were finished between 244 and 256 AD. Then Persia came. As the Sasanian army closed in around 256, the defenders <b>filled the synagogue with earth</b> to strengthen the city wall — and buried the pictures alive. The city fell and was never rebuilt, so the paintings slept under the sand for nearly 1,700 years, until excavators uncovered them in 1932, colours and all. The wall that was buried to save a city ended up saving the story instead.</p>
+        <p class="apwhere"><b>WHERE IT STANDS NOW —</b> THE PAINTED WALLS ARE KEPT AT THE NATIONAL MUSEUM OF DAMASCUS, SYRIA.</p>
+        <p class="apsrc">Sources: Wikipedia, “Dura-Europos synagogue”; Yale University expedition records (uncovered 1932). Photograph: public domain, via Wikimedia Commons.</p>
+      </div>
+    </details>
+    <details class="ap rv">
+      <summary>
+        <span class="apic"><img src="assets/ancient/ketef-hinnom-kh2-scroll.jpg" alt="The smaller Ketef Hinnom silver scroll, unrolled: a narrow, fragile strip of tarnished silver with faint incised Hebrew letters" loading="lazy"></span>
+        <span class="aph">
+          <span class="apk">PICTURE 02 · THE OLDEST WORDS</span>
+          <h3>THE BLESSING ON SILVER — OLDER THAN THE SCROLLS</h3>
+          <span class="apd">KETEF HINNOM, JERUSALEM · ABOUT 700–600 BC</span>
+          <span class="apgo">READ THE STORY</span>
+        </span>
+      </summary>
+      <div class="apbody">
+        <p>These little rolls of silver carry <b>the oldest surviving words of the Bible on earth</b>. In 1979, archaeologist Gabriel Barkay was excavating ancient burial caves at Ketef Hinnom — the “shoulder of Hinnom,” just outside Jerusalem's Old City — when his team found <b>two tiny silver scrolls</b> among the grave goods, made to be worn on the body as amulets.</p>
+        <p>Opening metal that had waited some 2,600 years took <b>years of delicate work</b>, but what emerged stopped scholars cold: scratched in ancient Hebrew letters were words nearly identical to the priestly blessing of Numbers 6 — <b>“The LORD bless thee, and keep thee: the LORD make his face shine upon thee…”</b> The scrolls date to the years just before Jerusalem fell to Babylon in 586 BC, the age of Jeremiah — which makes them <b>roughly four centuries older than the Dead Sea Scrolls</b>. Before Ketef Hinnom, no physical copy of any biblical text came within centuries of the events. These two silver ribbons carry the blessing back into the days of the First Temple itself — proof the words were already treasured, worn, and buried with the faithful while the Temple still stood.</p>
+        <p class="apwhere"><b>WHERE THEY REST NOW —</b> THE ISRAEL MUSEUM, JERUSALEM.</p>
+        <p class="apsrc">Sources: The Israel Museum, Jerusalem; Wikipedia, “Ketef Hinnom scrolls.” Photograph: public domain, via Wikimedia Commons.</p>
+      </div>
+    </details>
+    <details class="ap rv">
+      <summary>
+        <span class="apic"><img src="assets/ancient/arch-of-titus-menorah-relief.jpg" alt="Relief panel on the Arch of Titus in Rome: Roman soldiers carrying the great Temple menorah in the triumph procession, with the silver trumpets and the table of the showbread behind" loading="lazy"></span>
+        <span class="aph">
+          <span class="apk">PICTURE 03 · THE TREASURE PARADE</span>
+          <h3>THE MENORAH MARCHED THROUGH ROME</h3>
+          <span class="apd">THE ARCH OF TITUS, ROME · CARVED ABOUT 81 AD</span>
+          <span class="apgo">READ THE STORY</span>
+        </span>
+      </summary>
+      <div class="apbody">
+        <p>After Rome burned the Temple in 70 AD, the treasures went on parade. This marble panel inside the Arch of Titus shows the <b>victory procession of 71 AD</b> winding through Rome: soldiers shoulder <b>the great golden menorah</b> out of Jerusalem, and behind it come the silver trumpets and the table of the showbread — the very vessels the History Series follows when it tells how the Temple's gold vanished into Rome. The arch went up about <b>81 AD</b>, raised by the emperor Domitian to honour his brother Titus, the general who took the city. The spoils themselves were put on display nearby, in Rome's Temple of Peace.</p>
+        <p>Here is the part the stone kept secret for nineteen centuries: <b>the carving was once painted</b>. In 2012, the Arch of Titus Project scanned this panel and found <b>traces of yellow ochre</b> still clinging to the menorah's arms and base — the stone was coloured gold, just as the eyewitness Josephus described the real menorah. And the shape carved here never disappeared: when the modern State of Israel chose its national emblem in 1949, it <b>modelled its menorah on this very relief</b> — the trophy of Jerusalem's worst day, carried home as a symbol.</p>
+        <p class="apwhere"><b>WHERE IT STANDS NOW —</b> STILL ON ITS FEET IN ROME, BESIDE THE FORUM, ON THE ROUTE THE PROCESSION PASSED.</p>
+        <p class="apsrc">Sources: Yeshiva University, Arch of Titus Project (2012); Wikipedia, “Arch of Titus.” Photograph: public domain, via Wikimedia Commons.</p>
+      </div>
+    </details>
+    <details class="ap rv">
+      <summary>
+        <span class="apic"><img src="assets/ancient/merneptah-stele.jpg" alt="The Merneptah Stele: a tall black granite slab covered in hieroglyphs, with a carved scene of Pharaoh Merneptah before the gods at the top" loading="lazy"></span>
+        <span class="aph">
+          <span class="apk">PICTURE 04 · THE FIRST NAMING</span>
+          <h3>“ISRAEL IS LAID WASTE” — THE ENEMY WHO NAMED THEM FIRST</h3>
+          <span class="apd">THEBES, EGYPT · ABOUT 1208 BC</span>
+          <span class="apgo">READ THE STORY</span>
+        </span>
+      </summary>
+      <div class="apbody">
+        <p>Every nation in this room left a mark somewhere. Israel's first mark was <b>carved by an enemy</b>. This black granite slab — over ten feet tall — is the victory stele of Pharaoh Merneptah, raised about <b>1208 BC</b> in his funerary temple at Thebes to boast, in twenty-eight lines of hieroglyphs, about his wars. Most of it celebrates a victory over Libya. But down in the closing lines, where the pharaoh lists the peoples of Canaan he claims to have crushed, one name appears that appears in <b>no earlier record on earth</b>: <b>“Israel is laid waste; its seed is not.”</b></p>
+        <p>The brag matters because of the grammar. Egyptian scribes marked foreign <i>places</i> one way and foreign <i>peoples</i> another — and Israel is marked as a <b>people</b>: a nation already in the land to be reckoned with, in the very era the Exodus story is set. Pharaoh meant the line as an obituary. Instead it became a birth certificate — <b>the earliest mention of Israel by name anywhere outside the Bible</b>, carved in stone by the empire the Exodus story says they escaped. The obituary, as the record shows, was premature.</p>
+        <p class="apwhere"><b>WHERE IT STANDS NOW —</b> THE EGYPTIAN MUSEUM, CAIRO.</p>
+        <p class="apsrc">Sources: Wikipedia, “Merneptah Stele”; Egyptian Museum, Cairo. Photograph: CC BY-SA 4.0, via Wikimedia Commons.</p>
+      </div>
+    </details>
+  </div>
+  <p class="method"><b>HOW THESE PICTURES WERE CHECKED —</b> EVERY IMAGE IN THIS GALLERY IS A REAL PHOTOGRAPH OF THE NAMED ARTIFACT, DRAWN FROM WIKIMEDIA COMMONS AND MATCHED TO THE OBJECT BY EYE BEFORE IT WAS HUNG HERE. DATES FOLLOW THE INSCRIPTIONS AND THE MUSEUMS, NOT THE POSTS GOING AROUND — WHERE A VIRAL CAPTION GETS A DATE WRONG, THE STORY ABOVE SAYS SO, PLAINLY.</p>
+</section>
+
+<!-- ═══ 05 · WAITLIST ═══ -->
 <section id="waitlist">
   <div class="wait rv">
     <p class="kicker">The Waitlist · One List for the Whole House</p>
